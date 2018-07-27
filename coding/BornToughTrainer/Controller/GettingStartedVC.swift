@@ -24,6 +24,10 @@ class GettingStartedVC: UIViewController {
     @IBOutlet weak var teamTextField: textFieldClass!
     @IBOutlet weak var genderTextField: textFieldClass!
     @IBOutlet weak var sportTextField: textFieldClass!
+    
+    
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Multi Color String

@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Firebase
 
 class signUpVC: UIViewController {
 
@@ -15,25 +16,70 @@ class signUpVC: UIViewController {
     @IBOutlet weak var passwordTextField: textFieldClass!
     @IBOutlet weak var confirmPasswordTextField: textFieldClass!
     @IBOutlet weak var createAccountBtn: buttonStyle!
+   
+    
+    
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.createAccountBtn.cornerRadius = self.createAccountBtn.frame.size.height / 2
         // Do any additional setup after loading the view.
+
     }
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
+
     
     @IBAction func backAction(_ sender: Any) {
         self.dismiss(animated: true, completion: nil)
     }
-    @IBAction func singInAction(_ sender: Any) {
+    
+    
+   
+    
+    
+    
+    @IBAction func signUpAction(_ sender: Any) {
+        
+        if (fulNameTextField.text?.isEmpty != true ) && (emailTextFeild.text?.isEmpty != true ) && (passwordTextField.text?.isEmpty != true ) && (confirmPasswordTextField.text?.isEmpty != true ) {
+            
+            
+            if passwordTextField.text! == confirmPasswordTextField.text!{
+                
+                
+                
+                
+                self.performSegue(withIdentifier: "gettingStarted", sender: self)
+
+                
+            }
+            
+            else{
+                alertWindow(alertTitle: "Password Mismatch", alertMessage: "Please assure both password are same")
+            }
+            
+            
+            
+
+            
+        }
+        
+        else{
+            alertWindow(alertTitle: "Data Missing", alertMessage: "Some text field is empty")
+        }
         
     }
-    @IBAction func signUpAction(_ sender: Any) {
-        self.performSegue(withIdentifier: "gettingStarted", sender: self)
+    
+    
+    // Function that will management Alert ViewController
+    func alertWindow(alertTitle: String, alertMessage: String){
+        
+        let AlertVC = UIAlertController(title: alertTitle, message: alertMessage, preferredStyle: .alert)
+        
+        let alertAction = UIAlertAction(title: "OK", style: .default, handler: nil)
+        
+        AlertVC.addAction(alertAction)
+        self.present(AlertVC, animated: true, completion: nil)
     }
     
     

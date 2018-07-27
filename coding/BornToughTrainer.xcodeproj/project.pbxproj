@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1696ABEE92B308DD6E0A7604 /* Pods_BornToughTrainer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 667C7C2DD0D4CE5C68631890 /* Pods_BornToughTrainer.framework */; };
 		4C948DAA2105B9CE00135748 /* createPepTalkVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C948DA92105B9CE00135748 /* createPepTalkVC.swift */; };
 		4C948DAC2105BAA400135748 /* pepTalkListVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C948DAB2105BAA400135748 /* pepTalkListVC.swift */; };
 		4C948DAE2105BB0C00135748 /* pepTalkTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C948DAD2105BB0C00135748 /* pepTalkTVC.swift */; };
@@ -47,12 +48,15 @@
 		84F6C1982100EF0400DBE976 /* setUpVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84F6C1972100EF0400DBE976 /* setUpVC.swift */; };
 		84F6C19A21010CAD00DBE976 /* gradeTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84F6C19921010CAD00DBE976 /* gradeTVC.swift */; };
 		84F6C19C21010DA600DBE976 /* gradeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84F6C19B21010DA600DBE976 /* gradeVC.swift */; };
+		F26A98E1210AD2700068DB31 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = F26A98E0210AD2700068DB31 /* GoogleService-Info.plist */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		4C948DA92105B9CE00135748 /* createPepTalkVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = createPepTalkVC.swift; sourceTree = "<group>"; };
 		4C948DAB2105BAA400135748 /* pepTalkListVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = pepTalkListVC.swift; sourceTree = "<group>"; };
 		4C948DAD2105BB0C00135748 /* pepTalkTVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = pepTalkTVC.swift; sourceTree = "<group>"; };
+		667C7C2DD0D4CE5C68631890 /* Pods_BornToughTrainer.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BornToughTrainer.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		778091C9A4DB92DD88E92B0E /* Pods-BornToughTrainer.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BornToughTrainer.release.xcconfig"; path = "Pods/Target Support Files/Pods-BornToughTrainer/Pods-BornToughTrainer.release.xcconfig"; sourceTree = "<group>"; };
 		840377EE21079DDA00276D5D /* routineTVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = routineTVC.swift; sourceTree = "<group>"; };
 		840443C120FB374300E84BF3 /* signInVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = signInVC.swift; sourceTree = "<group>"; };
 		840443C320FB7C2000E84BF3 /* menuVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = menuVC.swift; sourceTree = "<group>"; };
@@ -92,6 +96,8 @@
 		84F6C1972100EF0400DBE976 /* setUpVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = setUpVC.swift; sourceTree = "<group>"; };
 		84F6C19921010CAD00DBE976 /* gradeTVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = gradeTVC.swift; sourceTree = "<group>"; };
 		84F6C19B21010DA600DBE976 /* gradeVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = gradeVC.swift; sourceTree = "<group>"; };
+		B291E92C049CF993D9A74872 /* Pods-BornToughTrainer.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BornToughTrainer.debug.xcconfig"; path = "Pods/Target Support Files/Pods-BornToughTrainer/Pods-BornToughTrainer.debug.xcconfig"; sourceTree = "<group>"; };
+		F26A98E0210AD2700068DB31 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -99,17 +105,37 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1696ABEE92B308DD6E0A7604 /* Pods_BornToughTrainer.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		6139E0545006CB53E42EEA07 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				667C7C2DD0D4CE5C68631890 /* Pods_BornToughTrainer.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		734870EB3FC18BE6E2488718 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				B291E92C049CF993D9A74872 /* Pods-BornToughTrainer.debug.xcconfig */,
+				778091C9A4DB92DD88E92B0E /* Pods-BornToughTrainer.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 		84CF26B720F8FE5D00692B17 = {
 			isa = PBXGroup;
 			children = (
 				84CF26C220F8FE5D00692B17 /* BornToughTrainer */,
 				84CF26C120F8FE5D00692B17 /* Products */,
+				734870EB3FC18BE6E2488718 /* Pods */,
+				6139E0545006CB53E42EEA07 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -132,6 +158,7 @@
 				84CF26C320F8FE5D00692B17 /* AppDelegate.swift */,
 				84CF26CA20F8FE6100692B17 /* Assets.xcassets */,
 				84CF26CF20F8FE6100692B17 /* Info.plist */,
+				F26A98E0210AD2700068DB31 /* GoogleService-Info.plist */,
 			);
 			path = BornToughTrainer;
 			sourceTree = "<group>";
@@ -156,8 +183,8 @@
 			isa = PBXGroup;
 			children = (
 				84CF26C520F8FE5D00692B17 /* welcomeVC.swift */,
-				84044D8820FA5B130074676B /* GettingStartedVC.swift */,
 				84044D8A20FA5B5C0074676B /* signUpVC.swift */,
+				84044D8820FA5B130074676B /* GettingStartedVC.swift */,
 				840443C120FB374300E84BF3 /* signInVC.swift */,
 				840443C320FB7C2000E84BF3 /* menuVC.swift */,
 				8406C13F20FD105D009B2ABC /* createIdentityVC.swift */,
@@ -224,9 +251,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 84CF26D220F8FE6100692B17 /* Build configuration list for PBXNativeTarget "BornToughTrainer" */;
 			buildPhases = (
+				9D823AA11EB76DCF24F9340F /* [CP] Check Pods Manifest.lock */,
 				84CF26BC20F8FE5D00692B17 /* Sources */,
 				84CF26BD20F8FE5D00692B17 /* Frameworks */,
 				84CF26BE20F8FE5D00692B17 /* Resources */,
+				DB8981F45B79C6002C76CC47 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -280,10 +309,56 @@
 				84C2712C21062691004D4090 /* ITC Avant Garde Gothic Medium in Resources */,
 				84CF26C920F8FE5D00692B17 /* Main.storyboard in Resources */,
 				84C2712B21062691004D4090 /* ITC Avant Garde Gothic Bold in Resources */,
+				F26A98E1210AD2700068DB31 /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		9D823AA11EB76DCF24F9340F /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-BornToughTrainer-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		DB8981F45B79C6002C76CC47 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-BornToughTrainer/Pods-BornToughTrainer-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
+				"${BUILT_PRODUCTS_DIR}/GoogleToolboxForMac/GoogleToolboxForMac.framework",
+				"${BUILT_PRODUCTS_DIR}/leveldb-library/leveldb.framework",
+				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleToolboxForMac.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/leveldb.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-BornToughTrainer/Pods-BornToughTrainer-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		84CF26BC20F8FE5D00692B17 /* Sources */ = {
@@ -466,6 +541,7 @@
 		};
 		84CF26D320F8FE6100692B17 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = B291E92C049CF993D9A74872 /* Pods-BornToughTrainer.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -475,7 +551,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.MAQ.BornToughTrainer;
+				PRODUCT_BUNDLE_IDENTIFIER = com.agencybash.borntoughtrainer;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -484,6 +560,7 @@
 		};
 		84CF26D420F8FE6100692B17 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 778091C9A4DB92DD88E92B0E /* Pods-BornToughTrainer.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -493,7 +570,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.MAQ.BornToughTrainer;
+				PRODUCT_BUNDLE_IDENTIFIER = com.agencybash.borntoughtrainer;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";

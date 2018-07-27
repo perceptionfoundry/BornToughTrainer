@@ -12,6 +12,10 @@ class welcomeVC: UIViewController {
 
     @IBOutlet weak var signUpBtn: buttonStyle!
     @IBOutlet weak var loginBtn: buttonStyle!
+  
+    
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         signUpBtn.cornerRadius = self.signUpBtn.frame.size.height / 2
@@ -19,15 +23,13 @@ class welcomeVC: UIViewController {
         // Do any additional setup after loading the view, typically from a nib.
     }
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
+  
 
     @IBAction func signInAction(_ sender: Any) {
         self.performSegue(withIdentifier: "signIn", sender: self)
     }
     
-    @IBOutlet weak var signUpAction: buttonStyle!
+    @IBAction func signUpAction(_ sender: Any) {
+    }
 }
 
