@@ -18,6 +18,9 @@ class signUpVC: UIViewController {
     @IBOutlet weak var createAccountBtn: buttonStyle!
    
     
+    var name : String?
+    
+    
     
     
     
@@ -44,12 +47,25 @@ class signUpVC: UIViewController {
         if (fulNameTextField.text?.isEmpty != true ) && (emailTextFeild.text?.isEmpty != true ) && (passwordTextField.text?.isEmpty != true ) && (confirmPasswordTextField.text?.isEmpty != true ) {
             
             
+            self.name = fulNameTextField.text!
+            
+            
             if passwordTextField.text! == confirmPasswordTextField.text!{
                 
                 
+                Auth.auth().createUser(withEmail: emailTextFeild.text!, password: passwordTextField.text!) { (CreateAuth, CreateError) in
+                    
+                    if CreateError != nil{
+                        self.alertWindow(alertTitle: "Server Error", alertMessage: (CreateError?.localizedDescription)!)
+                    }
+                    
+                    else{
+                        
+                        self.performSegue(withIdentifier: "gettingStarted", sender: self)
+
+                    }
+                }
                 
-                
-                self.performSegue(withIdentifier: "gettingStarted", sender: self)
 
                 
             }
@@ -68,6 +84,12 @@ class signUpVC: UIViewController {
             alertWindow(alertTitle: "Data Missing", alertMessage: "Some text field is empty")
         }
         
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        let dest = segue.destination as!GettingStartedVC
+        
+        dest.userName = self.name!
     }
     
     

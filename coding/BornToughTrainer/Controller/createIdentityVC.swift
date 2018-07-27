@@ -15,6 +15,9 @@ class createIdentityVC: UIViewController, UITextViewDelegate {
     @IBOutlet weak var secondQuestionLbl: UILabel!
     @IBOutlet weak var firstQuestionLbl: UILabel!
     @IBOutlet weak var mainLbl: UILabel!
+    
+    
+    
     var firstTextView = ""
     var secondTextView = ""
     var firstQuestion = ""

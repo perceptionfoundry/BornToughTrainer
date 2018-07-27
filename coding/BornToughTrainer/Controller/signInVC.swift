@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Firebase
 
 class signInVC: UIViewController {
 
@@ -16,6 +17,9 @@ class signInVC: UIViewController {
     @IBOutlet weak var signInBtn: CumtomizeButton!
     
 
+    var dbRef : DatabaseReference!
+    var dbHandle : DatabaseHandle!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
       componentInit()
@@ -23,18 +27,85 @@ class signInVC: UIViewController {
     }
 
     @IBAction func signInAction(_ sender: Any) {
-        let vc = UIStoryboard(name:"Main", bundle:nil).instantiateViewController(withIdentifier: "Create Identity") as! createIdentityVC
-        vc.firstTextView = """
-        Define your athletic dreams: (after clicked the top goes away and font is 14 here)
-        """
-        vc.secondTextView = """
-        sample:
-        I'm unstoppable!
-        """
-        vc.firstQuestion = "What are you working towards?"
-        vc.secondQuestion = "What is your attitude slogan?"
-        vc.lbl = "Create Identity"
-        present(vc, animated: true, completion: nil)
+        
+        if (emailTextField.text?.isEmpty != true) && (passwordTextField.text?.isEmpty != true){
+            
+            Auth.auth().signIn(withEmail: (emailTextField.text)!, password: (passwordTextField.text)!) { (auth_data, auth_error) in
+                
+                if auth_error != nil
+                {
+                    
+                    let alertVC = UIAlertController(title: "Server Error", message: auth_error?.localizedDescription, preferredStyle: .alert)
+                    alertVC.addAction(UIAlertAction(title: "Ok", style: .default, handler: nil))
+                    self.present(alertVC, animated: true, completion: nil)
+                    
+                    
+                }
+                
+                else {
+                self.dbRef = Database.database().reference()
+                
+                self.dbHandle = self.dbRef.child("User").observe(.childAdded, with: { (DataSnap) in
+                    
+                    
+                    let value = DataSnap.value as! [String : String]
+                    print(value)
+                    
+                    let uid_value = value["uID"]
+                    
+                    if uid_value == (Auth.auth().currentUser?.uid)!{
+                         var identify_Status = value["Identify-Create"]
+                        
+                        if identify_Status == "no"{
+                            let vc = UIStoryboard(name:"Main", bundle:nil).instantiateViewController(withIdentifier: "Create Identity") as! createIdentityVC
+                            vc.firstTextView = """
+                            Define your athletic dreams: 
+                            
+                            (after clicked the top goes away 
+                            
+                            and font is 14 here)
+                            """
+                            vc.secondTextView = """
+                            sample:
+                            I'm unstoppable!
+                            """
+                            vc.firstQuestion = "What are you working towards?"
+                            vc.secondQuestion = "What is your attitude slogan?"
+                            vc.lbl = "Create Identity"
+                            self.present(vc, animated: true, completion: nil)
+                            
+                        }
+                        
+                        
+                        else{
+                            
+                            self.performSegue(withIdentifier: "Menu_Segue", sender: nil)
+                        }
+
+                    }
+                    
+               
+
+                    
+                    
+                    
+                })
+                
+                
+                }
+               
+            }
+            
+        }
+      
+        else{
+            let alertVC = UIAlertController(title: "Field Empty", message: "One of you text field is empty", preferredStyle: .alert)
+            alertVC.addAction(UIAlertAction(title: "Ok", style: .default, handler: nil))
+            self.present(alertVC, animated: true, completion: nil)
+        }
+        
+        
+       
         
      
         
