@@ -1967,6 +1967,7 @@ today a success?</string>
                         <outlet property="attitudeSlogan" destination="vWn-Vk-DIE" id="aW1-U8-K0L"/>
                         <outlet property="firstQuestionLbl" destination="7kN-Z1-riF" id="K1q-My-f25"/>
                         <outlet property="mainLbl" destination="Dt1-id-niP" id="LXP-t2-ffd"/>
+                        <outlet property="profileImage" destination="RIA-TG-yi2" id="D2Y-kN-2UU"/>
                         <outlet property="secondQuestionLbl" destination="zwN-U5-bJs" id="8bK-db-5oG"/>
                         <outlet property="workingToward" destination="2I6-A6-fsA" id="uQm-Uq-4bh"/>
                     </connections>

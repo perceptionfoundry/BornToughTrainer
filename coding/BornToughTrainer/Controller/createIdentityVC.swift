@@ -7,6 +7,8 @@
 //
 
 import UIKit
+import Firebase
+import SDWebImage
 
 class createIdentityVC: UIViewController, UITextViewDelegate {
 
@@ -16,7 +18,11 @@ class createIdentityVC: UIViewController, UITextViewDelegate {
     @IBOutlet weak var firstQuestionLbl: UILabel!
     @IBOutlet weak var mainLbl: UILabel!
     
+    @IBOutlet weak var profileImage: UIImageView!
     
+    
+    var dbRef : DatabaseReference!
+    var dbHandle : DatabaseHandle!
     
     var firstTextView = ""
     var secondTextView = ""
@@ -43,6 +49,18 @@ class createIdentityVC: UIViewController, UITextViewDelegate {
         secondQuestionLbl.text = secondQuestion
         attitudeSlogan.text = secondTextView
         // Do any additional setup after loading the view.
+        
+        dbRef = Database.database().reference()
+        
+        dbHandle = dbRef.child("User").observe(.childAdded, with: { (userData) in
+            let value = userData.value as! [String : String]
+            
+            if value["uID"] == (Auth.auth().currentUser?.uid)!{
+                let imageURL = URL(string: (value["Image-URL"])!)
+                self.profileImage.sd_setImage(with: imageURL!, placeholderImage: UIImage(named: "btt-logo"), options: .progressiveDownload, completed: nil)
+            }
+        })
+        
     }
 
     override func viewWillAppear(_ animated: Bool) {
