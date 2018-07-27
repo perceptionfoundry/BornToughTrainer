@@ -35,6 +35,13 @@ class commitTodayListVC: UIViewController, UITableViewDataSource, UITableViewDel
         
     }
     
+    @IBAction func backAction(_ sender: Any) {
+        self.dismiss(animated: true, completion: nil)
+    }
+    
+    
+    
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return commitTaskArray.count
     }

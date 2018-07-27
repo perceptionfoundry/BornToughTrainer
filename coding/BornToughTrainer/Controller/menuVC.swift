@@ -7,11 +7,19 @@
 //
 
 import UIKit
+import Firebase
+import SDWebImage
 
 class menuVC: UIViewController, UITableViewDelegate, UITableViewDataSource{
 
+    @IBOutlet weak var NameLabel: UILabel!
+    @IBOutlet weak var TeamLabel: UILabel!
     @IBOutlet weak var profileImage: UIImageView!
     @IBOutlet weak var tableView: UITableView!
+    
+    var dbRef : DatabaseReference!
+    var dbHandle : DatabaseHandle!
+    
     
     var menuArray = [menuObject]()
     override func viewDidLoad() {
@@ -27,6 +35,31 @@ class menuVC: UIViewController, UITableViewDelegate, UITableViewDataSource{
         profileImage.clipsToBounds = true
         profileImage.layer.borderColor = UIColor.white.cgColor
         
+        dbRef = Database.database().reference()
+        
+
+        
+        dbHandle = dbRef.child("User").observe(.childAdded, with: { (userData) in
+            let value = userData.value as! [String : String]
+
+            if value["uID"] == (Auth.auth().currentUser?.uid)!{
+                
+                // setting profile image
+                let imageURL = URL(string: (value["Image-URL"])!)
+                self.profileImage.sd_setImage(with: imageURL!, placeholderImage: UIImage(named: "btt-logo"), options: .progressiveDownload, completed: nil)
+                
+                
+                // setting label value
+                
+            let name = value["Name"]
+            let team = value["Team"]
+                
+                self.NameLabel.text = name!
+                self.TeamLabel.text = team!
+                
+
+            }
+        })
         //tableView Settings
         tableView.delegate = self
         tableView.dataSource = self
@@ -62,6 +95,10 @@ class menuVC: UIViewController, UITableViewDelegate, UITableViewDataSource{
         cell.selectionStyle = UITableViewCellSelectionStyle.none
         cell.menuName.textColor = UIColor.black
         tableView.reloadInputViews()
+        
+        
+        
+        
         if menuArray[indexPath.row].name == "Have Faith"{
             let vc = UIStoryboard(name:"Main", bundle:nil).instantiateViewController(withIdentifier: "Create Identity") as! createIdentityVC
             vc.firstQuestion = "What do you believe in?"
@@ -76,7 +113,15 @@ class menuVC: UIViewController, UITableViewDelegate, UITableViewDataSource{
             """
             vc.lbl = "Have Faith"
             present(vc, animated: true, completion: nil)
-        }else if menuArray[indexPath.row].name == "Create Identity"{
+        }
+        
+        
+        
+        
+        
+        
+        
+        else if menuArray[indexPath.row].name == "Create Identity"{
             let vc = UIStoryboard(name:"Main", bundle:nil).instantiateViewController(withIdentifier: "Create Identity") as! createIdentityVC
             vc.firstTextView = """
             Define your athletic dreams: (after clicked the top goes away and font is 14 here)
@@ -89,17 +134,38 @@ class menuVC: UIViewController, UITableViewDelegate, UITableViewDataSource{
             vc.secondQuestion = "What is your attitude slogan?"
             vc.lbl = "Create Identity"
             present(vc, animated: true, completion: nil)
-        }else if menuArray[indexPath.row].name == "Commit to Today"{
-            let vc = UIStoryboard(name:"Main", bundle:nil).instantiateViewController(withIdentifier: "commanHome") as! commanHomeVC
-            vc.screenImg = #imageLiteral(resourceName: "commit")
-            vc.screenLblText = "Commit to Today"
-            vc.descriptionText = """
-what do we have to accomplish to make
-today a success?
-"""
-            vc.btnTitle = "+ Add a New Task"
-            present(vc, animated: true, completion: nil)
-        }else if menuArray[indexPath.row].name == "Produce Pep Talks"{
+        }
+        
+        
+        
+        else if menuArray[indexPath.row].name == "Commit to Today"{
+           
+            dbRef.child("Commit").observe(.value) { (commit_snap) in
+                
+                if commit_snap.exists() == false{
+                    
+                    let vc = UIStoryboard(name:"Main", bundle:nil).instantiateViewController(withIdentifier: "commanHome") as! commanHomeVC
+                    vc.screenImg = #imageLiteral(resourceName: "commit")
+                    vc.screenLblText = "Commit to Today"
+                    vc.descriptionText = """
+                    what do we have to accomplish to make
+                    today a success?
+                    """
+                    vc.btnTitle = "+ Add a New Task"
+                    self.present(vc, animated: true, completion: nil)
+                    
+                }
+                else{
+                    let vc = UIStoryboard(name:"Main", bundle:nil).instantiateViewController(withIdentifier: "commitList") as! commitTodayListVC
+                    
+                    self.present(vc, animated: true, completion: nil)                }
+            }
+        }
+        
+        
+        
+        
+        else if menuArray[indexPath.row].name == "Produce Pep Talks"{
             let vc = UIStoryboard(name:"Main", bundle:nil).instantiateViewController(withIdentifier: "commanHome") as! commanHomeVC
             vc.screenImg = #imageLiteral(resourceName: "mic")
             vc.screenLblText = "Pep Talks"
@@ -111,7 +177,11 @@ today a success?
             vc.btnTitle = "+ Add Pep Talk"
             
             present(vc, animated: true, completion: nil)
-        }else if menuArray[indexPath.row].name == "Log Progress"{
+        }
+        
+        
+        
+        else if menuArray[indexPath.row].name == "Log Progress"{
             let vc = UIStoryboard(name:"Main", bundle:nil).instantiateViewController(withIdentifier: "commanHome") as! commanHomeVC
             vc.screenImg = #imageLiteral(resourceName: "log-1")
             vc.screenLblText = "Log Progress"
@@ -122,7 +192,11 @@ today a success?
             vc.btnTitle = "+ Add New Log"
             
             present(vc, animated: true, completion: nil)
-        }else if menuArray[indexPath.row].name == "Develop Routiens"{
+        }
+        
+        
+        
+        else if menuArray[indexPath.row].name == "Develop Routines"{
             let vc = UIStoryboard(name:"Main", bundle:nil).instantiateViewController(withIdentifier: "commanHome") as! commanHomeVC
             vc.screenImg = #imageLiteral(resourceName: "routines")
             vc.screenLblText = "Develop Routines"
@@ -134,7 +208,11 @@ today a success?
             vc.btnTitle = "+ Add New Task"
             
             present(vc, animated: true, completion: nil)
-        }else if menuArray[indexPath.row].name == "Interview Yourself"{
+        }
+        
+        
+        
+        else if menuArray[indexPath.row].name == "Interview Yourself"{
             let vc = UIStoryboard(name:"Main", bundle:nil).instantiateViewController(withIdentifier: "commanHome") as! commanHomeVC
             vc.screenImg = #imageLiteral(resourceName: "video")
             vc.screenLblText = "Interview Yourself"
@@ -144,7 +222,11 @@ today a success?
             vc.btnTitle = "+ Add New Interview"
             
             present(vc, animated: true, completion: nil)
-        } else if menuArray[indexPath.row].name == "Track Character"{
+        }
+        
+        
+        
+        else if menuArray[indexPath.row].name == "Track Character"{
             let vc = UIStoryboard(name:"Main", bundle:nil).instantiateViewController(withIdentifier: "secondCommanHome") as! secondCommanHomeVC
             vc.screenImg = #imageLiteral(resourceName: "track")
             vc.screenLblText = "Track Character"
@@ -159,7 +241,10 @@ today a success?
             vc.secongBtnTitle = "Enter Grade"
             vc.thirdBtnTitle = "View Responses"
             present(vc, animated: true, completion: nil)
-        }else if menuArray[indexPath.row].name == "Find Flo"{
+        }
+        
+        
+        else if menuArray[indexPath.row].name == "Find Flo"{
             let vc = UIStoryboard(name:"Main", bundle:nil).instantiateViewController(withIdentifier: "secondCommanHome") as! secondCommanHomeVC
             vc.screenImg = #imageLiteral(resourceName: "flo")
             vc.screenLblText = "Find Flo"
@@ -186,7 +271,7 @@ today a success?
         menuArray.append(menuObject(img: #imageLiteral(resourceName: "commit-icon"), name: "Commit to Today"))
         menuArray.append(menuObject(img: #imageLiteral(resourceName: "pep talks"), name: "Produce Pep Talks"))
         menuArray.append(menuObject(img: #imageLiteral(resourceName: "log"), name: "Log Progress"))
-        menuArray.append(menuObject(img: #imageLiteral(resourceName: "develop"), name: "Develop Routiens"))
+        menuArray.append(menuObject(img: #imageLiteral(resourceName: "develop"), name: "Develop Routines"))
         menuArray.append(menuObject(img: #imageLiteral(resourceName: "camera"), name: "Interview Yourself"))
         menuArray.append(menuObject(img: #imageLiteral(resourceName: "character"), name: "Track Character"))
         menuArray.append(menuObject(img: #imageLiteral(resourceName: "find flo"), name: "Find Flo"))

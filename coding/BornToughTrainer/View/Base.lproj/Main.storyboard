@@ -538,7 +538,7 @@
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" translatesAutoresizingMaskIntoConstraints="NO" id="OVC-kb-KG6">
                                         <rect key="frame" x="110" y="70" width="96" height="33.5"/>
                                         <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Gavin Craig" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oCZ-Au-hLo">
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Gavin Craig" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.59999999999999998" translatesAutoresizingMaskIntoConstraints="NO" id="oCZ-Au-hLo">
                                                 <rect key="frame" x="0.0" y="0.0" width="96" height="17.5"/>
                                                 <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="15"/>
                                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -556,28 +556,28 @@
                                         <rect key="frame" x="0.0" y="120" width="240" height="33.5"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     </view>
-                                    <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="50" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="qRS-3N-LYW">
+                                    <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="45" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="qRS-3N-LYW">
                                         <rect key="frame" x="42" y="153.5" width="168" height="467"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <prototypes>
                                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="default" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="cell" id="Gqt-rd-akF" customClass="menuTVC" customModule="BornToughTrainer" customModuleProvider="target">
-                                                <rect key="frame" x="0.0" y="28" width="168" height="50"/>
+                                                <rect key="frame" x="0.0" y="28" width="168" height="45"/>
                                                 <autoresizingMask key="autoresizingMask"/>
                                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Gqt-rd-akF" id="kJX-Qj-Avi">
-                                                    <rect key="frame" x="0.0" y="0.0" width="168" height="49.5"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="168" height="44.5"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <subviews>
                                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="aQO-F3-HQX">
-                                                            <rect key="frame" x="0.0" y="10" width="168" height="29.5"/>
+                                                            <rect key="frame" x="0.0" y="9" width="168" height="26.5"/>
                                                             <subviews>
                                                                 <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="CI" translatesAutoresizingMaskIntoConstraints="NO" id="Dcr-4p-DtX">
-                                                                    <rect key="frame" x="0.0" y="0.0" width="29.5" height="29.5"/>
+                                                                    <rect key="frame" x="0.0" y="0.0" width="26.5" height="26.5"/>
                                                                     <constraints>
                                                                         <constraint firstAttribute="width" secondItem="Dcr-4p-DtX" secondAttribute="height" multiplier="1:1" id="afx-Ud-btN"/>
                                                                     </constraints>
                                                                 </imageView>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Produce Pep Talks" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="1Bx-rQ-8v3">
-                                                                    <rect key="frame" x="41.5" y="-0.5" width="126.5" height="29.5"/>
+                                                                    <rect key="frame" x="38.5" y="-0.5" width="129.5" height="26.5"/>
                                                                     <fontDescription key="fontDescription" name="AvantGarde-Medium" family="ITC Avant Garde Gothic" pointSize="17"/>
                                                                     <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                     <nil key="highlightedColor"/>
@@ -654,6 +654,8 @@
                         <viewLayoutGuide key="safeArea" id="sB4-mC-64x"/>
                     </view>
                     <connections>
+                        <outlet property="NameLabel" destination="oCZ-Au-hLo" id="5Sx-tN-uKl"/>
+                        <outlet property="TeamLabel" destination="pXh-QO-nHg" id="3E0-s7-XzC"/>
                         <outlet property="profileImage" destination="1Eh-Jp-s1m" id="pia-Gw-Kkf"/>
                         <outlet property="tableView" destination="qRS-3N-LYW" id="Fh0-SG-sDo"/>
                     </connections>
@@ -1899,10 +1901,10 @@ today a success?</string>
                                 <color key="textColor" red="0.40784313725490196" green="0.75294117647058822" blue="0.37647058823529411" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="2I6-A6-fsA">
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="justified" translatesAutoresizingMaskIntoConstraints="NO" id="2I6-A6-fsA">
                                 <rect key="frame" x="37" y="227" width="300" height="133.5"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <fontDescription key="fontDescription" name="AvantGarde-Medium" family="ITC Avant Garde Gothic" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="JAw-aj-kQc">
@@ -1918,7 +1920,8 @@ today a success?</string>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="sample: I'm unstoppable!" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="vWn-Vk-DIE">
                                 <rect key="frame" x="37" y="427" width="300" height="133.5"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <color key="textColor" red="0.45490196078431372" green="0.83529411764705885" blue="0.44705882352941179" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <fontDescription key="fontDescription" name="AvantGarde-Bold" family="ITC Avant Garde Gothic" pointSize="24"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
                         </subviews>
@@ -2233,10 +2236,10 @@ today a success?</string>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="XdD-nc-l2n">
-                                <rect key="frame" x="-0.5" y="0.0" width="375" height="80"/>
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="80"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Pep Talks" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IN8-jx-1Gz">
-                                        <rect key="frame" x="75.5" y="20" width="225" height="40"/>
+                                        <rect key="frame" x="75" y="20" width="225" height="40"/>
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
                                         <color key="textColor" red="1" green="0.87843137250000003" blue="0.01176470588" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <nil key="highlightedColor"/>
@@ -2277,7 +2280,7 @@ today a success?</string>
                                 </constraints>
                             </view>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="60" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="4U9-Vb-G9N">
-                                <rect key="frame" x="-0.5" y="80" width="375" height="600.5"/>
+                                <rect key="frame" x="0.0" y="80" width="375" height="600.5"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="cell" id="Tmk-Gp-GkJ" customClass="pepTalkTVC" customModule="BornToughTrainer" customModuleProvider="target">
@@ -3219,7 +3222,7 @@ today a success?</string>
                                         </constraints>
                                         <state key="normal" image="arrow-left"/>
                                         <connections>
-                                            <action selector="backAction:" destination="KUF-yP-leT" eventType="touchUpInside" id="hNq-Jr-QiQ"/>
+                                            <action selector="backAction:" destination="KUF-yP-leT" eventType="touchUpInside" id="Pgu-B2-2kv"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DlD-jz-wEp">
@@ -3231,6 +3234,7 @@ today a success?</string>
                                         <state key="normal" image="Add"/>
                                         <connections>
                                             <action selector="addAction:" destination="KUF-yP-leT" eventType="touchUpInside" id="E7n-d3-hUC"/>
+                                            <action selector="newList:" destination="KUF-yP-leT" eventType="touchUpInside" id="Op0-LR-oy1"/>
                                         </connections>
                                     </button>
                                 </subviews>

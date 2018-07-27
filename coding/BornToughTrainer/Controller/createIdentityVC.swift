@@ -32,22 +32,31 @@ class createIdentityVC: UIViewController, UITextViewDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        profileImage.layer.cornerRadius = self.profileImage.frame.size.height/2
+        profileImage.clipsToBounds = true
+        profileImage.layer.borderWidth = 2
+        profileImage.layer.borderColor = UIColor.white.cgColor
 
         workingToward.alignTextVerticallyInContainer()
         attitudeSlogan.alignTextVerticallyInContainer()
+        
         workingToward.layer.cornerRadius = 10
         workingToward.clipsToBounds = true
         workingToward.text = firstTextView
         workingToward.textColor = UIColor.lightGray
+       
         attitudeSlogan.layer.cornerRadius = 10
         attitudeSlogan.clipsToBounds = true
+        attitudeSlogan.text = secondTextView
+        attitudeSlogan.textColor = UIColor.lightGray
+        
         workingToward.delegate = self
         attitudeSlogan.delegate = self
         
         mainLbl.text = "This is id"
         firstQuestionLbl.text = firstQuestion
         secondQuestionLbl.text = secondQuestion
-        attitudeSlogan.text = secondTextView
         // Do any additional setup after loading the view.
         
         dbRef = Database.database().reference()
@@ -58,8 +67,27 @@ class createIdentityVC: UIViewController, UITextViewDelegate {
             if value["uID"] == (Auth.auth().currentUser?.uid)!{
                 let imageURL = URL(string: (value["Image-URL"])!)
                 self.profileImage.sd_setImage(with: imageURL!, placeholderImage: UIImage(named: "btt-logo"), options: .progressiveDownload, completed: nil)
+                
+                if value["Identify-Create"] == "yes"{
+                    
+                    self.dbRef.child("Create-Identify").observe(.childAdded, with: { (identify_Data) in
+                        print(identify_Data.value)
+                        let identify_values = identify_Data.value as! [String : String]
+                        
+                        self.workingToward.textColor = UIColor.black
+                        self.workingToward.text = identify_values["Working"]
+                        
+                        self.attitudeSlogan.textColor = UIColor.green
+                        self.attitudeSlogan.text = identify_values["Slogan"]
+                        
+                    })
+                }
+            
             }
         })
+        
+        
+        
         
     }
 
@@ -70,9 +98,23 @@ class createIdentityVC: UIViewController, UITextViewDelegate {
 
     
     @IBAction func menuAction(_ sender: Any) {
+        
+        var identify_Value = ["Working": "", "Slogan": ""]
+        
+        identify_Value["Working"] = self.workingToward.text!
+        identify_Value["Slogan"] = self.attitudeSlogan.text!
+        
+        dbRef.child("Create-Identify").child((Auth.auth().currentUser?.uid)!).setValue(identify_Value)
+        dbRef.child("User").child((Auth.auth().currentUser?.uid)!).child("Identify-Create").setValue("yes")
+        
+        
         let vc = UIStoryboard(name:"Main", bundle:nil).instantiateViewController(withIdentifier: "menu") as! menuVC
         present(vc, animated: true, completion: nil)
     }
+    
+    
+    
+    
     
     func textViewDidBeginEditing(_ textView: UITextView) {
         
@@ -80,7 +122,11 @@ class createIdentityVC: UIViewController, UITextViewDelegate {
         if textView.textColor == UIColor.lightGray {
             workingToward.text = nil
             workingToward.textColor = UIColor.black
+            
+            attitudeSlogan.text = nil
+            attitudeSlogan.textColor = UIColor.green
         }
+        
     }
     func textViewDidEndEditing(_ textView: UITextView) {
         

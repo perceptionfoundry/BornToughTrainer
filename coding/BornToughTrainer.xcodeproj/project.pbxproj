@@ -189,6 +189,7 @@
 				840443C320FB7C2000E84BF3 /* menuVC.swift */,
 				8406C13F20FD105D009B2ABC /* createIdentityVC.swift */,
 				84C08FC720FF8A9700FF63F1 /* commanHomeVC.swift */,
+				84844AEC210A22410053F764 /* commitTodayListVC.swift */,
 				84C08FC920FFAB5600FF63F1 /* secondCommanHomeVC.swift */,
 				84F6C1972100EF0400DBE976 /* setUpVC.swift */,
 				84F6C19B21010DA600DBE976 /* gradeVC.swift */,
@@ -203,7 +204,6 @@
 				84E66F062107815D0050BAC9 /* editLogVC.swift */,
 				84E66F0821078AAB0050BAC9 /* createRoutineVC.swift */,
 				84E66F0A21079A700050BAC9 /* routineListVC.swift */,
-				84844AEC210A22410053F764 /* commitTodayListVC.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -557,7 +557,10 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = SUBZ24DP5B;
 				INFOPLIST_FILE = BornToughTrainer/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.agencybash.borntoughtrainer;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
@@ -573,7 +576,10 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = SUBZ24DP5B;
 				INFOPLIST_FILE = BornToughTrainer/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.agencybash.borntoughtrainer;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;

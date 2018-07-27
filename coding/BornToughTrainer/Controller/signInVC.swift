@@ -54,16 +54,13 @@ class signInVC: UIViewController {
                     let uid_value = value["uID"]
                     
                     if uid_value == (Auth.auth().currentUser?.uid)!{
-                         var identify_Status = value["Identify-Create"]
+                         let identify_Status = value["Identify-Create"]
                         
                         if identify_Status == "no"{
                             let vc = UIStoryboard(name:"Main", bundle:nil).instantiateViewController(withIdentifier: "Create Identity") as! createIdentityVC
                             vc.firstTextView = """
                             Define your athletic dreams: 
                             
-                            (after clicked the top goes away 
-                            
-                            and font is 14 here)
                             """
                             vc.secondTextView = """
                             sample:
