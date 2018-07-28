@@ -182,21 +182,15 @@
 		84CF26D720F90D7500692B17 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				84CF26C520F8FE5D00692B17 /* welcomeVC.swift */,
-				84044D8A20FA5B5C0074676B /* signUpVC.swift */,
-				84044D8820FA5B130074676B /* GettingStartedVC.swift */,
-				840443C120FB374300E84BF3 /* signInVC.swift */,
+				F2C13AA2210C6CB0008C7F2B /* InitialController */,
 				840443C320FB7C2000E84BF3 /* menuVC.swift */,
-				8406C13F20FD105D009B2ABC /* createIdentityVC.swift */,
-				84C08FC720FF8A9700FF63F1 /* commanHomeVC.swift */,
-				84844AEC210A22410053F764 /* commitTodayListVC.swift */,
+				F2C13AA3210C6CF2008C7F2B /* First Common Controller */,
 				84C08FC920FFAB5600FF63F1 /* secondCommanHomeVC.swift */,
 				84F6C1972100EF0400DBE976 /* setUpVC.swift */,
 				84F6C19B21010DA600DBE976 /* gradeVC.swift */,
 				846477E4210240FA008D9505 /* gradeListVC.swift */,
 				8432B42421039A9C00A944D6 /* LogListVC.swift */,
 				8432B4262103A03200A944D6 /* createNewLogVC.swift */,
-				8432B4282103A3E800A944D6 /* createNewTaskVC.swift */,
 				4C948DA92105B9CE00135748 /* createPepTalkVC.swift */,
 				4C948DAB2105BAA400135748 /* pepTalkListVC.swift */,
 				84C2712721062442004D4090 /* createInterviewVC.swift */,
@@ -249,6 +243,28 @@
 				F26A7CBD210AE90D00D6B533 /* ITC Avant Garde Gothic Medium.otf */,
 			);
 			path = Fonts;
+			sourceTree = "<group>";
+		};
+		F2C13AA2210C6CB0008C7F2B /* InitialController */ = {
+			isa = PBXGroup;
+			children = (
+				84CF26C520F8FE5D00692B17 /* welcomeVC.swift */,
+				84044D8A20FA5B5C0074676B /* signUpVC.swift */,
+				84044D8820FA5B130074676B /* GettingStartedVC.swift */,
+				840443C120FB374300E84BF3 /* signInVC.swift */,
+			);
+			path = InitialController;
+			sourceTree = "<group>";
+		};
+		F2C13AA3210C6CF2008C7F2B /* First Common Controller */ = {
+			isa = PBXGroup;
+			children = (
+				8406C13F20FD105D009B2ABC /* createIdentityVC.swift */,
+				84C08FC720FF8A9700FF63F1 /* commanHomeVC.swift */,
+				8432B4282103A3E800A944D6 /* createNewTaskVC.swift */,
+				84844AEC210A22410053F764 /* commitTodayListVC.swift */,
+			);
+			path = "First Common Controller";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

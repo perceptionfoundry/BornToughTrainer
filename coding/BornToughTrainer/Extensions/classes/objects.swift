@@ -47,12 +47,14 @@ struct routineObject {
 struct commitObject {
     
     var taskTitle: String
-    var completed: Bool
+    var taskDescription : String
+    var taskStatus: String
     
-    init(taskTitle: String, completed: Bool) {
+    init(Title: String, Status: String, Description:String) {
         
-        self.taskTitle = taskTitle
-        self.completed = completed
+        self.taskTitle = Title
+        self.taskDescription = Description
+        self.taskStatus = Status
         
     }
     

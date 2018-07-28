@@ -792,6 +792,9 @@ today a success?</string>
                                             <constraint firstAttribute="height" constant="25" id="M1c-nO-Rcw"/>
                                         </constraints>
                                         <state key="normal" image="right"/>
+                                        <connections>
+                                            <action selector="addAction:" destination="noP-k9-XY1" eventType="touchUpInside" id="dVD-hG-AId"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -819,7 +822,7 @@ today a success?</string>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="My New task" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="d89-ua-BY3" customClass="textFieldClass" customModule="BornToughTrainer" customModuleProvider="target">
                                 <rect key="frame" x="38" y="160" width="300" height="40"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <nil key="textColor"/>
+                                <color key="textColor" red="0.98431372549019602" green="0.8784313725490196" blue="0.29803921568627451" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="20"/>
                                 <textInputTraits key="textInputTraits"/>
                                 <userDefinedRuntimeAttributes>
@@ -856,6 +859,9 @@ today a success?</string>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NSA-gL-TmT">
                                         <rect key="frame" x="0.0" y="0.0" width="187.5" height="66.5"/>
                                         <color key="backgroundColor" red="1" green="0.87843137250000003" blue="0.01176470588" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <connections>
+                                            <action selector="backAction:" destination="noP-k9-XY1" eventType="touchUpInside" id="sCx-fd-DJH"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="n9o-M5-RhN">
                                         <rect key="frame" x="187.5" y="0.0" width="187.5" height="66.5"/>
@@ -902,10 +908,14 @@ today a success?</string>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="Mtu-kO-Bpd"/>
                     </view>
+                    <connections>
+                        <outlet property="TaskDescription" destination="OPp-rK-aCY" id="KG7-v3-1K8"/>
+                        <outlet property="TaskTitle" destination="d89-ua-BY3" id="OaI-fD-uL7"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vA1-Tr-ple" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="740" y="2293"/>
+            <point key="canvasLocation" x="782" y="2312"/>
         </scene>
         <!--Create New LogVC-->
         <scene sceneID="WBJ-5P-Ych">
@@ -1059,7 +1069,7 @@ today a success?</string>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Bqy-3I-Q9h" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1452" y="2312"/>
+            <point key="canvasLocation" x="2529" y="2312"/>
         </scene>
         <!--Log ListVC-->
         <scene sceneID="AX5-Uv-e3H">
@@ -1192,7 +1202,7 @@ today a success?</string>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="UGE-Tl-xqy" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2412" y="2312"/>
+            <point key="canvasLocation" x="3378" y="2312"/>
         </scene>
         <!--Set UpVC-->
         <scene sceneID="n32-pU-b0k">
@@ -2857,7 +2867,7 @@ today a success?</string>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xHL-Dl-mg5" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3284" y="2311"/>
+            <point key="canvasLocation" x="4319" y="2310"/>
         </scene>
         <!--Create RoutineVC-->
         <scene sceneID="uAa-Lz-iqZ">
@@ -3233,7 +3243,6 @@ today a success?</string>
                                         </constraints>
                                         <state key="normal" image="Add"/>
                                         <connections>
-                                            <action selector="addAction:" destination="KUF-yP-leT" eventType="touchUpInside" id="E7n-d3-hUC"/>
                                             <action selector="newList:" destination="KUF-yP-leT" eventType="touchUpInside" id="Op0-LR-oy1"/>
                                         </connections>
                                     </button>
@@ -3368,11 +3377,12 @@ today a success?</string>
                     </view>
                     <connections>
                         <outlet property="tableView" destination="gU7-wq-aIh" id="pRE-Zw-pkd"/>
+                        <segue destination="noP-k9-XY1" kind="show" identifier="createNewTask" id="9VE-tV-cfQ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="uIy-nU-gYs" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1342" y="1595"/>
+            <point key="canvasLocation" x="1616.8" y="2309.5952023988007"/>
         </scene>
     </scenes>
     <resources>
@@ -3406,6 +3416,7 @@ today a success?</string>
         <image name="track" width="300" height="315"/>
     </resources>
     <inferredMetricsTieBreakers>
+        <segue reference="9VE-tV-cfQ"/>
         <segue reference="RBc-g2-qKA"/>
     </inferredMetricsTieBreakers>
 </document>
