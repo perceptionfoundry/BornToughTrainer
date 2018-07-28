@@ -182,16 +182,35 @@ class menuVC: UIViewController, UITableViewDelegate, UITableViewDataSource{
         
         
         else if menuArray[indexPath.row].name == "Log Progress"{
-            let vc = UIStoryboard(name:"Main", bundle:nil).instantiateViewController(withIdentifier: "commanHome") as! commanHomeVC
-            vc.screenImg = #imageLiteral(resourceName: "log-1")
-            vc.screenLblText = "Log Progress"
-            vc.descriptionText = """
-            Create your Logs to help evaluate your
-            training and performance over time.
-            """
-            vc.btnTitle = "+ Add New Log"
             
-            present(vc, animated: true, completion: nil)
+            dbRef.child("Log").observe(.value) { (log_snap) in
+                
+                if log_snap.exists() == false{
+                    
+                    let vc = UIStoryboard(name:"Main", bundle:nil).instantiateViewController(withIdentifier: "commanHome") as! commanHomeVC
+                    vc.screenImg = #imageLiteral(resourceName: "log-1")
+                    vc.screenLblText = "Log Progress"
+                    vc.descriptionText = """
+                    Create your Logs to help evaluate your
+                    training and performance over time.
+                    """
+                    vc.btnTitle = "+ Add New Log"
+                    
+                    self.present(vc, animated: true, completion: nil)
+                    
+                }
+                else{
+                    let vc = UIStoryboard(name:"Main", bundle:nil).instantiateViewController(withIdentifier: "logList") as! LogListVC
+                    
+                    self.present(vc, animated: true, completion: nil)                }
+            }
+            
+            
+            
+            
+            
+            
+            
         }
         
         
