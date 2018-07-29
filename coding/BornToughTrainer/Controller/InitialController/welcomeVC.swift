@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Firebase
 
 class welcomeVC: UIViewController {
 
@@ -21,6 +22,9 @@ class welcomeVC: UIViewController {
         signUpBtn.cornerRadius = self.signUpBtn.frame.size.height / 2
         loginBtn.cornerRadius = self.loginBtn.frame.size.height / 2
         // Do any additional setup after loading the view, typically from a nib.
+        
+        
+      
     }
 
   

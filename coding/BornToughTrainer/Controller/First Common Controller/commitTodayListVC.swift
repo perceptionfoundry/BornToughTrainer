@@ -49,10 +49,24 @@ class commitTodayListVC: UIViewController, UITableViewDataSource, UITableViewDel
     
     @IBAction func completedAction(_ sender: Any) {
         
+        for loop in 0...(commitTaskArray.count-1){
+            
+            self.commitTaskArray[loop]["Status"] = "complete"
+            self.tableView.reloadData()
+            
+            let title = commitTaskArray[loop]["Title"]
+            
+            self.dbRef.child("Commit").child((Auth.auth().currentUser?.uid)!).child(title!).child("Status").setValue("complete")
+            
+        }
+        
     }
     
     @IBAction func backAction(_ sender: Any) {
-        self.dismiss(animated: true, completion: nil)
+//        self.dismiss(animated: true, completion: nil)
+        
+        let vc = storyboard?.instantiateViewController(withIdentifier: "menu") as! menuVC
+        self.present(vc, animated: true, completion: nil)
     }
     
     
@@ -76,12 +90,11 @@ class commitTodayListVC: UIViewController, UITableViewDataSource, UITableViewDel
             }
             cell.taskTitle.text = commitTaskArray[indexPath.row]["Title"]
             
+            cell.taskSwitch.tag = indexPath.row
+            cell.taskSwitch.addTarget(self, action: #selector(SwitchButtonAction), for: .valueChanged)
             
-            if cell.taskSwitch.isOn == false{
-                let title = commitTaskArray[indexPath.row]["Title"]
-                self.dbRef.child("Commmit").child((Auth.auth().currentUser?.uid)!).child(title!).child("Status").setValue("Complete")
-                self.tableView.reloadData()
-            }
+            
+          
    
             return cell
         }
@@ -97,19 +110,37 @@ class commitTodayListVC: UIViewController, UITableViewDataSource, UITableViewDel
         }
     }
     
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
     
-         let cell = tableView.dequeueReusableCell(withIdentifier: "uncompletedCell", for: indexPath) as! unCompletedTaskTVC
+    @objc func SwitchButtonAction(_ commitSwitch : UISwitch){
+        print(commitSwitch.tag)
         
-        if cell.taskSwitch.isOn == false{
-            let title = commitTaskArray[indexPath.row]["Title"]
-            self.dbRef.child("Commmit").child((Auth.auth().currentUser?.uid)!).child(title!).child("Status").setValue("complete")
+        let title = commitTaskArray[commitSwitch.tag]["Title"]
+        
+        
+        if commitSwitch.isOn == false{
+            self.dbRef.child("Commit").child((Auth.auth().currentUser?.uid)!).child(title!).child("Status").setValue("complete")
+            
+            commitTaskArray[commitSwitch.tag]["Status"] = "Complete"
+            
             self.tableView.reloadData()
+            
+//            self.commitTaskArray.removeAll()
+//            
+//            dbHandle = dbRef.child("Commit").child((Auth.auth().currentUser?.uid)!).observe(.childAdded, with: { (changed_snap) in
+//
+//                let value = changed_snap.value as! [String : String]
+//
+//                print(value)
+//                
+//                self.commitTaskArray.append(value)
+//                self.tableView.reloadData()
+//
+//            })
         }
-    }
-}
-
-extension unCompletedTaskTVC {
     
-
+    }
+    
+  
 }
+
+

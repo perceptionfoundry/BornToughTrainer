@@ -962,8 +962,8 @@ today a success?</string>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Log Title" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="yeb-zo-VL3" customClass="textFieldClass" customModule="BornToughTrainer" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="337.5" height="57"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <nil key="textColor"/>
-                                        <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="20"/>
+                                        <color key="textColor" red="0.98431372549999996" green="0.87843137250000003" blue="0.29803921570000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <fontDescription key="fontDescription" name="AvantGarde-Bold" family="ITC Avant Garde Gothic" pointSize="20"/>
                                         <textInputTraits key="textInputTraits"/>
                                         <userDefinedRuntimeAttributes>
                                             <userDefinedRuntimeAttribute type="number" keyPath="width">
@@ -983,8 +983,8 @@ today a success?</string>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Log Date" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="a4r-Qy-Z6a" customClass="textFieldClass" customModule="BornToughTrainer" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="77" width="337.5" height="56.5"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <nil key="textColor"/>
-                                        <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="20"/>
+                                        <color key="textColor" red="0.98431372549999996" green="0.87843137250000003" blue="0.29803921570000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <fontDescription key="fontDescription" name="AvantGarde-Bold" family="ITC Avant Garde Gothic" pointSize="17"/>
                                         <textInputTraits key="textInputTraits"/>
                                         <userDefinedRuntimeAttributes>
                                             <userDefinedRuntimeAttribute type="number" keyPath="width">
@@ -1014,7 +1014,7 @@ today a success?</string>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" alpha="0.75" contentMode="scaleToFill" text="Lor" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="bDb-em-GTI">
                                 <rect key="frame" x="0.0" y="280" width="375" height="320"/>
                                 <color key="backgroundColor" red="1" green="0.87843137250000003" blue="0.01176470588" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <fontDescription key="fontDescription" name="AvantGarde-Medium" family="ITC Avant Garde Gothic" pointSize="17"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="gL2-Ox-Yv8">
@@ -1025,13 +1025,16 @@ today a success?</string>
                                         <color key="backgroundColor" red="1" green="0.87843137250000003" blue="0.01176470588" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <color key="tintColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <state key="normal" image="clear - material"/>
+                                        <connections>
+                                            <action selector="backAction:" destination="iot-Ry-mlg" eventType="touchUpInside" id="Q7O-BG-E5Z"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="J7V-PL-04D">
                                         <rect key="frame" x="187.5" y="0.0" width="187.5" height="66.5"/>
                                         <color key="backgroundColor" red="0.29803921570000003" green="0.85098039219999999" blue="0.3921568627" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <state key="normal" image="right"/>
                                         <connections>
-                                            <action selector="doneAction:" destination="iot-Ry-mlg" eventType="touchUpInside" id="FCg-vZ-HAV"/>
+                                            <action selector="doneAction:" destination="iot-Ry-mlg" eventType="touchUpInside" id="R7e-oG-dTq"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -1066,6 +1069,11 @@ today a success?</string>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="Enj-K5-VhK"/>
                     </view>
+                    <connections>
+                        <outlet property="loGDate" destination="a4r-Qy-Z6a" id="pku-aZ-bOu"/>
+                        <outlet property="logDescription" destination="bDb-em-GTI" id="xRu-IQ-oYI"/>
+                        <outlet property="logTitle" destination="yeb-zo-VL3" id="vJw-y1-OxQ"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Bqy-3I-Q9h" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -1137,7 +1145,7 @@ today a success?</string>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ZKm-Mi-Y1H">
                                                     <rect key="frame" x="19" y="0.0" width="337.5" height="59.5"/>
                                                     <subviews>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="V0j-Nj-Sbn">
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="V0j-Nj-Sbn">
                                                             <rect key="frame" x="0.0" y="11.5" width="202.5" height="36"/>
                                                             <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="20"/>
                                                             <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -1202,7 +1210,7 @@ today a success?</string>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="UGE-Tl-xqy" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3378" y="2312"/>
+            <point key="canvasLocation" x="3423" y="2310"/>
         </scene>
         <!--Set UpVC-->
         <scene sceneID="n32-pU-b0k">
@@ -2828,9 +2836,6 @@ today a success?</string>
                                         <rect key="frame" x="187.5" y="0.0" width="187.5" height="66.5"/>
                                         <color key="backgroundColor" red="0.29803921570000003" green="0.85098039219999999" blue="0.3921568627" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <state key="normal" image="right"/>
-                                        <connections>
-                                            <action selector="doneAction:" destination="XbR-QM-AkP" eventType="touchUpInside" id="ZdE-Yt-Yvb"/>
-                                        </connections>
                                     </button>
                                 </subviews>
                             </stackView>
