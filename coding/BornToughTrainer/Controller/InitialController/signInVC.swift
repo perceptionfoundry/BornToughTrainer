@@ -24,13 +24,7 @@ class signInVC: UIViewController {
         super.viewDidLoad()
       componentInit()
         // Do any additional setup after loading the view.
-        print(Auth.auth().currentUser?.uid)
-        
-        if ((Auth.auth().currentUser?.uid)!) != nil
-        {
-            
-            self.performSegue(withIdentifier: "Menu_Segue", sender: self)
-        }
+      
     }
 
     @IBAction func signInAction(_ sender: Any) {

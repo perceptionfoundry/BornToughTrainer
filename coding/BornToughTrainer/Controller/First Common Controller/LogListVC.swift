@@ -10,17 +10,19 @@ import UIKit
 import Firebase
 
 protocol editProtocal : class {
-    func editFucntion()
+    func editFucntion(newValue : [String : String], indexValue : Int)
 }
 
 class LogListVC: UIViewController, UITableViewDataSource, UITableViewDelegate, editProtocal{
-    func editFucntion() {
-
-        let vc = UIStoryboard(name:"Main", bundle:nil).instantiateViewController(withIdentifier: "editLog") as! editLogVC
+    func editFucntion(newValue: [String : String], indexValue: Int) {
+      
+        LogArray[indexValue]["Title"] = newValue["Title"]
+        LogArray[indexValue]["Date"] = newValue["Date"]
+        LogArray[indexValue]["Description"] = newValue["Description"]
         
-        present(vc, animated: true, completion: nil)
-        print("funtion is running")
+        self.tableVIew.reloadData()
     }
+    
     
     var dbRef : DatabaseReference!
     var dbHandle: DatabaseHandle!
@@ -28,7 +30,8 @@ class LogListVC: UIViewController, UITableViewDataSource, UITableViewDelegate, e
     @IBOutlet weak var tableVIew: UITableView!
    
     
-//    var LogArray = [gradeObject]()
+    var selectedTitle = ""
+    var selectedIndex = 0
    
     var LogArray = [[String : String]]()
     
@@ -72,8 +75,9 @@ class LogListVC: UIViewController, UITableViewDataSource, UITableViewDelegate, e
     
     @IBAction func editAction(_ sender: Any) {
 //        let vc = UIStoryboard(name:"Main", bundle:nil).instantiateViewController(withIdentifier: "editLog") as! editLogVC
-        let vc = UIStoryboard(name:"Main", bundle:nil).instantiateViewController(withIdentifier: "newLog") as! createNewLogVC
-        present(vc, animated: true, completion: nil)
+//        let vc = UIStoryboard(name:"Main", bundle:nil).instantiateViewController(withIdentifier: "newLog") as! createNewLogVC
+//        present(vc, animated: true, completion: nil)
+        
         
     }
     
@@ -92,10 +96,34 @@ class LogListVC: UIViewController, UITableViewDataSource, UITableViewDelegate, e
         
         let DisplayText = "\((LogArray[indexPath.row]["Title"])!) - \((LogArray[indexPath.row]["Date"])!)"
         cell.logTitle.text = DisplayText
+        
+        cell.logEdit.tag = indexPath.row
+        cell.logEdit.addTarget(self, action: #selector(EditingAction), for: .touchUpInside)
         cell.cellDelegate = self
         
         return cell
     }
     
+    @objc func EditingAction(_ button : UIButton){
+        
+        print(LogArray[button.tag]["Title"]!)
+        
+        self.selectedTitle = LogArray[button.tag]["Title"]!
+        self.selectedIndex = button.tag
+        
+        self.performSegue(withIdentifier: "Edit_Segue", sender: nil)
+
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "Edit_Segue"
+        {
+            let dest = segue.destination as! editLogVC
+            dest.segueTitle = self.selectedTitle
+            dest.segueIndex = self.selectedIndex
+            
+            dest.delegate = self
+        }
+    }
     
 }

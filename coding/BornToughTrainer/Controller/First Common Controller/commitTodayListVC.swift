@@ -89,7 +89,7 @@ class commitTodayListVC: UIViewController, UITableViewDataSource, UITableViewDel
                 cell.backgroundColor = UIColor(red: 252/255, green: 226/255, blue: 33/255, alpha: 1)
             }
             cell.taskTitle.text = commitTaskArray[indexPath.row]["Title"]
-            
+            cell.taskSwitch.isOn = true
             cell.taskSwitch.tag = indexPath.row
             cell.taskSwitch.addTarget(self, action: #selector(SwitchButtonAction), for: .valueChanged)
             

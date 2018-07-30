@@ -23,7 +23,12 @@ class welcomeVC: UIViewController {
         loginBtn.cornerRadius = self.loginBtn.frame.size.height / 2
         // Do any additional setup after loading the view, typically from a nib.
         
+        print((Auth.auth().currentUser?.uid)!)
         
+        if (Auth.auth().currentUser?.uid)! != nil{
+            let vc = storyboard?.instantiateViewController(withIdentifier: "menu") as! menuVC
+            self.present(vc, animated: true, completion: nil)
+        }
       
     }
 

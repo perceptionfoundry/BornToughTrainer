@@ -12,6 +12,8 @@ class logListTVC: UITableViewCell {
 
     @IBOutlet weak var logTitle: UILabel!
     @IBOutlet weak var logEdit: UIButton!
+    
+    
     weak var cellDelegate: editProtocal!
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -25,6 +27,6 @@ class logListTVC: UITableViewCell {
     }
 
     @IBAction func editAction(_ sender: Any) {
-        cellDelegate.editFucntion()
+//        cellDelegate.editFucntion()
     }
 }

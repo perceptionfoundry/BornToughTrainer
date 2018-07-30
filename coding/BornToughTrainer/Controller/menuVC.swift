@@ -98,7 +98,7 @@ class menuVC: UIViewController, UITableViewDelegate, UITableViewDataSource{
         
         
         
-        
+         // 1.  ************ HAVE FAITH ***************
         if menuArray[indexPath.row].name == "Have Faith"{
             let vc = UIStoryboard(name:"Main", bundle:nil).instantiateViewController(withIdentifier: "Create Identity") as! createIdentityVC
             vc.firstQuestion = "What do you believe in?"
@@ -120,7 +120,7 @@ class menuVC: UIViewController, UITableViewDelegate, UITableViewDataSource{
         
         
         
-        
+         // 2. ************ CREATE IDENTIFY ***************
         else if menuArray[indexPath.row].name == "Create Identity"{
             let vc = UIStoryboard(name:"Main", bundle:nil).instantiateViewController(withIdentifier: "Create Identity") as! createIdentityVC
             vc.firstTextView = """
@@ -137,7 +137,7 @@ class menuVC: UIViewController, UITableViewDelegate, UITableViewDataSource{
         }
         
         
-        
+         // 3. ************ COMMIT ***************
         else if menuArray[indexPath.row].name == "Commit to Today"{
            
             dbRef.child("Commit").observe(.value) { (commit_snap) in
@@ -164,7 +164,7 @@ class menuVC: UIViewController, UITableViewDelegate, UITableViewDataSource{
         
         
         
-        
+         // 4. ************ PEP TALK ***************
         else if menuArray[indexPath.row].name == "Produce Pep Talks"{
             let vc = UIStoryboard(name:"Main", bundle:nil).instantiateViewController(withIdentifier: "commanHome") as! commanHomeVC
             vc.screenImg = #imageLiteral(resourceName: "mic")
@@ -180,7 +180,7 @@ class menuVC: UIViewController, UITableViewDelegate, UITableViewDataSource{
         }
         
         
-        
+        // 5. ************ LOG PROGRESS ***************
         else if menuArray[indexPath.row].name == "Log Progress"{
             
             dbRef.child("Log").observe(.value) { (log_snap) in
@@ -199,6 +199,7 @@ class menuVC: UIViewController, UITableViewDelegate, UITableViewDataSource{
                     self.present(vc, animated: true, completion: nil)
                     
                 }
+                    
                 else{
                     let vc = UIStoryboard(name:"Main", bundle:nil).instantiateViewController(withIdentifier: "logList") as! LogListVC
                     
@@ -214,7 +215,7 @@ class menuVC: UIViewController, UITableViewDelegate, UITableViewDataSource{
         }
         
         
-        
+         // 6.  ************ DEVELOP ROUTINES ***************
         else if menuArray[indexPath.row].name == "Develop Routines"{
             let vc = UIStoryboard(name:"Main", bundle:nil).instantiateViewController(withIdentifier: "commanHome") as! commanHomeVC
             vc.screenImg = #imageLiteral(resourceName: "routines")
@@ -230,7 +231,10 @@ class menuVC: UIViewController, UITableViewDelegate, UITableViewDataSource{
         }
         
         
-        
+            
+            
+            
+         //7.  ************ INTERVIEW YOURSELF ***************
         else if menuArray[indexPath.row].name == "Interview Yourself"{
             let vc = UIStoryboard(name:"Main", bundle:nil).instantiateViewController(withIdentifier: "commanHome") as! commanHomeVC
             vc.screenImg = #imageLiteral(resourceName: "video")
@@ -244,7 +248,7 @@ class menuVC: UIViewController, UITableViewDelegate, UITableViewDataSource{
         }
         
         
-        
+         // 8. ************ TRACK CHARACTER ***************
         else if menuArray[indexPath.row].name == "Track Character"{
             let vc = UIStoryboard(name:"Main", bundle:nil).instantiateViewController(withIdentifier: "secondCommanHome") as! secondCommanHomeVC
             vc.screenImg = #imageLiteral(resourceName: "track")
@@ -262,7 +266,7 @@ class menuVC: UIViewController, UITableViewDelegate, UITableViewDataSource{
             present(vc, animated: true, completion: nil)
         }
         
-        
+         // 9. ************ FIND FLO ***************
         else if menuArray[indexPath.row].name == "Find Flo"{
             let vc = UIStoryboard(name:"Main", bundle:nil).instantiateViewController(withIdentifier: "secondCommanHome") as! secondCommanHomeVC
             vc.screenImg = #imageLiteral(resourceName: "flo")

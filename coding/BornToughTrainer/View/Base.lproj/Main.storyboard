@@ -1114,9 +1114,6 @@ today a success?</string>
                                             <constraint firstAttribute="height" constant="25" id="YMm-VW-nCq"/>
                                         </constraints>
                                         <state key="normal" image="Add"/>
-                                        <connections>
-                                            <action selector="editAction:" destination="uxa-wD-35w" eventType="touchUpInside" id="RZM-r1-Tsu"/>
-                                        </connections>
                                     </button>
                                 </subviews>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -1206,6 +1203,7 @@ today a success?</string>
                     </view>
                     <connections>
                         <outlet property="tableVIew" destination="fy4-Qf-yNf" id="fQN-A7-FQS"/>
+                        <segue destination="XbR-QM-AkP" kind="show" identifier="Edit_Segue" id="A5J-iL-bQ9"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="UGE-Tl-xqy" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -1681,7 +1679,7 @@ today a success?</string>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Dtv-ug-g3p">
-                                <rect key="frame" x="20" y="20" width="25" height="25"/>
+                                <rect key="frame" x="21" y="20" width="25" height="25"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="25" id="1OM-RJ-1Wc"/>
                                     <constraint firstAttribute="height" constant="25" id="3Za-YV-gNd"/>
@@ -2765,7 +2763,7 @@ today a success?</string>
                                         <rect key="frame" x="0.0" y="0.0" width="337.5" height="57"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <color key="tintColor" red="0.50196078431372548" green="0.50196078431372548" blue="0.50196078431372548" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                        <nil key="textColor"/>
+                                        <color key="textColor" red="0.98431372549999996" green="0.87843137250000003" blue="0.29803921570000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="20"/>
                                         <textInputTraits key="textInputTraits"/>
                                         <userDefinedRuntimeAttributes>
@@ -2788,7 +2786,7 @@ today a success?</string>
                                         <rect key="frame" x="0.0" y="77" width="337.5" height="56.5"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <color key="tintColor" red="0.50196078431372548" green="0.50196078431372548" blue="0.50196078431372548" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                        <nil key="textColor"/>
+                                        <color key="textColor" red="0.98431372549999996" green="0.87843137250000003" blue="0.29803921570000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="20"/>
                                         <textInputTraits key="textInputTraits"/>
                                         <userDefinedRuntimeAttributes>
@@ -2831,11 +2829,17 @@ today a success?</string>
                                         <color key="backgroundColor" red="1" green="0.87843137250000003" blue="0.01176470588" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <color key="tintColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <state key="normal" image="clear - material"/>
+                                        <connections>
+                                            <action selector="backAction:" destination="XbR-QM-AkP" eventType="touchUpInside" id="LTl-Lp-HC7"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WGf-sM-wAz">
                                         <rect key="frame" x="187.5" y="0.0" width="187.5" height="66.5"/>
                                         <color key="backgroundColor" red="0.29803921570000003" green="0.85098039219999999" blue="0.3921568627" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <state key="normal" image="right"/>
+                                        <connections>
+                                            <action selector="acceptButtonAction:" destination="XbR-QM-AkP" eventType="touchUpInside" id="FnA-FV-Lnz"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                             </stackView>
@@ -2869,6 +2873,11 @@ today a success?</string>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="Dal-kh-dor"/>
                     </view>
+                    <connections>
+                        <outlet property="editDate" destination="Yrp-JU-Qbn" id="eLV-KH-wZy"/>
+                        <outlet property="editDescription" destination="Ftv-l2-v5g" id="0n0-w7-btT"/>
+                        <outlet property="editTitle" destination="WXs-VN-IoD" id="b6q-Pk-oRk"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xHL-Dl-mg5" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
