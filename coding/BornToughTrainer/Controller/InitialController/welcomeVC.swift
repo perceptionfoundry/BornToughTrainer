@@ -16,7 +16,6 @@ class welcomeVC: UIViewController {
   
     
     
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         signUpBtn.cornerRadius = self.signUpBtn.frame.size.height / 2
@@ -25,14 +24,20 @@ class welcomeVC: UIViewController {
         
         print((Auth.auth().currentUser?.uid)!)
         
-        if (Auth.auth().currentUser?.uid)! != nil{
-            let vc = storyboard?.instantiateViewController(withIdentifier: "menu") as! menuVC
-            self.present(vc, animated: true, completion: nil)
-        }
+      
       
     }
 
-  
+//    override func viewDidAppear(_ animated: Bool) {
+//        if (Auth.auth().currentUser) != nil {
+//            switchController()
+//        }
+//    }
+//    
+//    func switchController () {
+//        let vc = UIStoryboard(name:"Main", bundle:nil).instantiateViewController(withIdentifier: "menu") as! menuVC
+//        present(vc, animated: true, completion: nil)
+//    }
 
     @IBAction func signInAction(_ sender: Any) {
         self.performSegue(withIdentifier: "signIn", sender: self)

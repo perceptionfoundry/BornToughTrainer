@@ -7,23 +7,49 @@
 // ;;io-]
 
 import UIKit
+import Firebase
 
 class routineListVC: UIViewController ,UITableViewDataSource, UITableViewDelegate{
 
     var array = [routineObject]()
+    var test = [String]()
+    
+    var dbRef : DatabaseReference!
+    var dbHandle : DatabaseHandle!
     
     @IBOutlet weak var tableView: UITableView!
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        
+        
         tableView.delegate = self
         tableView.dataSource = self
         
         tableView.tableFooterView = UIView()
         tableView.separatorStyle = UITableViewCellSeparatorStyle.none
         
-        array.append(routineObject(routineTitle: "Routine 1", routineStep: ["step 01","step 02","step 03"], open: false))
-        array.append(routineObject(routineTitle: "Routine 1", routineStep: ["step 01","step 02","step 03"], open: false))
-        array.append(routineObject(routineTitle: "Routine 1", routineStep: ["step 01","step 02","step 03"], open: false))
+        
+        dbRef = Database.database().reference()
+        dbHandle = dbRef.child("Routine").child((Auth.auth().currentUser?.uid)!).observe(.childAdded, with: { (routine_snap) in
+            
+            let routineValue = routine_snap.value as! [String : String]
+            
+            let routinetitle = routineValue["Title"]
+            let stringToArray = routineValue["Step"]?.split(separator: ",").map({"\($0)"})
+            let openToBool = Bool(routineValue["open"]!)
+            
+            
+            self.array.append(routineObject(routineTitle: routinetitle!, routineStep:stringToArray!, open: openToBool!))
+            
+            self.tableView.reloadData()
+         
+            
+        })
+        
+//        array.append(routineObject(routineTitle: "Routine 1", routineStep: ["step 01","step 02","step 03"], open: false))
+//        array.append(routineObject(routineTitle: "Routine 1", routineStep: ["step 01","step 02","step 03"], open: false))
+//        array.append(routineObject(routineTitle: "Routine 1", routineStep: ["step 01","step 02","step 03"], open: false))
         // Do any additional setup after loading the view.
     }
 

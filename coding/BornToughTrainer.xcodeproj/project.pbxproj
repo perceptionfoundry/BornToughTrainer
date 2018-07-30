@@ -46,6 +46,7 @@
 		84F6C1982100EF0400DBE976 /* setUpVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84F6C1972100EF0400DBE976 /* setUpVC.swift */; };
 		84F6C19A21010CAD00DBE976 /* gradeTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84F6C19921010CAD00DBE976 /* gradeTVC.swift */; };
 		84F6C19C21010DA600DBE976 /* gradeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84F6C19B21010DA600DBE976 /* gradeVC.swift */; };
+		F226BA14210F6C1B00DE6D16 /* haveFaithVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F226BA13210F6C1B00DE6D16 /* haveFaithVC.swift */; };
 		F26A7CBC210AE90B00D6B533 /* ITC Avant Garde Gothic Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = F26A7CBB210AE90800D6B533 /* ITC Avant Garde Gothic Bold.otf */; };
 		F26A98E1210AD2700068DB31 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = F26A98E0210AD2700068DB31 /* GoogleService-Info.plist */; };
 /* End PBXBuildFile section */
@@ -94,6 +95,7 @@
 		84F6C19921010CAD00DBE976 /* gradeTVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = gradeTVC.swift; sourceTree = "<group>"; };
 		84F6C19B21010DA600DBE976 /* gradeVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = gradeVC.swift; sourceTree = "<group>"; };
 		B291E92C049CF993D9A74872 /* Pods-BornToughTrainer.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BornToughTrainer.debug.xcconfig"; path = "Pods/Target Support Files/Pods-BornToughTrainer/Pods-BornToughTrainer.debug.xcconfig"; sourceTree = "<group>"; };
+		F226BA13210F6C1B00DE6D16 /* haveFaithVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = haveFaithVC.swift; sourceTree = "<group>"; };
 		F26A7CBB210AE90800D6B533 /* ITC Avant Garde Gothic Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "ITC Avant Garde Gothic Bold.otf"; sourceTree = "<group>"; };
 		F26A7CBD210AE90D00D6B533 /* ITC Avant Garde Gothic Medium.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "ITC Avant Garde Gothic Medium.otf"; sourceTree = "<group>"; };
 		F26A98E0210AD2700068DB31 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
@@ -193,8 +195,6 @@
 				4C948DAB2105BAA400135748 /* pepTalkListVC.swift */,
 				84C2712721062442004D4090 /* createInterviewVC.swift */,
 				84C2712D210632B8004D4090 /* interviewListVC.swift */,
-				84E66F0821078AAB0050BAC9 /* createRoutineVC.swift */,
-				84E66F0A21079A700050BAC9 /* routineListVC.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -263,6 +263,9 @@
 				8432B4262103A03200A944D6 /* createNewLogVC.swift */,
 				8432B42421039A9C00A944D6 /* LogListVC.swift */,
 				84E66F062107815D0050BAC9 /* editLogVC.swift */,
+				84E66F0821078AAB0050BAC9 /* createRoutineVC.swift */,
+				84E66F0A21079A700050BAC9 /* routineListVC.swift */,
+				F226BA13210F6C1B00DE6D16 /* haveFaithVC.swift */,
 			);
 			path = "First Common Controller";
 			sourceTree = "<group>";
@@ -420,6 +423,7 @@
 				84F6C1962100EA9900DBE976 /* setUpTVC.swift in Sources */,
 				84C08FCA20FFAB5600FF63F1 /* secondCommanHomeVC.swift in Sources */,
 				8432B42321039A4400A944D6 /* logListTVC.swift in Sources */,
+				F226BA14210F6C1B00DE6D16 /* haveFaithVC.swift in Sources */,
 				8406C13C20FCF959009B2ABC /* menuTVC.swift in Sources */,
 				8406C13E20FCFAD1009B2ABC /* objects.swift in Sources */,
 				84044D8920FA5B130074676B /* GettingStartedVC.swift in Sources */,

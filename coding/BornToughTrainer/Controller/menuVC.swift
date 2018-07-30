@@ -100,7 +100,8 @@ class menuVC: UIViewController, UITableViewDelegate, UITableViewDataSource{
         
          // 1.  ************ HAVE FAITH ***************
         if menuArray[indexPath.row].name == "Have Faith"{
-            let vc = UIStoryboard(name:"Main", bundle:nil).instantiateViewController(withIdentifier: "Create Identity") as! createIdentityVC
+            
+            let vc = UIStoryboard(name:"Main", bundle:nil).instantiateViewController(withIdentifier: "HaveFaith") as! haveFaithVC
             vc.firstQuestion = "What do you believe in?"
             vc.secondQuestion = "Why will you be successful?"
             vc.firstTextView = """
@@ -217,20 +218,35 @@ class menuVC: UIViewController, UITableViewDelegate, UITableViewDataSource{
         
          // 6.  ************ DEVELOP ROUTINES ***************
         else if menuArray[indexPath.row].name == "Develop Routines"{
-            let vc = UIStoryboard(name:"Main", bundle:nil).instantiateViewController(withIdentifier: "commanHome") as! commanHomeVC
-            vc.screenImg = #imageLiteral(resourceName: "routines")
-            vc.screenLblText = "Develop Routines"
-            vc.descriptionText = """
-            Create the routines you will rely on during
-            training and performance to ensure mental
-            toughness.
-            """
-            vc.btnTitle = "+ Add New Task"
             
-            present(vc, animated: true, completion: nil)
+            dbRef.child("Routine").observe(.value) { (log_snap) in
+                
+                if log_snap.exists() == false{
+                    
+                    let vc = UIStoryboard(name:"Main", bundle:nil).instantiateViewController(withIdentifier: "commanHome") as! commanHomeVC
+                    vc.screenImg = #imageLiteral(resourceName: "routines")
+                    vc.screenLblText = "Develop Routines"
+                    vc.descriptionText = """
+                    Create the routines you will rely on during
+                    training and performance to ensure mental
+                    toughness.
+                    """
+                    vc.btnTitle = "+ Add New Task"
+                    
+                    self.present(vc, animated: true, completion: nil)
+                    
+                }
+                
+                else
+                {
+                    let vc = UIStoryboard(name:"Main", bundle:nil).instantiateViewController(withIdentifier: "routineList") as! routineListVC
+                    self.present(vc, animated: true, completion: nil)
+                }
+            
+          
         }
         
-        
+        }
             
             
             
