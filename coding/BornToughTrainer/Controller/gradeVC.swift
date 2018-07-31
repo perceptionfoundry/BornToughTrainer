@@ -50,6 +50,8 @@ class gradeVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
             vc.gradeArray.append(gradeObject(gradeDate: "Log 7 - Firday - 20 July", grade: "A"))
             vc.gradeArray.append(gradeObject(gradeDate: "Log 8 - Firday - 21 July", grade: "B"))
             vc.gradeArray.append(gradeObject(gradeDate: "Log 9 - Firday - 22 July", grade: "C"))
+            vc.currentController = "flo"
+            
             present(vc, animated: true, completion: nil)
         }else if screenIdentifier == "Track Character"{
             //send data from here
@@ -63,6 +65,7 @@ class gradeVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
             vc.gradeArray.append(gradeObject(gradeDate: "Your Character - Firday - 20 July", grade: "A"))
             vc.gradeArray.append(gradeObject(gradeDate: "Your Character - Firday - 21 July", grade: "B"))
             vc.gradeArray.append(gradeObject(gradeDate: "Your Character - Firday - 22 July", grade: "C"))
+            vc.currentController = "track"
             present(vc, animated: true, completion: nil)
         }
     }

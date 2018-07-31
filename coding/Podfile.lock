@@ -1,4 +1,5 @@
 PODS:
+  - CameraManager (4.2.1)
   - Firebase/Auth (5.4.0):
     - Firebase/CoreOnly
     - FirebaseAuth (= 5.0.2)
@@ -47,6 +48,7 @@ PODS:
   - SDWebImage/Core (4.4.1)
 
 DEPENDENCIES:
+  - CameraManager
   - Firebase/Auth
   - Firebase/Core
   - Firebase/Database
@@ -56,6 +58,7 @@ DEPENDENCIES:
 
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
+    - CameraManager
     - Firebase
     - FirebaseAnalytics
     - FirebaseAuth
@@ -71,6 +74,7 @@ SPEC REPOS:
     - SDWebImage
 
 SPEC CHECKSUMS:
+  CameraManager: 4749629345b651d11c8bc60cc0d5fbea2c61b1ef
   Firebase: d66f4f29c23f22d96808d9abc174d81d8eee968f
   FirebaseAnalytics: b3628aea54c50464c32c393fb2ea032566e7ecc2
   FirebaseAuth: 096e457cdd4274412a66c4a35874787e411f5a03
@@ -85,6 +89,6 @@ SPEC CHECKSUMS:
   nanopb: 5601e6bca2dbf1ed831b519092ec110f66982ca3
   SDWebImage: 47e9b5b925cbce75946c23f0c42dd19464189af4
 
-PODFILE CHECKSUM: 95ef9dedbb0d9397441372879ffb078dfb1f5022
+PODFILE CHECKSUM: 5b0a40b226b7b49bda6dd710194591fde5633b62
 
 COCOAPODS: 1.5.3

@@ -49,6 +49,8 @@
 		F226BA14210F6C1B00DE6D16 /* haveFaithVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F226BA13210F6C1B00DE6D16 /* haveFaithVC.swift */; };
 		F26A7CBC210AE90B00D6B533 /* ITC Avant Garde Gothic Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = F26A7CBB210AE90800D6B533 /* ITC Avant Garde Gothic Bold.otf */; };
 		F26A98E1210AD2700068DB31 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = F26A98E0210AD2700068DB31 /* GoogleService-Info.plist */; };
+		F2CBB8EB2110BFDE0097AE3F /* EditTrackVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2CBB8EA2110BFDE0097AE3F /* EditTrackVC.swift */; };
+		F2CBB8ED2110BFFB0097AE3F /* EditFLoVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2CBB8EC2110BFFB0097AE3F /* EditFLoVC.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -99,6 +101,8 @@
 		F26A7CBB210AE90800D6B533 /* ITC Avant Garde Gothic Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "ITC Avant Garde Gothic Bold.otf"; sourceTree = "<group>"; };
 		F26A7CBD210AE90D00D6B533 /* ITC Avant Garde Gothic Medium.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "ITC Avant Garde Gothic Medium.otf"; sourceTree = "<group>"; };
 		F26A98E0210AD2700068DB31 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		F2CBB8EA2110BFDE0097AE3F /* EditTrackVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditTrackVC.swift; sourceTree = "<group>"; };
+		F2CBB8EC2110BFFB0097AE3F /* EditFLoVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditFLoVC.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -266,6 +270,8 @@
 				84E66F0821078AAB0050BAC9 /* createRoutineVC.swift */,
 				84E66F0A21079A700050BAC9 /* routineListVC.swift */,
 				F226BA13210F6C1B00DE6D16 /* haveFaithVC.swift */,
+				F2CBB8EA2110BFDE0097AE3F /* EditTrackVC.swift */,
+				F2CBB8EC2110BFFB0097AE3F /* EditFLoVC.swift */,
 			);
 			path = "First Common Controller";
 			sourceTree = "<group>";
@@ -366,6 +372,7 @@
 			);
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-BornToughTrainer/Pods-BornToughTrainer-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/CameraManager/CameraManager.framework",
 				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
 				"${BUILT_PRODUCTS_DIR}/GoogleToolboxForMac/GoogleToolboxForMac.framework",
 				"${BUILT_PRODUCTS_DIR}/IQKeyboardManager/IQKeyboardManager.framework",
@@ -375,6 +382,7 @@
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/CameraManager.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleToolboxForMac.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/IQKeyboardManager.framework",
@@ -402,7 +410,9 @@
 				846477E5210240FA008D9505 /* gradeListVC.swift in Sources */,
 				8432B42521039A9C00A944D6 /* LogListVC.swift in Sources */,
 				84844AED210A22410053F764 /* commitTodayListVC.swift in Sources */,
+				F2CBB8EB2110BFDE0097AE3F /* EditTrackVC.swift in Sources */,
 				84CF26C620F8FE5D00692B17 /* welcomeVC.swift in Sources */,
+				F2CBB8ED2110BFFB0097AE3F /* EditFLoVC.swift in Sources */,
 				84E66F0921078AAB0050BAC9 /* createRoutineVC.swift in Sources */,
 				840377EF21079DDA00276D5D /* routineTVC.swift in Sources */,
 				84E66F0B21079A700050BAC9 /* routineListVC.swift in Sources */,

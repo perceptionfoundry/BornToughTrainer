@@ -60,11 +60,18 @@ class editLogVC: UIViewController {
            
             self.dbRef.child("Log").child((Auth.auth().currentUser?.uid)!).child(segueTitle).removeValue()
             
-            self.dbRef.child("Log").child((Auth.auth().currentUser?.uid)!).child(editTitle.text!).child("Title").setValue(editTitle.text!)
-            self.dbRef.child("Log").child((Auth.auth().currentUser?.uid)!).child(editTitle.text!).child("Date").setValue(editDate.text!)
-            self.dbRef.child("Log").child((Auth.auth().currentUser?.uid)!).child(editTitle.text!).child("Description").setValue(editDescription.text!)
             
-            delegate.editFucntion(newValue: newValue, indexValue: segueIndex)
+            print(newValue)
+            
+            self.dbRef.child("Log").child((Auth.auth().currentUser?.uid)!).child(editTitle.text!).setValue(newValue)
+
+            
+//            self.dbRef.child("Log").child((Auth.auth().currentUser?.uid)!).child(editTitle.text!).child("Title").setValue(editTitle.text!)
+//            self.dbRef.child("Log").child((Auth.auth().currentUser?.uid)!).child(editTitle.text!).child("Date").setValue(editDate.text!)
+//            self.dbRef.child("Log").child((Auth.auth().currentUser?.uid)!).child(editTitle.text!).child("Description").setValue(editDescription.text!)
+            
+//            delegate.editFucntion(newValue: newValue, indexValue: segueIndex)
+            delegate.editFucntion()
             
             self.dismiss(animated: true, completion: nil)
             
@@ -75,7 +82,8 @@ class editLogVC: UIViewController {
             self.dbRef.child("Log").child((Auth.auth().currentUser?.uid)!).child(segueTitle).child("Date").setValue(editDate.text!)
             self.dbRef.child("Log").child((Auth.auth().currentUser?.uid)!).child(segueTitle).child("Description").setValue(editDescription.text!)
             
-            delegate.editFucntion(newValue: newValue, indexValue: segueIndex)
+//            delegate.editFucntion(newValue: newValue, indexValue: segueIndex)
+            delegate.editFucntion()
             
             self.dismiss(animated: true, completion: nil)
         }

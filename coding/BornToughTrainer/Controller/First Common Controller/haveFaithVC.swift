@@ -69,20 +69,24 @@ class haveFaithVC: UIViewController, UITextViewDelegate {
                 let imageURL = URL(string: (value["Image-URL"])!)
                 self.profileImage.sd_setImage(with: imageURL!, placeholderImage: UIImage(named: "btt-logo"), options: .progressiveDownload, completed: nil)
                 
-//                if value["Identify-Create"] == "yes"{
+
 //
-//                    self.dbRef.child("Create-Identify").observe(.childAdded, with: { (identify_Data) in
-//                        print(identify_Data.value)
-//                        let identify_values = identify_Data.value as! [String : String]
-//
-//                        self.workingToward.textColor = UIColor.black
-//                        self.workingToward.text = identify_values["Working"]
-//
-//                        self.attitudeSlogan.textColor = UIColor.green
-//                        self.attitudeSlogan.text = identify_values["Slogan"]
-//
-//                    })
-//                }
+                    self.dbRef.child("Faith").observe(.childAdded, with: { (Faith_Data) in
+                        
+                        print(Faith_Data.value)
+                        
+                        if Faith_Data.value != nil
+                        {
+                        let identify_values = Faith_Data.value as! [String : String]
+
+                        self.workingToward.textColor = UIColor.green
+                        self.workingToward.text = identify_values["Working"]
+
+                        self.attitudeSlogan.textColor = UIColor.green
+                        self.attitudeSlogan.text = identify_values["Slogan"]
+                        }
+                    })
+
                 
             }
         })
@@ -100,13 +104,12 @@ class haveFaithVC: UIViewController, UITextViewDelegate {
     
     @IBAction func menuAction(_ sender: Any) {
         
-        var identify_Value = ["Working": "", "Slogan": ""]
+        var Faith_Value = ["Working": "", "Slogan": ""]
         
-        identify_Value["Working"] = self.workingToward.text!
-        identify_Value["Slogan"] = self.attitudeSlogan.text!
+        Faith_Value ["Working"] = self.workingToward.text!
+        Faith_Value ["Slogan"] = self.attitudeSlogan.text!
         
-        dbRef.child("Create-Identify").child((Auth.auth().currentUser?.uid)!).setValue(identify_Value)
-        dbRef.child("User").child((Auth.auth().currentUser?.uid)!).child("Identify-Create").setValue("yes")
+        dbRef.child("Faith").child((Auth.auth().currentUser?.uid)!).setValue(Faith_Value )
         
         
         let vc = UIStoryboard(name:"Main", bundle:nil).instantiateViewController(withIdentifier: "menu") as! menuVC

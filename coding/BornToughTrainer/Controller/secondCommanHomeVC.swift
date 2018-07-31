@@ -69,5 +69,36 @@ class secondCommanHomeVC: UIViewController {
     
     @IBAction func thirdBtnAction(_ sender: Any) {
         
+        let vc = UIStoryboard(name:"Main", bundle:nil).instantiateViewController(withIdentifier: "gradeList") as! gradeListVC
+        if screenLblText ==  "Find Flo"{
+            //send data from here
+            vc.gradeArray.append(gradeObject(gradeDate: "Log 1 - Firday - 20 July", grade: "A"))
+            vc.gradeArray.append(gradeObject(gradeDate: "Log 2 - Firday - 21 July", grade: "B"))
+            vc.gradeArray.append(gradeObject(gradeDate: "Log 3 - Firday - 22 July", grade: "C"))
+            vc.gradeArray.append(gradeObject(gradeDate: "Log 4 - Firday - 20 July", grade: "A"))
+            vc.gradeArray.append(gradeObject(gradeDate: "Log 5 - Firday - 21 July", grade: "B"))
+            vc.gradeArray.append(gradeObject(gradeDate: "Log 6 - Firday - 22 July", grade: "C"))
+            
+            vc.gradeArray.append(gradeObject(gradeDate: "Log 7 - Firday - 20 July", grade: "A"))
+            vc.gradeArray.append(gradeObject(gradeDate: "Log 8 - Firday - 21 July", grade: "B"))
+            vc.gradeArray.append(gradeObject(gradeDate: "Log 9 - Firday - 22 July", grade: "C"))
+            vc.currentController = "flo"
+            
+            present(vc, animated: true, completion: nil)
+        }else if screenLblText == "Track Character"{
+            //send data from here
+            vc.gradeArray.append(gradeObject(gradeDate: "Your Character - Firday - 20 July", grade: "A"))
+            vc.gradeArray.append(gradeObject(gradeDate: "Your Character - Firday - 21 July", grade: "B"))
+            vc.gradeArray.append(gradeObject(gradeDate: "Your Character - Firday - 22 July", grade: "C"))
+            vc.gradeArray.append(gradeObject(gradeDate: "Your Character - Firday - 20 July", grade: "A"))
+            vc.gradeArray.append(gradeObject(gradeDate: "Your Character - Firday - 21 July", grade: "B"))
+            vc.gradeArray.append(gradeObject(gradeDate: "Your Character - Firday - 22 July", grade: "C"))
+            
+            vc.gradeArray.append(gradeObject(gradeDate: "Your Character - Firday - 20 July", grade: "A"))
+            vc.gradeArray.append(gradeObject(gradeDate: "Your Character - Firday - 21 July", grade: "B"))
+            vc.gradeArray.append(gradeObject(gradeDate: "Your Character - Firday - 22 July", grade: "C"))
+            vc.currentController = "track"
+            present(vc, animated: true, completion: nil)
+        }
     }
 }

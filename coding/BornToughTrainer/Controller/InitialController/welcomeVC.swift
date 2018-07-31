@@ -22,22 +22,21 @@ class welcomeVC: UIViewController {
         loginBtn.cornerRadius = self.loginBtn.frame.size.height / 2
         // Do any additional setup after loading the view, typically from a nib.
         
-        print((Auth.auth().currentUser?.uid)!)
         
       
       
     }
 
-//    override func viewDidAppear(_ animated: Bool) {
-//        if (Auth.auth().currentUser) != nil {
-//            switchController()
-//        }
-//    }
-//    
-//    func switchController () {
-//        let vc = UIStoryboard(name:"Main", bundle:nil).instantiateViewController(withIdentifier: "menu") as! menuVC
-//        present(vc, animated: true, completion: nil)
-//    }
+    override func viewDidAppear(_ animated: Bool) {
+        if (Auth.auth().currentUser) != nil {
+            switchController()
+        }
+    }
+    
+    func switchController () {
+        let vc = UIStoryboard(name:"Main", bundle:nil).instantiateViewController(withIdentifier: "menu") as! menuVC
+        present(vc, animated: true, completion: nil)
+    }
 
     @IBAction func signInAction(_ sender: Any) {
         self.performSegue(withIdentifier: "signIn", sender: self)

@@ -282,7 +282,37 @@ class menuVC: UIViewController, UITableViewDelegate, UITableViewDataSource{
             present(vc, animated: true, completion: nil)
         }
         
-         // 9. ************ FIND FLO ***************
+            // 9. ************ FIND FLO ***************
+
+        else if menuArray[indexPath.row].name == "Log Out"{
+           
+            let VC = UIAlertController(title:nil, message: nil, preferredStyle: .actionSheet)
+            let logoutAction = UIAlertAction(title: "Log Out", style: .default, handler: { (action) in
+                
+                
+                
+                self.present( UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "HOME") as UIViewController, animated: true, completion: nil)
+                
+                let firebaseAuth = Auth.auth()
+                do {
+                    try firebaseAuth.signOut()
+                } catch let signOutError as NSError {
+                    print ("Error signing out: %@", signOutError)
+                }
+                
+            })
+            let CancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
+            VC.addAction(logoutAction)
+            VC.addAction(CancelAction)
+            
+            present(VC, animated: true, completion: nil)
+            
+            
+        }
+        
+
+        
+         // 10. ************ FIND FLO ***************
         else if menuArray[indexPath.row].name == "Find Flo"{
             let vc = UIStoryboard(name:"Main", bundle:nil).instantiateViewController(withIdentifier: "secondCommanHome") as! secondCommanHomeVC
             vc.screenImg = #imageLiteral(resourceName: "flo")
@@ -299,6 +329,8 @@ class menuVC: UIViewController, UITableViewDelegate, UITableViewDataSource{
         else {
             return
         }
+        
+        
     }
     
     func nextScreen (){
@@ -315,6 +347,7 @@ class menuVC: UIViewController, UITableViewDelegate, UITableViewDataSource{
         menuArray.append(menuObject(img: #imageLiteral(resourceName: "character"), name: "Track Character"))
         menuArray.append(menuObject(img: #imageLiteral(resourceName: "find flo"), name: "Find Flo"))
         menuArray.append(menuObject(img: #imageLiteral(resourceName: "have faith"), name: "Have Faith"))
+        menuArray.append(menuObject(img: #imageLiteral(resourceName: "logout"), name: "Log Out"))
     }
 
 }

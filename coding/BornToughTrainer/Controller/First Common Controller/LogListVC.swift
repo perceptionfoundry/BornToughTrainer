@@ -9,18 +9,46 @@
 import UIKit
 import Firebase
 
+//protocol editProtocal : class {
+//    func editFucntion(newValue : [String : String], indexValue : Int)
+//}
 protocol editProtocal : class {
-    func editFucntion(newValue : [String : String], indexValue : Int)
+    func editFucntion()
 }
 
 class LogListVC: UIViewController, UITableViewDataSource, UITableViewDelegate, editProtocal{
-    func editFucntion(newValue: [String : String], indexValue: Int) {
-      
-        LogArray[indexValue]["Title"] = newValue["Title"]
-        LogArray[indexValue]["Date"] = newValue["Date"]
-        LogArray[indexValue]["Description"] = newValue["Description"]
-        
+    
+//    func editFucntion(newValue: [String : String], indexValue: Int) {
+//
+//
+//
+//        LogArray[indexValue]["Title"] = newValue["Title"]
+//        LogArray[indexValue]["Date"] = newValue["Date"]
+//        LogArray[indexValue]["Description"] = newValue["Description"]
+//
+//        self.tableVIew.reloadData()
+//    }
+    
+    func editFucntion() {
+
+        self.LogArray.removeAll()
         self.tableVIew.reloadData()
+
+        dbRef = Database.database().reference()
+        dbHandle = dbRef.child("Log").child((Auth.auth().currentUser?.uid)!).observe(.childAdded, with: { (log_snap) in
+
+
+
+
+
+            let logvalue = log_snap.value as! [String : String]
+
+            self.LogArray.append(logvalue)
+            self.tableVIew.reloadData()
+        })
+
+
+
     }
     
     
@@ -64,6 +92,16 @@ class LogListVC: UIViewController, UITableViewDataSource, UITableViewDelegate, e
         })
     }
 
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        self.tableVIew.reloadData()
+    }
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        self.tableVIew.reloadData()
+    }
+    
+    
     @IBAction func backAction(_ sender: Any) {
         let vc = storyboard?.instantiateViewController(withIdentifier: "menu") as! menuVC
         self.present(vc, animated: true, completion: nil)
@@ -75,8 +113,8 @@ class LogListVC: UIViewController, UITableViewDataSource, UITableViewDelegate, e
     
     @IBAction func editAction(_ sender: Any) {
 //        let vc = UIStoryboard(name:"Main", bundle:nil).instantiateViewController(withIdentifier: "editLog") as! editLogVC
-//        let vc = UIStoryboard(name:"Main", bundle:nil).instantiateViewController(withIdentifier: "newLog") as! createNewLogVC
-//        present(vc, animated: true, completion: nil)
+        let vc = UIStoryboard(name:"Main", bundle:nil).instantiateViewController(withIdentifier: "newLog") as! createNewLogVC
+        present(vc, animated: true, completion: nil)
         
         
     }
@@ -93,6 +131,10 @@ class LogListVC: UIViewController, UITableViewDataSource, UITableViewDelegate, e
         }else{
             cell.backgroundColor = UIColor(red: 252/255, green: 226/255, blue: 33/255, alpha: 1)
         }
+        
+        
+        print((LogArray[indexPath.row]["Title"])!)
+        print((LogArray[indexPath.row]["Date"])!)
         
         let DisplayText = "\((LogArray[indexPath.row]["Title"])!) - \((LogArray[indexPath.row]["Date"])!)"
         cell.logTitle.text = DisplayText

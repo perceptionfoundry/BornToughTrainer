@@ -27,7 +27,7 @@ class routineListVC: UIViewController ,UITableViewDataSource, UITableViewDelegat
         tableView.dataSource = self
         
         tableView.tableFooterView = UIView()
-        tableView.separatorStyle = UITableViewCellSeparatorStyle.none
+//        tableView.separatorStyle = UITableViewCellSeparatorStyle.none
         
         
         dbRef = Database.database().reference()
@@ -69,17 +69,26 @@ class routineListVC: UIViewController ,UITableViewDataSource, UITableViewDelegat
         if indexPath.row == 0 {
             let cell = tableView.dequeueReusableCell(withIdentifier: "cellSection", for: indexPath)
             print(indexPath.row)
+            
             cell.textLabel?.text = array[indexPath.section].routineTitle
-            if (indexPath.row % 2 == 0){
-                cell.backgroundColor = UIColor(red: 252/255, green: 226/255, blue: 33/255, alpha: 0.7)
-            }else{
-                cell.backgroundColor = UIColor(red: 252/255, green: 226/255, blue: 33/255, alpha: 1)
-            }
+            cell.backgroundColor = UIColor(red: 252/255, green: 226/255, blue: 33/255, alpha: 1)
+                    tableView.separatorStyle = .singleLine
+
             return cell
         }else{
+                    tableView.separatorStyle = UITableViewCellSeparatorStyle.none
+
             let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! routineTVC
-            
+            cell.backgroundColor = UIColor(red: 252/255, green: 226/255, blue: 33/255, alpha: 0.9)
+            var lastRowIndex = array[indexPath.section].routineStep.count
             cell.routineTitle.text = array[indexPath.section].routineStep[indexPath.row - 1]
+            cell.img.image = #imageLiteral(resourceName: "l1x")
+            cell.img.contentMode = UIViewContentMode.scaleAspectFit
+            cell.routineTitle.textColor = UIColor.black
+            if (indexPath.row == lastRowIndex ){
+                cell.img.image = #imageLiteral(resourceName: "l2")
+                cell.img.contentMode = UIViewContentMode.top
+            }
             return cell
         }
     }

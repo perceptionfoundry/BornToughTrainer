@@ -11,7 +11,7 @@ import UIKit
 class gradeListVC: UIViewController, UITableViewDataSource, UITableViewDelegate {
     
     var gradeArray = [gradeObject]()
-
+    var currentController : String?
     @IBOutlet weak var tableView: UITableView!
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -26,7 +26,14 @@ class gradeListVC: UIViewController, UITableViewDataSource, UITableViewDelegate 
 
 
     @IBAction func addAction(_ sender: Any) {
-        
+        if currentController! == "flo"{
+            self.performSegue(withIdentifier: "EditFlo", sender: nil)
+        }
+            
+        else{
+            self.performSegue(withIdentifier: "EditTrack", sender: nil)
+
+        }
     }
     
     
