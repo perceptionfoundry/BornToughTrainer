@@ -13,5 +13,6 @@ pod 'Firebase/Storage'
 pod 'SDWebImage', '~> 4.0'
 pod 'IQKeyboardManager'
 pod 'CameraManager'
+pod "Player", "~> 0.8.0"
 
 end

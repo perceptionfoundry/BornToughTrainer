@@ -1686,7 +1686,7 @@ today a success?</string>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Dtv-ug-g3p">
-                                <rect key="frame" x="21" y="20" width="25" height="25"/>
+                                <rect key="frame" x="20" y="20" width="25" height="25"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="25" id="1OM-RJ-1Wc"/>
                                     <constraint firstAttribute="height" constant="25" id="3Za-YV-gNd"/>
@@ -2437,10 +2437,10 @@ today a success?</string>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="UD0-cW-WOq">
                                 <rect key="frame" x="19" y="113.5" width="337.5" height="133.5"/>
                                 <subviews>
-                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Intervivew Title" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="aPu-kJ-2jb" customClass="textFieldClass" customModule="BornToughTrainer" customModuleProvider="target">
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Interview Title" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="aPu-kJ-2jb" customClass="textFieldClass" customModule="BornToughTrainer" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="337.5" height="57"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <nil key="textColor"/>
+                                        <color key="textColor" red="0.98431372549999996" green="0.87843137250000003" blue="0.29803921570000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="20"/>
                                         <textInputTraits key="textInputTraits"/>
                                         <userDefinedRuntimeAttributes>
@@ -2461,7 +2461,7 @@ today a success?</string>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Interview Date" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="2gh-Ee-ieP" customClass="textFieldClass" customModule="BornToughTrainer" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="77" width="337.5" height="56.5"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <nil key="textColor"/>
+                                        <color key="textColor" red="0.98431372549999996" green="0.87843137250000003" blue="0.29803921570000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="20"/>
                                         <textInputTraits key="textInputTraits"/>
                                         <userDefinedRuntimeAttributes>
@@ -2550,20 +2550,56 @@ today a success?</string>
                                     <constraint firstItem="LAC-88-hSm" firstAttribute="centerX" secondItem="djm-A3-Qnc" secondAttribute="centerX" id="zSr-zW-rbh"/>
                                 </constraints>
                             </view>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Tqe-FV-TZ4">
-                                <rect key="frame" x="0.0" y="20" width="375" height="436"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" red="0.45009386540000001" green="0.98132258650000004" blue="0.4743030667" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Tqe-FV-TZ4">
+                                <rect key="frame" x="-1" y="74.5" width="375.5" height="400.5"/>
+                                <color key="backgroundColor" red="0.45009386540000001" green="0.98132258650000004" blue="0.4743030667" alpha="0.33098779965753422" colorSpace="custom" customColorSpace="sRGB"/>
                             </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ChE-Uz-yrn" customClass="Custom_View" customModule="BornToughTrainer" customModuleProvider="target">
+                                <rect key="frame" x="93.5" y="243.5" width="187.5" height="200.5"/>
+                                <subviews>
+                                    <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" animating="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="xN3-5K-Oev">
+                                        <rect key="frame" x="84" y="110.5" width="20" height="20"/>
+                                    </activityIndicatorView>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstItem="xN3-5K-Oev" firstAttribute="centerX" secondItem="ChE-Uz-yrn" secondAttribute="centerX" id="4PZ-yN-Ae9"/>
+                                    <constraint firstItem="xN3-5K-Oev" firstAttribute="centerY" secondItem="ChE-Uz-yrn" secondAttribute="centerY" multiplier="1.2" id="h3O-n2-uI4"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="C_Radius">
+                                        <real key="value" value="24"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="shadowRadius">
+                                        <real key="value" value="3"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="shadowOpacity">
+                                        <real key="value" value="1"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="size" keyPath="shadowOffset">
+                                        <size key="value" width="1" height="1"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </view>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Uploading" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9pm-72-0U8">
+                                <rect key="frame" x="144" y="333.5" width="87" height="20.5"/>
+                                <fontDescription key="fontDescription" type="system" weight="heavy" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="8IQ-Sl-lXR" firstAttribute="height" secondItem="Fgy-bZ-37a" secondAttribute="height" multiplier="0.1" id="0GG-Aa-eAA"/>
                             <constraint firstItem="djm-A3-Qnc" firstAttribute="width" secondItem="Fgy-bZ-37a" secondAttribute="width" id="1Sg-XX-YPE"/>
+                            <constraint firstItem="Tqe-FV-TZ4" firstAttribute="centerX" secondItem="Ob9-NF-mC1" secondAttribute="centerX" id="2Ra-3s-XFg"/>
                             <constraint firstItem="djm-A3-Qnc" firstAttribute="centerX" secondItem="Ob9-NF-mC1" secondAttribute="centerX" id="8Lu-0L-WO4"/>
+                            <constraint firstItem="ChE-Uz-yrn" firstAttribute="centerX" secondItem="Ob9-NF-mC1" secondAttribute="centerX" id="9UZ-It-h1f"/>
+                            <constraint firstItem="ChE-Uz-yrn" firstAttribute="centerY" secondItem="Ob9-NF-mC1" secondAttribute="centerY" id="9y9-eT-I7K"/>
                             <constraint firstItem="kZ6-uP-qxx" firstAttribute="width" secondItem="Fgy-bZ-37a" secondAttribute="width" id="Byw-tD-ahT"/>
                             <constraint firstItem="djm-A3-Qnc" firstAttribute="top" secondItem="kZ6-uP-qxx" secondAttribute="bottom" id="CdY-rf-AGw"/>
                             <constraint firstItem="qSc-i0-ti4" firstAttribute="top" secondItem="Fgy-bZ-37a" secondAttribute="top" id="FLV-7M-nWe"/>
+                            <constraint firstItem="9pm-72-0U8" firstAttribute="centerY" secondItem="ChE-Uz-yrn" secondAttribute="centerY" id="FRy-em-y2x"/>
                             <constraint firstItem="UD0-cW-WOq" firstAttribute="height" secondItem="Fgy-bZ-37a" secondAttribute="height" multiplier="0.2" id="I70-aK-lEm"/>
                             <constraint firstItem="UD0-cW-WOq" firstAttribute="centerX" secondItem="Fgy-bZ-37a" secondAttribute="centerX" id="Qe4-4S-x4g"/>
                             <constraint firstItem="kZ6-uP-qxx" firstAttribute="height" secondItem="Fgy-bZ-37a" secondAttribute="height" multiplier="0.05" id="RL3-NU-v8d"/>
@@ -2571,15 +2607,21 @@ today a success?</string>
                             <constraint firstItem="UD0-cW-WOq" firstAttribute="top" secondItem="DTO-gT-pnL" secondAttribute="bottom" id="XFU-mP-QIS"/>
                             <constraint firstItem="kZ6-uP-qxx" firstAttribute="centerX" secondItem="Ob9-NF-mC1" secondAttribute="centerX" id="Yip-lU-qN4"/>
                             <constraint firstItem="qSc-i0-ti4" firstAttribute="width" secondItem="Fgy-bZ-37a" secondAttribute="width" id="aQa-Vh-un9"/>
+                            <constraint firstItem="Tqe-FV-TZ4" firstAttribute="height" secondItem="Fgy-bZ-37a" secondAttribute="height" multiplier="0.6" id="bbb-AB-4mh"/>
                             <constraint firstItem="UD0-cW-WOq" firstAttribute="width" secondItem="Fgy-bZ-37a" secondAttribute="width" multiplier="0.9" id="fQf-Yh-NQ1"/>
                             <constraint firstItem="DTO-gT-pnL" firstAttribute="centerX" secondItem="Ob9-NF-mC1" secondAttribute="centerX" id="fmZ-Ah-jUO"/>
                             <constraint firstItem="kZ6-uP-qxx" firstAttribute="top" secondItem="UD0-cW-WOq" secondAttribute="bottom" id="gds-xr-OXZ"/>
                             <constraint firstItem="djm-A3-Qnc" firstAttribute="height" secondItem="Fgy-bZ-37a" secondAttribute="height" multiplier="0.48" id="h82-bh-pqi"/>
+                            <constraint firstItem="Tqe-FV-TZ4" firstAttribute="centerY" secondItem="Ob9-NF-mC1" secondAttribute="centerY" multiplier="0.8" id="hQu-CW-CjZ"/>
+                            <constraint firstItem="Tqe-FV-TZ4" firstAttribute="width" secondItem="Fgy-bZ-37a" secondAttribute="width" id="hrq-sp-F6o"/>
                             <constraint firstItem="DTO-gT-pnL" firstAttribute="top" secondItem="qSc-i0-ti4" secondAttribute="bottom" id="iwW-Gb-rIC"/>
+                            <constraint firstItem="ChE-Uz-yrn" firstAttribute="width" secondItem="Fgy-bZ-37a" secondAttribute="width" multiplier="0.5" id="jS9-pK-HqN"/>
                             <constraint firstItem="qSc-i0-ti4" firstAttribute="height" secondItem="Fgy-bZ-37a" secondAttribute="height" multiplier="0.12" id="nX7-Id-4uI"/>
                             <constraint firstItem="8IQ-Sl-lXR" firstAttribute="width" secondItem="Fgy-bZ-37a" secondAttribute="width" id="qG0-gx-2bD"/>
+                            <constraint firstItem="ChE-Uz-yrn" firstAttribute="height" secondItem="Fgy-bZ-37a" secondAttribute="height" multiplier="0.3" id="qVF-qD-nAz"/>
                             <constraint firstItem="qSc-i0-ti4" firstAttribute="centerX" secondItem="Fgy-bZ-37a" secondAttribute="centerX" id="r9K-O4-SB2"/>
                             <constraint firstItem="DTO-gT-pnL" firstAttribute="height" secondItem="Fgy-bZ-37a" secondAttribute="height" multiplier="0.05" id="scG-Rq-mmR"/>
+                            <constraint firstItem="9pm-72-0U8" firstAttribute="centerX" secondItem="ChE-Uz-yrn" secondAttribute="centerX" id="v8S-tA-oUi"/>
                             <constraint firstItem="8IQ-Sl-lXR" firstAttribute="centerX" secondItem="Ob9-NF-mC1" secondAttribute="centerX" id="wJD-LN-jyo"/>
                             <constraint firstAttribute="bottom" secondItem="8IQ-Sl-lXR" secondAttribute="bottom" id="xUP-PB-ti9"/>
                         </constraints>
@@ -2591,33 +2633,12 @@ today a success?</string>
                         <outlet property="interviewTitle" destination="aPu-kJ-2jb" id="n1N-wX-HyR"/>
                         <outlet property="recordButton" destination="hto-e6-zWd" id="B8u-Eb-M9F"/>
                         <outlet property="timerLbl" destination="2Wi-dq-15w" id="Xma-2n-8dg"/>
+                        <outlet property="uploadView" destination="ChE-Uz-yrn" id="JTf-iw-4c2"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="pmB-p0-AdX" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="877.60000000000002" y="3886.5067466266869"/>
-        </scene>
-        <!--View Controller-->
-        <scene sceneID="lvw-Zj-5py">
-            <objects>
-                <viewController id="8NQ-9a-O61" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="Ywv-hS-HG8">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="8tf-eM-zdn">
-                                <rect key="frame" x="56" y="165" width="266" height="232"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                            </view>
-                        </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <viewLayoutGuide key="safeArea" id="dX0-5l-tDP"/>
-                    </view>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="bKT-j3-71d" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1832.8" y="3886.5067466266869"/>
         </scene>
         <!--Routine ListVC-->
         <scene sceneID="jMn-aK-iW4">
@@ -3241,8 +3262,8 @@ today a success?</string>
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <connections>
-                                            <outlet property="pepDelete" destination="GLu-Tq-0rp" id="phG-Yn-Rjx"/>
-                                            <outlet property="pepPlay" destination="0oH-LX-xww" id="lmN-6T-ik8"/>
+                                            <outlet property="pepDelete" destination="0oH-LX-xww" id="LCO-kr-sTl"/>
+                                            <outlet property="pepPlay" destination="GLu-Tq-0rp" id="6Mc-Tv-DWZ"/>
                                             <outlet property="popTitle" destination="IXx-52-B3b" id="jPY-F4-dHI"/>
                                         </connections>
                                     </tableViewCell>
@@ -3264,11 +3285,78 @@ today a success?</string>
                     </view>
                     <connections>
                         <outlet property="tableView" destination="WVm-d8-z7V" id="lpd-Xb-XAb"/>
+                        <segue destination="MEi-7f-XdC" kind="presentation" identifier="Streaming" id="QTG-0Y-b3V"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="s9u-sy-pdL" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2774" y="3887"/>
+        </scene>
+        <!--StreamingVC-->
+        <scene sceneID="kzG-V4-Tnj">
+            <objects>
+                <viewController modalTransitionStyle="crossDissolve" modalPresentationStyle="overCurrentContext" id="MEi-7f-XdC" customClass="StreamingVC" customModule="BornToughTrainer" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="33l-Rn-Hh6">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="M9I-zF-dFj">
+                                <rect key="frame" x="9.5" y="210.5" width="356" height="266.5"/>
+                                <subviews>
+                                    <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" animating="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="Ubt-yr-evT">
+                                        <rect key="frame" x="168" y="123.5" width="20" height="20"/>
+                                    </activityIndicatorView>
+                                </subviews>
+                                <color key="backgroundColor" red="0.98431372549999996" green="0.87843137250000003" blue="0.29803921570000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstItem="Ubt-yr-evT" firstAttribute="centerY" secondItem="M9I-zF-dFj" secondAttribute="centerY" id="1pY-aI-P05"/>
+                                    <constraint firstItem="Ubt-yr-evT" firstAttribute="centerX" secondItem="M9I-zF-dFj" secondAttribute="centerX" id="DrI-Za-oC0"/>
+                                </constraints>
+                            </view>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lAJ-GV-erE">
+                                <rect key="frame" x="234.5" y="516" width="56" height="67"/>
+                                <state key="normal" image="stop">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <action selector="backButtonAction:" destination="MEi-7f-XdC" eventType="touchUpInside" id="xYv-ML-cHq"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lyo-lp-jyt">
+                                <rect key="frame" x="103.5" y="516" width="56" height="67"/>
+                                <state key="normal" image="pause">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <action selector="playNpauseButton:" destination="MEi-7f-XdC" eventType="touchUpInside" id="Yoe-4i-dua"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="0.5" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="M9I-zF-dFj" firstAttribute="centerY" secondItem="54z-pi-R0n" secondAttribute="centerY" id="1HH-Q5-cj9"/>
+                            <constraint firstItem="lyo-lp-jyt" firstAttribute="centerX" secondItem="54z-pi-R0n" secondAttribute="centerX" multiplier="0.7" id="DB6-bc-bh4"/>
+                            <constraint firstItem="lyo-lp-jyt" firstAttribute="width" secondItem="33l-Rn-Hh6" secondAttribute="width" multiplier="0.15" id="DOt-Nc-qTN"/>
+                            <constraint firstItem="lAJ-GV-erE" firstAttribute="centerY" secondItem="54z-pi-R0n" secondAttribute="centerY" multiplier="1.6" id="GlD-v0-sqz"/>
+                            <constraint firstItem="M9I-zF-dFj" firstAttribute="centerX" secondItem="54z-pi-R0n" secondAttribute="centerX" id="Jon-5I-EYL"/>
+                            <constraint firstItem="lyo-lp-jyt" firstAttribute="centerY" secondItem="54z-pi-R0n" secondAttribute="centerY" multiplier="1.6" id="Lee-il-vCc"/>
+                            <constraint firstItem="lAJ-GV-erE" firstAttribute="height" secondItem="33l-Rn-Hh6" secondAttribute="height" multiplier="0.1" id="Qbo-aH-ns1"/>
+                            <constraint firstItem="M9I-zF-dFj" firstAttribute="height" secondItem="33l-Rn-Hh6" secondAttribute="height" multiplier="0.4" id="c01-Jm-tn2"/>
+                            <constraint firstItem="lAJ-GV-erE" firstAttribute="centerX" secondItem="54z-pi-R0n" secondAttribute="centerX" multiplier="1.4" id="hyO-u7-4Va"/>
+                            <constraint firstItem="lAJ-GV-erE" firstAttribute="width" secondItem="33l-Rn-Hh6" secondAttribute="width" multiplier="0.15" id="urS-0u-wTM"/>
+                            <constraint firstItem="M9I-zF-dFj" firstAttribute="width" secondItem="33l-Rn-Hh6" secondAttribute="width" multiplier="0.95" id="wHr-Zd-M90"/>
+                            <constraint firstItem="lyo-lp-jyt" firstAttribute="height" secondItem="33l-Rn-Hh6" secondAttribute="height" multiplier="0.1" id="wXj-16-D4n"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="54z-pi-R0n"/>
+                    </view>
+                    <connections>
+                        <outlet property="StreamingView" destination="M9I-zF-dFj" id="GE0-16-4zC"/>
+                        <outlet property="pauseButton" destination="lyo-lp-jyt" id="BOE-Ng-kiR"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="A9v-pR-ywY" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3772" y="3906.2968515742132"/>
         </scene>
         <!--Commit Today ListVC-->
         <scene sceneID="vnc-uX-B98">
@@ -4081,8 +4169,10 @@ today a success?</string>
         <image name="message" width="17" height="11"/>
         <image name="mic" width="334" height="334"/>
         <image name="mode_edit - material" width="24" height="25"/>
+        <image name="pause" width="50" height="50"/>
         <image name="play - FontAwesome" width="24" height="26"/>
         <image name="right" width="15" height="12"/>
+        <image name="stop" width="50" height="50"/>
         <image name="track" width="300" height="315"/>
     </resources>
     <inferredMetricsTieBreakers>
