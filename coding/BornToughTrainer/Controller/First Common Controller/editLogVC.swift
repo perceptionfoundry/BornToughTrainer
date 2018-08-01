@@ -9,7 +9,7 @@
 import UIKit
 import Firebase
 
-class editLogVC: UIViewController {
+class editLogVC: UIViewController,  dateFetching {
 
     @IBOutlet weak var editTitle: textFieldClass2!
     @IBOutlet weak var editDate: textFieldClass2!
@@ -48,7 +48,42 @@ class editLogVC: UIViewController {
             }
             
         })
+        let tap = UITapGestureRecognizer(target: self, action: #selector(SettingDate))
+        editDate.addGestureRecognizer(tap)
     }
+    
+    
+    @objc func SettingDate(){
+        
+        performSegue(withIdentifier: "Date_Segue", sender: nil)
+        
+    }
+    
+    func dateValue(Date: String) {
+        
+        print("Date:\(Date)")
+        
+        //        self.dateValue = Date
+        self.editDate.text = Date
+    }
+    
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
+        if segue.identifier == "Date_Segue"
+        {
+            
+            let dest = segue.destination as! DateCheckinVC
+            
+            dest.dateDelegate = self
+            
+            
+        }
+        
+    }
+    
+    
+    
     @IBAction func acceptButtonAction(_ sender: Any) {
         
         let newValue = ["Title": editTitle.text!,

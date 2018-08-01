@@ -9,7 +9,7 @@
 import UIKit
 import Firebase
 
-class createNewLogVC: UIViewController {
+class createNewLogVC: UIViewController, dateFetching {
 
     @IBOutlet weak var logTitle: textFieldClass!
     @IBOutlet weak var loGDate: textFieldClass!
@@ -23,8 +23,42 @@ class createNewLogVC: UIViewController {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        
+        let tap = UITapGestureRecognizer(target: self, action: #selector(SettingDate))
+        loGDate.addGestureRecognizer(tap)
     }
 
+    
+    @objc func SettingDate(){
+        
+        performSegue(withIdentifier: "Date_Segue", sender: nil)
+        
+    }
+    
+    func dateValue(Date: String) {
+        
+        print("Date:\(Date)")
+        
+        //        self.dateValue = Date
+        self.loGDate.text = Date
+    }
+    
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
+        if segue.identifier == "Date_Segue"
+        {
+            
+            let dest = segue.destination as! DateCheckinVC
+            
+            dest.dateDelegate = self
+            
+            
+        }
+        
+        
+    }
+    
 
     @IBAction func backAction(_ sender: Any) {
         self.dismiss(animated: true, completion: nil)

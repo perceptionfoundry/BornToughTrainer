@@ -7,8 +7,18 @@
 //
 
 import UIKit
+import Firebase
 
-class EditFLoVC: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource, UITextFieldDelegate {
+
+
+
+protocol dateFetching {
+    func dateValue(Date : String)
+}
+
+
+
+class EditFLoVC: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource, UITextFieldDelegate, dateFetching {
 
     @IBOutlet weak var TitleLabel: textFieldClass2!
     @IBOutlet weak var DateLabel: textFieldClass2!
@@ -18,6 +28,8 @@ class EditFLoVC: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource,
     var pickerView = UIPickerView()
     let GradeArray = ["","A","B","C","D","E","F"]
     
+    var dbRef : DatabaseReference!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -26,8 +38,43 @@ class EditFLoVC: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource,
         pickerView.dataSource = self
         self.GradeLabel.delegate = self
         // Do any additional setup after loading the view.
+        
+        
+        let tap = UITapGestureRecognizer(target: self, action: #selector(SettingDate))
+        DateLabel.addGestureRecognizer(tap)
+        
     }
     
+    
+    @objc func SettingDate(){
+        
+        performSegue(withIdentifier: "Date_Segue", sender: nil)
+        
+    }
+    
+    func dateValue(Date: String) {
+        
+        print("Date:\(Date)")
+        
+//        self.dateValue = Date
+        self.DateLabel.text = Date
+    }
+    
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
+        if segue.identifier == "Date_Segue"
+        {
+            
+            let dest = segue.destination as! DateCheckinVC
+            
+            dest.dateDelegate = self
+            
+            
+        }
+        
+        
+    }
     
     func textFieldDidBeginEditing(_ textField: UITextField) {
         
@@ -84,6 +131,21 @@ class EditFLoVC: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource,
     
     
     @IBAction func AcceptAction(_ sender: Any) {
+        
+        dbRef = Database.database().reference()
+        
+        if (TitleLabel.text?.isEmpty != true) && (DateLabel.text?.isEmpty != true) && (GradeLabel.text?.isEmpty != true) {
+            
+            let FloInfo = ["Title": TitleLabel.text!,
+                             "Date": DateLabel.text!,
+                             "Grade": GradeLabel.text!]
+            
+            
+            dbRef.child("Flo").child((Auth.auth().currentUser?.uid)!).child(TitleLabel.text!).setValue(FloInfo)
+            
+            self.dismiss(animated: true, completion: nil)
+            
+        }
     }
     
     

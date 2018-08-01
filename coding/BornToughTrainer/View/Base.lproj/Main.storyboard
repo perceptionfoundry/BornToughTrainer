@@ -1073,6 +1073,7 @@ today a success?</string>
                         <outlet property="loGDate" destination="a4r-Qy-Z6a" id="pku-aZ-bOu"/>
                         <outlet property="logDescription" destination="bDb-em-GTI" id="xRu-IQ-oYI"/>
                         <outlet property="logTitle" destination="yeb-zo-VL3" id="vJw-y1-OxQ"/>
+                        <segue destination="Ofo-F5-qgY" kind="presentation" identifier="Date_Segue" id="8u9-2E-Zbc"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Bqy-3I-Q9h" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -1685,7 +1686,7 @@ today a success?</string>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Dtv-ug-g3p">
-                                <rect key="frame" x="20" y="20" width="25" height="25"/>
+                                <rect key="frame" x="21" y="20" width="25" height="25"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="25" id="1OM-RJ-1Wc"/>
                                     <constraint firstAttribute="height" constant="25" id="3Za-YV-gNd"/>
@@ -2917,6 +2918,7 @@ today a success?</string>
                         <outlet property="editDate" destination="Yrp-JU-Qbn" id="eLV-KH-wZy"/>
                         <outlet property="editDescription" destination="Ftv-l2-v5g" id="0n0-w7-btT"/>
                         <outlet property="editTitle" destination="WXs-VN-IoD" id="b6q-Pk-oRk"/>
+                        <segue destination="Ofo-F5-qgY" kind="presentation" identifier="Date_Segue" id="XS8-s6-mgv"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xHL-Dl-mg5" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -3775,6 +3777,7 @@ today a success?</string>
                         <outlet property="Datelabel" destination="e6a-2g-rMB" id="kwm-Tx-SYC"/>
                         <outlet property="GradeLabel" destination="t7j-Yq-D6z" id="JHe-rl-8uQ"/>
                         <outlet property="TitleLabel" destination="OvA-Kc-99Z" id="siK-gK-x6r"/>
+                        <segue destination="Ofo-F5-qgY" kind="presentation" identifier="Date_Segue" id="Oof-q9-qN3"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ctI-2r-6YS" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -3954,11 +3957,102 @@ today a success?</string>
                         <outlet property="DateLabel" destination="TID-9O-KEp" id="o0E-I1-6Ln"/>
                         <outlet property="GradeLabel" destination="qUN-5Y-T5K" id="qnL-HO-JKc"/>
                         <outlet property="TitleLabel" destination="vUn-Oi-fce" id="nOl-MA-ZFa"/>
+                        <segue destination="Ofo-F5-qgY" kind="presentation" identifier="Date_Segue" id="pz4-ZN-b85"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rF6-2W-lxo" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="3870" y="5462"/>
+        </scene>
+        <!--Date CheckinVC-->
+        <scene sceneID="AMy-sX-eYl">
+            <objects>
+                <viewController modalTransitionStyle="crossDissolve" modalPresentationStyle="overCurrentContext" id="Ofo-F5-qgY" customClass="DateCheckinVC" customModule="Social_Networking_and_Professional_Development" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="vxp-92-Iro">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="P5K-Xs-Tog" customClass="Custom_View" customModule="Social_Networking_and_Professional_Development" customModuleProvider="target">
+                                <rect key="frame" x="30" y="164" width="315" height="359"/>
+                                <subviews>
+                                    <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="dateAndTime" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="MRU-WJ-a9g">
+                                        <rect key="frame" x="-2.5" y="71.5" width="320" height="216"/>
+                                        <date key="date" timeIntervalSinceReferenceDate="549447453.60212195">
+                                            <!--2018-05-31 08:17:33 +0000-->
+                                        </date>
+                                        <connections>
+                                            <action selector="pickerAction:" destination="Ofo-F5-qgY" eventType="valueChanged" id="5Rc-Hc-WO2"/>
+                                        </connections>
+                                    </datePicker>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eTc-M7-hGJ" customClass="Custom_Button" customModule="Social_Networking_and_Professional_Development" customModuleProvider="target">
+                                        <rect key="frame" x="71" y="304" width="173" height="30"/>
+                                        <color key="backgroundColor" red="0.98431372549999996" green="0.87843137250000003" blue="0.29803921570000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <state key="normal" title="Confirm">
+                                            <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                <real key="value" value="15"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="color" keyPath="border_color">
+                                                <color key="value" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                        <connections>
+                                            <action selector="ConfirmAction:" destination="Ofo-F5-qgY" eventType="touchUpInside" id="KmM-Lk-s0C"/>
+                                        </connections>
+                                    </button>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Target Date" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0kb-yA-2DK">
+                                        <rect key="frame" x="89" y="2.5" width="138" height="34"/>
+                                        <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="26"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                        <color key="shadowColor" red="0.98431372549999996" green="0.87843137250000003" blue="0.29803921570000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <size key="shadowOffset" width="2" height="2"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" red="0.9836503379" green="0.97889840390000005" blue="0.98840227189999996" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <constraints>
+                                    <constraint firstItem="MRU-WJ-a9g" firstAttribute="centerX" secondItem="P5K-Xs-Tog" secondAttribute="centerX" id="KyM-Pj-evZ"/>
+                                    <constraint firstItem="MRU-WJ-a9g" firstAttribute="centerY" secondItem="P5K-Xs-Tog" secondAttribute="centerY" id="TbM-RS-WUN"/>
+                                    <constraint firstItem="eTc-M7-hGJ" firstAttribute="leading" secondItem="P5K-Xs-Tog" secondAttribute="leading" constant="71" id="Ztm-lO-ecd"/>
+                                    <constraint firstItem="eTc-M7-hGJ" firstAttribute="top" secondItem="MRU-WJ-a9g" secondAttribute="bottom" constant="17" id="ahe-mv-VPN"/>
+                                    <constraint firstItem="0kb-yA-2DK" firstAttribute="centerX" secondItem="P5K-Xs-Tog" secondAttribute="centerX" id="ddm-oe-66D"/>
+                                    <constraint firstAttribute="trailing" secondItem="eTc-M7-hGJ" secondAttribute="trailing" constant="71" id="e1P-nF-VnC"/>
+                                    <constraint firstItem="0kb-yA-2DK" firstAttribute="centerY" secondItem="P5K-Xs-Tog" secondAttribute="centerY" constant="-160" id="gZy-jb-wKi"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="C_Radius">
+                                        <real key="value" value="9"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="shadowRadius">
+                                        <real key="value" value="5"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="shadowOpacity">
+                                        <real key="value" value="7"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="size" keyPath="shadowOffset">
+                                        <size key="value" width="2" height="5"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="0.89362157529999997" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="OFa-45-RRv" firstAttribute="bottom" secondItem="P5K-Xs-Tog" secondAttribute="bottom" constant="144" id="Cbh-FF-ROP"/>
+                            <constraint firstItem="OFa-45-RRv" firstAttribute="trailing" secondItem="P5K-Xs-Tog" secondAttribute="trailing" constant="30" id="GM5-ed-ZZa"/>
+                            <constraint firstItem="P5K-Xs-Tog" firstAttribute="leading" secondItem="OFa-45-RRv" secondAttribute="leading" constant="30" id="SSI-1M-n72"/>
+                            <constraint firstItem="P5K-Xs-Tog" firstAttribute="top" secondItem="OFa-45-RRv" secondAttribute="top" constant="144" id="XpC-qy-VTu"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="OFa-45-RRv"/>
+                    </view>
+                    <connections>
+                        <outlet property="datePicker" destination="MRU-WJ-a9g" id="D95-re-5wF"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Qha-p3-kxW" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="6679" y="3730"/>
         </scene>
     </scenes>
     <resources>
@@ -3992,6 +4086,7 @@ today a success?</string>
         <image name="track" width="300" height="315"/>
     </resources>
     <inferredMetricsTieBreakers>
+        <segue reference="XS8-s6-mgv"/>
         <segue reference="9VE-tV-cfQ"/>
         <segue reference="RBc-g2-qKA"/>
     </inferredMetricsTieBreakers>
