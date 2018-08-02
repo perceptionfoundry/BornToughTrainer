@@ -1371,7 +1371,7 @@ today a success?</string>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="My New Talk Title" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="30C-Sb-G2o" customClass="textFieldClass" customModule="BornToughTrainer" customModuleProvider="target">
                                 <rect key="frame" x="19" y="180" width="337.5" height="66.5"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <nil key="textColor"/>
+                                <color key="textColor" red="0.98431372549999996" green="0.87843137250000003" blue="0.29803921570000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="20"/>
                                 <textInputTraits key="textInputTraits"/>
                                 <userDefinedRuntimeAttributes>
@@ -1417,6 +1417,9 @@ today a success?</string>
                                     <constraint firstAttribute="width" secondItem="KYM-Qq-eDX" secondAttribute="height" multiplier="1:1" id="7f7-bE-JOJ"/>
                                 </constraints>
                                 <state key="normal" image="mic"/>
+                                <connections>
+                                    <action selector="RecordingAction:" destination="sAR-gF-XQq" eventType="touchUpInside" id="fM9-YH-g4e"/>
+                                </connections>
                             </button>
                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="WOi-y6-oJI">
                                 <rect key="frame" x="0.0" y="600.5" width="375" height="66.5"/>
@@ -1424,6 +1427,9 @@ today a success?</string>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5vQ-fw-hqR">
                                         <rect key="frame" x="0.0" y="0.0" width="187.5" height="66.5"/>
                                         <color key="backgroundColor" red="0.99934512376785278" green="0.98562902212142944" blue="0.0016954719321802258" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <connections>
+                                            <action selector="backAction:" destination="sAR-gF-XQq" eventType="touchUpInside" id="GjE-Vm-u9S"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tna-tX-mvN">
                                         <rect key="frame" x="187.5" y="0.0" width="187.5" height="66.5"/>
@@ -1469,6 +1475,10 @@ today a success?</string>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="BuF-3B-8G5"/>
                     </view>
+                    <connections>
+                        <outlet property="PepTitle" destination="30C-Sb-G2o" id="92i-vT-4Gm"/>
+                        <outlet property="recordingButton" destination="KYM-Qq-eDX" id="aqv-Jt-pC5"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="CYR-gx-evG" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -1686,7 +1696,7 @@ today a success?</string>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Dtv-ug-g3p">
-                                <rect key="frame" x="20" y="20" width="25" height="25"/>
+                                <rect key="frame" x="21" y="20" width="25" height="25"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="25" id="1OM-RJ-1Wc"/>
                                     <constraint firstAttribute="height" constant="25" id="3Za-YV-gNd"/>
@@ -4055,12 +4065,12 @@ today a success?</string>
         <!--Date CheckinVC-->
         <scene sceneID="AMy-sX-eYl">
             <objects>
-                <viewController modalTransitionStyle="crossDissolve" modalPresentationStyle="overCurrentContext" id="Ofo-F5-qgY" customClass="DateCheckinVC" customModule="Social_Networking_and_Professional_Development" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController modalTransitionStyle="crossDissolve" modalPresentationStyle="overCurrentContext" id="Ofo-F5-qgY" customClass="DateCheckinVC" customModule="BornToughTrainer" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="vxp-92-Iro">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="P5K-Xs-Tog" customClass="Custom_View" customModule="Social_Networking_and_Professional_Development" customModuleProvider="target">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="P5K-Xs-Tog" customClass="Custom_View" customModule="BornToughTrainer" customModuleProvider="target">
                                 <rect key="frame" x="30" y="164" width="315" height="359"/>
                                 <subviews>
                                     <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="dateAndTime" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="MRU-WJ-a9g">
@@ -4072,7 +4082,7 @@ today a success?</string>
                                             <action selector="pickerAction:" destination="Ofo-F5-qgY" eventType="valueChanged" id="5Rc-Hc-WO2"/>
                                         </connections>
                                     </datePicker>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eTc-M7-hGJ" customClass="Custom_Button" customModule="Social_Networking_and_Professional_Development" customModuleProvider="target">
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eTc-M7-hGJ" customClass="Custom_Button" customModule="BornToughTrainer" customModuleProvider="target">
                                         <rect key="frame" x="71" y="304" width="173" height="30"/>
                                         <color key="backgroundColor" red="0.98431372549999996" green="0.87843137250000003" blue="0.29803921570000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <state key="normal" title="Confirm">

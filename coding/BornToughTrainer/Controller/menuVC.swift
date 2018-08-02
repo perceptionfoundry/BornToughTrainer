@@ -167,17 +167,38 @@ class menuVC: UIViewController, UITableViewDelegate, UITableViewDataSource{
         
          // 4. ************ PEP TALK ***************
         else if menuArray[indexPath.row].name == "Produce Pep Talks"{
-            let vc = UIStoryboard(name:"Main", bundle:nil).instantiateViewController(withIdentifier: "commanHome") as! commanHomeVC
-            vc.screenImg = #imageLiteral(resourceName: "mic")
-            vc.screenLblText = "Pep Talks"
-            vc.descriptionText = """
-            Recoed your own "Pep Talk" so you can hear
-            your own voice as you create a mentally
-            tough mindset for training and performance.
-            """
-            vc.btnTitle = "+ Add Pep Talk"
             
-            present(vc, animated: true, completion: nil)
+            
+            
+            dbRef.child("Audio").observe(.value) { (audio_snap) in
+                
+                if audio_snap.exists() == false{
+                    
+                    let vc = UIStoryboard(name:"Main", bundle:nil).instantiateViewController(withIdentifier: "commanHome") as! commanHomeVC
+                    vc.screenImg = #imageLiteral(resourceName: "mic")
+                    vc.screenLblText = "Pep Talks"
+                    vc.descriptionText = """
+                    Recoed your own "Pep Talk" so you can hear
+                    your own voice as you create a mentally
+                    tough mindset for training and performance.
+                    """
+                    vc.btnTitle = "+ Add Pep Talk"
+                    
+                    self.present(vc, animated: true, completion: nil)
+                    
+                }
+                    
+                else{
+                    let vc = UIStoryboard(name:"Main", bundle:nil).instantiateViewController(withIdentifier: "pepList") as! pepTalkListVC
+                    
+                    self.present(vc, animated: true, completion: nil)
+                    
+                }
+            }
+            
+            
+            
+      
         }
         
         
@@ -252,15 +273,36 @@ class menuVC: UIViewController, UITableViewDelegate, UITableViewDataSource{
             
          //7.  ************ INTERVIEW YOURSELF ***************
         else if menuArray[indexPath.row].name == "Interview Yourself"{
-            let vc = UIStoryboard(name:"Main", bundle:nil).instantiateViewController(withIdentifier: "commanHome") as! commanHomeVC
-            vc.screenImg = #imageLiteral(resourceName: "video")
-            vc.screenLblText = "Interview Yourself"
-            vc.descriptionText = """
-            Add New Interview
-            """
-            vc.btnTitle = "+ Add New Interview"
             
-            present(vc, animated: true, completion: nil)
+            
+            dbRef.child("Audio").observe(.value) { (audio_snap) in
+                
+                if audio_snap.exists() == false{
+                    
+                    let vc = UIStoryboard(name:"Main", bundle:nil).instantiateViewController(withIdentifier: "commanHome") as! commanHomeVC
+                    vc.screenImg = #imageLiteral(resourceName: "video")
+                    vc.screenLblText = "Interview Yourself"
+                    vc.descriptionText = """
+                    Add New Interview
+                    """
+                    vc.btnTitle = "+ Add New Interview"
+                    
+                    self.present(vc, animated: true, completion: nil)
+                    
+                }
+                    
+                else{
+                    let vc = UIStoryboard(name:"Main", bundle:nil).instantiateViewController(withIdentifier: "interviewList") as! interviewListVC
+                    
+                    self.present(vc, animated: true, completion: nil)
+                    
+                }
+            }
+            
+            
+            
+            
+            
         }
         
         
