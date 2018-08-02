@@ -20,7 +20,8 @@ class pepTalkListVC: UIViewController, UITableViewDelegate, UITableViewDataSourc
     
     var audioPlayer : AVPlayer!
     
-    var audioLink : URL?
+    var numberOfRecord = 0
+
     
     
     @IBOutlet weak var tableView: UITableView!
@@ -32,17 +33,25 @@ class pepTalkListVC: UIViewController, UITableViewDelegate, UITableViewDataSourc
         tableView.separatorStyle = UITableViewCellSeparatorStyle.none
         // Do any additional setup after loading the view.
         
-        dbRef = Database.database().reference()
+        if let number:Int = UserDefaults.standard.object(forKey: "recordNumber") as? Int{
+            numberOfRecord = number
+        }
         
-        dbHandle = dbRef.child("Audio").child((Auth.auth().currentUser!.uid)).observe(.childAdded, with: { (audio_snap) in
-            
-            
-            let audio_value = audio_snap.value as! [String : String]
-            
-            self.pepTalkArray.append(audio_value)
-            self.tableView.reloadData()
-            
-        })
+
+    
+        
+        
+//        dbRef = Database.database().reference()
+//
+//        dbHandle = dbRef.child("Audio").child((Auth.auth().currentUser!.uid)).observe(.childAdded, with: { (audio_snap) in
+//
+//
+//            let audio_value = audio_snap.value as! [String : String]
+//
+//            self.pepTalkArray.append(audio_value)
+//            self.tableView.reloadData()
+//
+//        })
         
     }
 
@@ -51,7 +60,7 @@ class pepTalkListVC: UIViewController, UITableViewDelegate, UITableViewDataSourc
     
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return pepTalkArray.count
+        return numberOfRecord
     }
 
     
@@ -66,7 +75,8 @@ class pepTalkListVC: UIViewController, UITableViewDelegate, UITableViewDataSourc
         }else{
             cell.backgroundColor = UIColor(red: 252/255, green: 226/255, blue: 33/255, alpha: 1)
         }
-        cell.popTitle.text = pepTalkArray[indexPath.row]["Title"]
+//        cell.popTitle.text = pepTalkArray[indexPath.row]["Title"]
+        cell.popTitle.text = String(indexPath.row + 1)
         cell.pepPlay.tag = indexPath.row
         cell.pepDelete.tag = indexPath.row
         
@@ -82,22 +92,31 @@ class pepTalkListVC: UIViewController, UITableViewDelegate, UITableViewDataSourc
         
         let indexValue = play.tag
         
-        let Track = URL(string: (pepTalkArray[indexValue]["Audio-URL"])!)
-        
+//        let Track = URL(string: (pepTalkArray[indexValue]["Audio-URL"])!)
+        let path = getDirectory().appendingPathComponent("\(indexValue + 1).m4a")
         do{
 
-            print(audioLink!)
+//            print(audioLink!)
 
 
 
-//            audioPlayer =   AVPlayer(url: URL(string: "https://jam.wapbaze.com/mp3/tag/tmp/Joyner_Lucas_ft_Chris_Brown_-_Stranger_Things[wapBaze.com].mp3")!)
-            audioPlayer =   AVPlayer(url: audioLink!)
+//          
+            
+            audioPlayer =  try AVPlayer(url: path)
 
+//            audioPlayer =   AVPlayer(url: audioLink!)
             audioPlayer.play()
         }
         catch{
 
         }
+        
+        
+        
+        
+        
+        
+        
         
 //        let docUrl:URL = (FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first as URL?)!
 //        let desURL = docUrl.appendingPathComponent("record.m4a")
@@ -129,19 +148,34 @@ class pepTalkListVC: UIViewController, UITableViewDelegate, UITableViewDataSourc
     }
     
     
+    func getDirectory() -> URL{
+        let paths = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)
+        
+        let documentDirectory = paths[0]
+        return documentDirectory
+        
+    }
+    
+    
     @objc func deleteAction(_ delete: UIButton){
         
         let indexValue = delete.tag
         
-        self.dbRef.child("Audio").child((Auth.auth().currentUser?.uid)!).child(pepTalkArray[indexValue]["Title"]!).removeValue()
-        self.pepTalkArray.remove(at: indexValue)
+
         
+//        self.dbRef.child("Audio").child((Auth.auth().currentUser?.uid)!).child(pepTalkArray[indexValue]["Title"]!).removeValue()
+//        self.pepTalkArray.remove(at: indexValue)
+//        UserDefaults.standard.removeObject(forKey: <#T##String#>)
         self.tableView.reloadData()
     }
     
     
     @IBAction func backAction(_ sender: Any) {
-        self.dismiss(animated: true, completion: nil)
+        
+        let vc = storyboard?.instantiateViewController(withIdentifier: "menu") as! menuVC
+        self.present(vc, animated: true, completion: nil)
+        
+        
     }
     @IBAction func addAction(_ sender: Any) {
         let vc = UIStoryboard(name:"Main", bundle:nil).instantiateViewController(withIdentifier: "createPepTalk") as! createPepTalkVC

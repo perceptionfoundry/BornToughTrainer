@@ -103,7 +103,10 @@ class interviewListVC: UIViewController , UITableViewDelegate, UITableViewDataSo
     
     
     @IBAction func backAction(_ sender: Any) {
-        self.dismiss(animated: true, completion: nil)
+//        self.dismiss(animated: true, completion: nil)
+        
+        let vc = storyboard?.instantiateViewController(withIdentifier: "menu") as! menuVC
+        self.present(vc, animated: true, completion: nil)
     }
     @IBAction func addAction(_ sender: Any) {
         let vc = UIStoryboard(name:"Main", bundle:nil).instantiateViewController(withIdentifier: "createInterview") as! createInterviewVC

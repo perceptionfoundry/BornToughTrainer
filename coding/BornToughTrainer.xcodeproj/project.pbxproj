@@ -46,6 +46,7 @@
 		84F6C1982100EF0400DBE976 /* setUpVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84F6C1972100EF0400DBE976 /* setUpVC.swift */; };
 		84F6C19A21010CAD00DBE976 /* gradeTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84F6C19921010CAD00DBE976 /* gradeTVC.swift */; };
 		84F6C19C21010DA600DBE976 /* gradeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84F6C19B21010DA600DBE976 /* gradeVC.swift */; };
+		F20B75BB2113298500F6733C /* audioTimer.swift in Sources */ = {isa = PBXBuildFile; fileRef = F20B75BA2113298500F6733C /* audioTimer.swift */; };
 		F226BA14210F6C1B00DE6D16 /* haveFaithVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F226BA13210F6C1B00DE6D16 /* haveFaithVC.swift */; };
 		F26A7CBC210AE90B00D6B533 /* ITC Avant Garde Gothic Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = F26A7CBB210AE90800D6B533 /* ITC Avant Garde Gothic Bold.otf */; };
 		F26A98E1210AD2700068DB31 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = F26A98E0210AD2700068DB31 /* GoogleService-Info.plist */; };
@@ -100,6 +101,7 @@
 		84F6C19921010CAD00DBE976 /* gradeTVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = gradeTVC.swift; sourceTree = "<group>"; };
 		84F6C19B21010DA600DBE976 /* gradeVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = gradeVC.swift; sourceTree = "<group>"; };
 		B291E92C049CF993D9A74872 /* Pods-BornToughTrainer.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BornToughTrainer.debug.xcconfig"; path = "Pods/Target Support Files/Pods-BornToughTrainer/Pods-BornToughTrainer.debug.xcconfig"; sourceTree = "<group>"; };
+		F20B75BA2113298500F6733C /* audioTimer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = audioTimer.swift; sourceTree = "<group>"; };
 		F226BA13210F6C1B00DE6D16 /* haveFaithVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = haveFaithVC.swift; sourceTree = "<group>"; };
 		F26A7CBB210AE90800D6B533 /* ITC Avant Garde Gothic Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "ITC Avant Garde Gothic Bold.otf"; sourceTree = "<group>"; };
 		F26A7CBD210AE90D00D6B533 /* ITC Avant Garde Gothic Medium.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "ITC Avant Garde Gothic Medium.otf"; sourceTree = "<group>"; };
@@ -171,6 +173,7 @@
 				84CF26CA20F8FE6100692B17 /* Assets.xcassets */,
 				84CF26CF20F8FE6100692B17 /* Info.plist */,
 				F26A98E0210AD2700068DB31 /* GoogleService-Info.plist */,
+				F20B75BA2113298500F6733C /* audioTimer.swift */,
 			);
 			path = BornToughTrainer;
 			sourceTree = "<group>";
@@ -438,6 +441,7 @@
 				846477E5210240FA008D9505 /* gradeListVC.swift in Sources */,
 				8432B42521039A9C00A944D6 /* LogListVC.swift in Sources */,
 				F27A85322111F11700D2E344 /* StreamingVC.swift in Sources */,
+				F20B75BB2113298500F6733C /* audioTimer.swift in Sources */,
 				84844AED210A22410053F764 /* commitTodayListVC.swift in Sources */,
 				F2CBB8EB2110BFDE0097AE3F /* EditTrackVC.swift in Sources */,
 				84CF26C620F8FE5D00692B17 /* welcomeVC.swift in Sources */,

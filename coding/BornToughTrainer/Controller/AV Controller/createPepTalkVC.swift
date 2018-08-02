@@ -15,6 +15,13 @@ class createPepTalkVC: UIViewController, AVAudioRecorderDelegate {
     @IBOutlet weak var PepTitle: textFieldClass!
     @IBOutlet weak var recordingButton: UIButton!
     
+    @IBOutlet weak var TimerLabel: UILabel!
+   
+    
+    let timing = audioTimer()
+    
+    
+    // AVRecord Vairable
     var recordingSession: AVAudioSession!
     var audioRecorder: AVAudioRecorder!
     
@@ -29,24 +36,48 @@ class createPepTalkVC: UIViewController, AVAudioRecorderDelegate {
         super.viewDidLoad()
 
         // setting up session
-        
-//        if let number : Int = UserDefaults.standard.object(forKey: "RecordNumber") as? Int{
-//
-//            numberOfRecord = number
-//        }
-        
-        
         recordingSession = AVAudioSession.sharedInstance()
         
-        AVAudioSession.sharedInstance().requestRecordPermission { (hasPermission) in
-            if hasPermission{
-                print("Accept")
+        if let number:Int = UserDefaults.standard.object(forKey: "recordNumber") as? Int{
+            numberOfRecord = number
+        }
+        
+        
+        
+        AVAudioSession.sharedInstance().requestRecordPermission { (permission) in
+            if permission {
+                print("Accepted")
             }
         }
+        
+//
+        
+        
+        
+        
+  
 
 
     }
     
+    
+    
+   @objc func UpdateElapse(timer : Timer){
+        
+        if timing .isRunnning{
+            
+            let minute = Int(timing.elaspeTimer/60)
+            let second = Int(Int(timing.elaspeTimer) % 60)
+            let tenOfSecond = Int((Int(timing.elaspeTimer) * 10) % 10)
+            
+            TimerLabel.text = String (format: "%02d:%02d", minute,second)
+            
+        }
+        
+        else{
+            timer.invalidate()
+        }
+    }
     
     
     
@@ -56,15 +87,25 @@ class createPepTalkVC: UIViewController, AVAudioRecorderDelegate {
         
         
         // Check if recording active
-        
+        if PepTitle.text?.isEmpty != true {
         if audioRecorder == nil {
             
             numberOfRecord += 1
             
             
-            let fileName  = getDirectory().appendingPathComponent("\(PepTitle.text!).m4a")
             
-    let settings = [AVFormatIDKey: Int(kAudioFormatMPEG4AAC),AVSampleRateKey: 12000,AVNumberOfChannelsKey :1,AVEncoderAudioQualityKey :AVAudioQuality.high.rawValue]
+            Timer.scheduledTimer(timeInterval: 0.1, target: self, selector: #selector(UpdateElapse), userInfo: nil, repeats: true)
+
+            timing.Start()
+            
+            
+            let fileName  = getDirectory().appendingPathComponent("\(numberOfRecord).m4a")
+            
+    
+            let settings = [AVFormatIDKey: Int(kAudioFormatMPEG4AAC),
+                            AVSampleRateKey: 12000,
+                            AVNumberOfChannelsKey :1,
+                            AVEncoderAudioQualityKey :AVAudioQuality.high.rawValue]
             
             // Start recording
             
@@ -72,6 +113,7 @@ class createPepTalkVC: UIViewController, AVAudioRecorderDelegate {
                 
                 audioRecorder = try AVAudioRecorder(url: fileName, settings: settings)
                 audioRecorder.delegate = self
+//                audioRecorder.prepareToRecord()
                 audioRecorder.record()
                 
                 // set button
@@ -86,15 +128,23 @@ class createPepTalkVC: UIViewController, AVAudioRecorderDelegate {
         
         else{
             audioRecorder.stop()
+            timing.Stop()
             audioRecorder = nil
             
             
-//            UserDefaults.standard.set(numberOfRecord, forKey: "RecordNumber")
+            UserDefaults.standard.set(numberOfRecord, forKey: "recordNumber")
+            
             
             // set button label
             recordingButton.setImage(#imageLiteral(resourceName: "Oval 4"), for: .normal)
         }
+    }
         
+        else {
+            display(alertTitle: "Title Missing", alertMessage: "please give title first")
+
+            
+        }
         
     }
     
@@ -102,12 +152,17 @@ class createPepTalkVC: UIViewController, AVAudioRecorderDelegate {
     
     // save audio
     
-    func getDirectory() -> URL{
+    func getDirectory() -> URL{ 
+        let paths = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)
         
-        let path = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)
-        let documentationDirectory = path[0]
-        return documentationDirectory
+        let documentDirectory = paths[0]
+        return documentDirectory
+
     }
+    
+    
+    
+    
     
     // Display Alert
     
@@ -132,82 +187,110 @@ class createPepTalkVC: UIViewController, AVAudioRecorderDelegate {
     
     @IBAction func addAction(_ sender: Any) {
         
-        let path = getDirectory().appendingPathComponent("\(PepTitle.text!).m4a")
-        
-        
-        print (path.absoluteString )
-        
-        var  audioInfo = ["Title": PepTitle.text!,
-                     "Audio-URL": path.absoluteString,
-                     "uID" : ""]
-        
-        
-        print(audioInfo)
-        
-        
-//        
-//        
+        let vc = UIStoryboard(name:"Main", bundle:nil).instantiateViewController(withIdentifier: "pepList") as! pepTalkListVC
+        //
+        //                vc.audioLink = path
+        //
+                        self.present(vc, animated: true, completion: nil)
+//
+//
+//
+//
+//        let path = getDirectory().appendingPathComponent("\(numberOfRecord).wav")
+//
+//
+//        print (path.absoluteString )
+//
+//        var  audioInfo = ["Title": PepTitle.text!,
+//                     "Audio-URL": path.absoluteString,
+//                     "uID" : ""]
+//
+//
+//
+//
+//
 //        let uploadMetaData = StorageMetadata()
-//        uploadMetaData.contentType = "audio/m4a"
-//        
-//        
-//        let StorageRef = self.storage.reference().child("Pep_Audio").child((Auth.auth().currentUser!.uid)).child(self.PepTitle.text!)
-//        
-//        StorageRef.putFile(from: path, metadata: uploadMetaData, completion: { (audio_meta, video_error) in
-//            
+//        uploadMetaData.contentType = "audio/wav"
+//
+//
+//        let StorageRef = self.storage.reference().child("Pep_Audio").child((Auth.auth().currentUser!.uid)).child("record")
+//
+//
+//        StorageRef.putFile(from: path, metadata: uploadMetaData) { (audio_meta, audio_error) in
+//
 //            print(audio_meta)
-//            
-//            if video_error != nil{
-//                
-//                let alert = UIAlertController(title: "ERROR!", message: video_error?.localizedDescription, preferredStyle: .alert)
-//                
+//
+//
+//            if audio_error != nil{
+//
+//                let alert = UIAlertController(title: "ERROR!", message: audio_error?.localizedDescription, preferredStyle: .alert)
+//
 //                let action = UIAlertAction(title: "OK", style: .default, handler: nil)
 //                alert.addAction(action)
-//                
+//
 //                self.present(alert, animated: true, completion: nil)
-//                
-//                
+//
+//
 //            }
-//                
+//
 //            else{
-//                
-//                
-//                
+//
+//
+//
 //                audioInfo["uID"] = (Auth.auth().currentUser?.uid)!
-//               
-//                
+//
+//
+//
+//        StorageRef.putFile(from: path.absoluteURL, metadata: uploadMetaData, completion: { (audio_meta, video_error) in
+//
+//            print(audio_meta)
+//
+//            if video_error != nil{
+//
+//                let alert = UIAlertController(title: "ERROR!", message: video_error?.localizedDescription, preferredStyle: .alert)
+//
+//                let action = UIAlertAction(title: "OK", style: .default, handler: nil)
+//                alert.addAction(action)
+//
+//                self.present(alert, animated: true, completion: nil)
+//
+//
+//            }
+//
+//            else{
+//
+//
+//
+//                audioInfo["uID"] = (Auth.auth().currentUser?.uid)!
+//
+//
 //                StorageRef.downloadURL(completion: { (audio_URl, error) in
 //                    print(audio_URl?.absoluteString)
-//                    
+//
 //                    audioInfo["Audio-URL"] = (audio_URl?.absoluteString)!
 //                    self.dbRef = Database.database().reference()
-//                    
-//                    self.dbRef.child("Audio").child((Auth.auth().currentUser?.uid)!).child(self.PepTitle.text!).setValue(audioInfo)
-//                })
-//                
-//                
-//                let vc = UIStoryboard(name:"Main", bundle:nil).instantiateViewController(withIdentifier: "pepList") as! pepTalkListVC
-//                
-//                vc.audioLink = path
-//                
-//                self.present(vc, animated: true, completion: nil)
-//                
-//                //                        let homeVC = self.storyboard?.instantiateViewController(withIdentifier: "HOME")
-//                //                        self.present(homeVC!, animated: true, completion: nil)
-//            }
-//            
-//        })
-        
-        let vc = UIStoryboard(name:"Main", bundle:nil).instantiateViewController(withIdentifier: "pepList") as! pepTalkListVC
-        
-        vc.audioLink = path
-        
-        self.present(vc, animated: true, completion: nil)
-        
-        
-//        let vc = UIStoryboard(name:"Main", bundle:nil).instantiateViewController(withIdentifier: "pepList") as! pepTalkListVC
 //
-//        present(vc, animated: true, completion: nil)
-    }
-    
+//                    self.dbRef.child("Audio").child((Auth.auth().currentUser?.uid)!).child(self.PepTitle.text!).setValue(audioInfo)
+//
+//
+//
+//                })
+////
+////
+//                let vc = UIStoryboard(name:"Main", bundle:nil).instantiateViewController(withIdentifier: "pepList") as! pepTalkListVC
+//
+//                vc.audioLink = path
+//
+//                self.present(vc, animated: true, completion: nil)
+//
+//
+//            }
+//
+//        })
+//
+//    }
+//        }
+//
+}
+
 }
