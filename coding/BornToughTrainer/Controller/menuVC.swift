@@ -275,7 +275,7 @@ class menuVC: UIViewController, UITableViewDelegate, UITableViewDataSource{
         else if menuArray[indexPath.row].name == "Interview Yourself"{
             
             
-            dbRef.child("Audio").observe(.value) { (audio_snap) in
+            dbRef.child("Interview").observe(.value) { (audio_snap) in
                 
                 if audio_snap.exists() == false{
                     
