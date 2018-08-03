@@ -173,7 +173,6 @@
 				84CF26CA20F8FE6100692B17 /* Assets.xcassets */,
 				84CF26CF20F8FE6100692B17 /* Info.plist */,
 				F26A98E0210AD2700068DB31 /* GoogleService-Info.plist */,
-				F20B75BA2113298500F6733C /* audioTimer.swift */,
 			);
 			path = BornToughTrainer;
 			sourceTree = "<group>";
@@ -203,6 +202,7 @@
 				F27A852D2111A2F900D2E344 /* Second Common Controller */,
 				F27A85302111EAE000D2E344 /* AV Controller */,
 				F27A852E2111B90B00D2E344 /* DateCheckinVC.swift */,
+				F20B75BA2113298500F6733C /* audioTimer.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
