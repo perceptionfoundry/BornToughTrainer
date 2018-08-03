@@ -31,6 +31,7 @@ class createPepTalkVC: UIViewController, AVAudioRecorderDelegate {
     
     // AVRecord Vairable
     var recordingSession: AVAudioSession!
+    
     var audioRecorder: AVAudioRecorder!
     var numberOfRecord = 0
     
@@ -54,6 +55,7 @@ class createPepTalkVC: UIViewController, AVAudioRecorderDelegate {
 
         // setting up session
         recordingSession = AVAudioSession.sharedInstance()
+        try! recordingSession.setCategory(AVAudioSessionCategoryPlayAndRecord, with: .defaultToSpeaker)
         
         if let number:Int = UserDefaults.standard.object(forKey: "recordNumber") as? Int{
             numberOfRecord = number
