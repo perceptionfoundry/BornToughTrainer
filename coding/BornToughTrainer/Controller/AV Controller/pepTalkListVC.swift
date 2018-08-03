@@ -109,7 +109,7 @@ class pepTalkListVC: UIViewController, UITableViewDelegate, UITableViewDataSourc
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! pepTalkTVC
         
         if (indexPath.row % 2 == 0){
-            cell.backgroundColor = UIColor(red: 252/255, green: 226/255, blue: 33/255, alpha: 0.5)
+            cell.backgroundColor = UIColor(red: 252/255, green: 226/255, blue: 33/255, alpha: 0.8)
         }else{
             cell.backgroundColor = UIColor(red: 252/255, green: 226/255, blue: 33/255, alpha: 1)
         }
@@ -220,6 +220,8 @@ class pepTalkListVC: UIViewController, UITableViewDelegate, UITableViewDataSourc
     @IBAction func addAction(_ sender: Any) {
         let vc = UIStoryboard(name:"Main", bundle:nil).instantiateViewController(withIdentifier: "createPepTalk") as! createPepTalkVC
         
+        vc.delegate = self
+
         present(vc, animated: true, completion: nil)
     }
     

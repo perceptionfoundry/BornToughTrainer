@@ -23,7 +23,8 @@ class createPepTalkVC: UIViewController, AVAudioRecorderDelegate {
     @IBOutlet weak var PepTitle: textFieldClass!
     @IBOutlet weak var recordingButton: UIButton!
     @IBOutlet weak var TimerLabel: UILabel!
-   
+    @IBOutlet weak var acceptButton: UIButton!
+    
     // TIMER
     let timing = audioTimer()
     
@@ -131,6 +132,7 @@ class createPepTalkVC: UIViewController, AVAudioRecorderDelegate {
             
             do{
                 
+                self.acceptButton.isEnabled = false
                 audioRecorder = try AVAudioRecorder(url: fileName, settings: settings)
                 audioRecorder.delegate = self
                 audioRecorder.prepareToRecord()
@@ -151,6 +153,8 @@ class createPepTalkVC: UIViewController, AVAudioRecorderDelegate {
         
         // STOP AUDIO
         else{
+                
+            self.acceptButton.isEnabled = true
             audioRecorder.stop()
             timing.Stop()
             audioRecorder = nil
@@ -269,7 +273,12 @@ class createPepTalkVC: UIViewController, AVAudioRecorderDelegate {
         
         print(newData)
         
+        
+    
+        
         self.delegate.updateValue(value: newData)
+        
+        
         //
                         self.present(vc, animated: true, completion: nil)
 //

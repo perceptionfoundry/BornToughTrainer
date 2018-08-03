@@ -1479,6 +1479,7 @@ today a success?</string>
                     <connections>
                         <outlet property="PepTitle" destination="30C-Sb-G2o" id="knA-Wx-3DD"/>
                         <outlet property="TimerLabel" destination="4F8-TC-ydg" id="6WD-Qx-9dV"/>
+                        <outlet property="acceptButton" destination="tna-tX-mvN" id="FBd-3F-H7z"/>
                         <outlet property="recordingButton" destination="KYM-Qq-eDX" id="Ne9-nL-WY5"/>
                     </connections>
                 </viewController>
@@ -1698,7 +1699,7 @@ today a success?</string>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Dtv-ug-g3p">
-                                <rect key="frame" x="20" y="20" width="25" height="25"/>
+                                <rect key="frame" x="21" y="20" width="25" height="25"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="25" id="1OM-RJ-1Wc"/>
                                     <constraint firstAttribute="height" constant="25" id="3Za-YV-gNd"/>
