@@ -9,15 +9,41 @@
 import UIKit
  import AVFoundation
  import Firebase
+ 
+ 
+ 
+ protocol TableUpdate {
+    
+    func updateValue (value : [String : String])
 
-class pepTalkListVC: UIViewController, UITableViewDelegate, UITableViewDataSource{
+ }
+ 
 
+class pepTalkListVC: UIViewController, UITableViewDelegate, UITableViewDataSource, TableUpdate{
+
+    
+    
+    // PROTOCOL FUNCTION INITIALIZE
+    func updateValue(value: [String : String]) {
+
+
+            self.pepTalkArray.append(value)
+            tableView.reloadData()
+
+
+
+    }
+
+    
+    
     var pepTalkArray = [[String : String]]()
     
-    
+    // FIREBASE VARIABLE
     var dbRef : DatabaseReference!
     var dbHandle : DatabaseHandle!
     
+    
+    // AUDIO PLAYER VARIABLE
     var audioPlayer : AVPlayer!
     
     var numberOfRecord = 0
@@ -35,6 +61,18 @@ class pepTalkListVC: UIViewController, UITableViewDelegate, UITableViewDataSourc
         
         if let number:Int = UserDefaults.standard.object(forKey: "recordNumber") as? Int{
             numberOfRecord = number
+            
+            
+            if let tempData = UserDefaults.standard.value(forKey: "MYRECORD") as? [[String : String]]{
+                
+                print(tempData)
+                
+                self.pepTalkArray = tempData
+                
+                tableView.reloadData()
+                
+            }
+            
         }
         
 
@@ -60,7 +98,7 @@ class pepTalkListVC: UIViewController, UITableViewDelegate, UITableViewDataSourc
     
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return numberOfRecord
+        return pepTalkArray.count
     }
 
     
@@ -75,8 +113,8 @@ class pepTalkListVC: UIViewController, UITableViewDelegate, UITableViewDataSourc
         }else{
             cell.backgroundColor = UIColor(red: 252/255, green: 226/255, blue: 33/255, alpha: 1)
         }
-//        cell.popTitle.text = pepTalkArray[indexPath.row]["Title"]
-        cell.popTitle.text = String(indexPath.row + 1)
+        cell.popTitle.text = pepTalkArray[indexPath.row]["Title"]
+//        cell.popTitle.text = String("Record \(indexPath.row + 1)")
         cell.pepPlay.tag = indexPath.row
         cell.pepDelete.tag = indexPath.row
         
@@ -88,27 +126,28 @@ class pepTalkListVC: UIViewController, UITableViewDelegate, UITableViewDataSourc
         return cell
     }
     
+    
+    
+    // FUNCTION TO PLAY AUDIO
     @objc func AudioPlayer(_ play: UIButton){
         
         let indexValue = play.tag
         
-//        let Track = URL(string: (pepTalkArray[indexValue]["Audio-URL"])!)
-        let path = getDirectory().appendingPathComponent("\(indexValue + 1).m4a")
+        let Track = (pepTalkArray[indexValue]["Path-URL"])!
+        
+        let trackerror : NSError!
+        let path = getDirectory().appendingPathComponent("\(Track).m4a")
+        
         do{
 
-//            print(audioLink!)
 
-
-
-//          
-            
             audioPlayer =  try AVPlayer(url: path)
 
 //            audioPlayer =   AVPlayer(url: audioLink!)
             audioPlayer.play()
         }
         catch{
-
+            print(trackerror.localizedDescription)
         }
         
         
@@ -164,8 +203,9 @@ class pepTalkListVC: UIViewController, UITableViewDelegate, UITableViewDataSourc
 
         
 //        self.dbRef.child("Audio").child((Auth.auth().currentUser?.uid)!).child(pepTalkArray[indexValue]["Title"]!).removeValue()
-//        self.pepTalkArray.remove(at: indexValue)
-//        UserDefaults.standard.removeObject(forKey: <#T##String#>)
+        self.pepTalkArray.remove(at: indexValue)
+        
+        UserDefaults.standard.set(self.pepTalkArray, forKey: "MYRECORD")
         self.tableView.reloadData()
     }
     

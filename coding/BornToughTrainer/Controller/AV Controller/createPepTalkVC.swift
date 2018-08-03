@@ -10,27 +10,43 @@ import UIKit
 import AVFoundation
 import Firebase
 
-class createPepTalkVC: UIViewController, AVAudioRecorderDelegate {
 
+
+
+
+class createPepTalkVC: UIViewController, AVAudioRecorderDelegate {
+   
+
+    var delegate : TableUpdate! 
+    
+    // OUTLET
     @IBOutlet weak var PepTitle: textFieldClass!
     @IBOutlet weak var recordingButton: UIButton!
-    
     @IBOutlet weak var TimerLabel: UILabel!
    
-    
+    // TIMER
     let timing = audioTimer()
     
     
     // AVRecord Vairable
     var recordingSession: AVAudioSession!
     var audioRecorder: AVAudioRecorder!
-    
-    
     var numberOfRecord = 0
     
+    
+    
+    // FireBase Variable
     var dbRef : DatabaseReference!
     let storage = Storage.storage()
 
+    
+    
+    var ArrayOfData = [[String : String]]()
+    
+    var newData = [String : String]()
+    
+    
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -50,18 +66,12 @@ class createPepTalkVC: UIViewController, AVAudioRecorderDelegate {
             }
         }
         
-//
-        
-        
-        
-        
-  
 
 
     }
     
     
-    
+    // FUNCTION THAT WILL HANDLE ELAPSE TIME
    @objc func UpdateElapse(timer : Timer){
         
         if timing .isRunnning{
@@ -81,29 +91,39 @@ class createPepTalkVC: UIViewController, AVAudioRecorderDelegate {
     
     
     
-    
+    // ACTION ON PRESS "RECORD" BUTTON
     
     @IBAction func RecordingAction(_ sender: Any) {
         
         
+        
+        
+        
         // Check if recording active
+        
         if PepTitle.text?.isEmpty != true {
-        if audioRecorder == nil {
+        
+            
+            
+            var  audioInfo = ["Title": "",
+                            "Path-URL": ""
+                            ]
+            
+            
+            if audioRecorder == nil {
             
             numberOfRecord += 1
             
             
             
-            Timer.scheduledTimer(timeInterval: 0.1, target: self, selector: #selector(UpdateElapse), userInfo: nil, repeats: true)
-
-            timing.Start()
             
             
+            // DIRECTORY WHERE RECORDED AUDIO WILL BE STORE
             let fileName  = getDirectory().appendingPathComponent("\(numberOfRecord).m4a")
             
     
             let settings = [AVFormatIDKey: Int(kAudioFormatMPEG4AAC),
-                            AVSampleRateKey: 12000,
+                            AVSampleRateKey: 32000,
                             AVNumberOfChannelsKey :1,
                             AVEncoderAudioQualityKey :AVAudioQuality.high.rawValue]
             
@@ -113,8 +133,12 @@ class createPepTalkVC: UIViewController, AVAudioRecorderDelegate {
                 
                 audioRecorder = try AVAudioRecorder(url: fileName, settings: settings)
                 audioRecorder.delegate = self
-//                audioRecorder.prepareToRecord()
+                audioRecorder.prepareToRecord()
                 audioRecorder.record()
+                
+                // START TIMER
+                Timer.scheduledTimer(timeInterval: 0.1, target: self, selector: #selector(UpdateElapse), userInfo: nil, repeats: true)
+                timing.Start()
                 
                 // set button
                 recordingButton.setImage(#imageLiteral(resourceName: "recording"), for: .normal)
@@ -125,21 +149,70 @@ class createPepTalkVC: UIViewController, AVAudioRecorderDelegate {
             }
         }
         
-        
+        // STOP AUDIO
         else{
             audioRecorder.stop()
             timing.Stop()
             audioRecorder = nil
             
             
+                // ************* SAVE AUDIO DETAIL ******************
             UserDefaults.standard.set(numberOfRecord, forKey: "recordNumber")
-            
+                
+                
+                audioInfo["Title"] = PepTitle.text!
+                audioInfo["Path-URL"] = String(numberOfRecord)
+                
+                
+                print(audioInfo)
+                self.newData = audioInfo
+                
+                print(newData)
+                
+                if let tempData = UserDefaults.standard.value(forKey: "MYRECORD") as? [[String : String]]{
+                    
+                    print(tempData)
+                    
+                    self.ArrayOfData = tempData
+                    
+                    
+                }
+                
+                
+                
+                if ArrayOfData.isEmpty == false{
+                    
+                    
+                    ArrayOfData.append(audioInfo)
+                    
+                    
+                    UserDefaults.standard.set(ArrayOfData, forKey: "MYRECORD")
+//                    self.delegate.updateValue(value: audioInfo)
+                    
+                }
+                    
+                else{
+                    
+                    ArrayOfData.append(audioInfo)
+                    
+                    UserDefaults.standard.set(ArrayOfData, forKey: "MYRECORD")
+                    
+//                    delegate.updateValue(value: audioInfo)
+                    
+                    
+                }
+                
+                
+                
+                
             
             // set button label
             recordingButton.setImage(#imageLiteral(resourceName: "Oval 4"), for: .normal)
         }
     }
         
+            
+            // ALERT FUNCTION ON MISSING TITLE
         else {
             display(alertTitle: "Title Missing", alertMessage: "please give title first")
 
@@ -150,7 +223,7 @@ class createPepTalkVC: UIViewController, AVAudioRecorderDelegate {
     
     
     
-    // save audio
+    // FUNCTION THAT WILLL HANDLE SAVED AUDIO DIRECTORY INFO
     
     func getDirectory() -> URL{ 
         let paths = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)
@@ -178,23 +251,30 @@ class createPepTalkVC: UIViewController, AVAudioRecorderDelegate {
     }
     
     
+    
+    // FUNCTION WHICH WILL RUNNING ON PRESSING BACK BUTTON
+
     @IBAction func backAction(_ sender: Any) {
         self.dismiss(animated: true, completion: nil)
     }
     
     
     
-    
+    // FUNCTION WHICH WILL RUNNING ON PRESSING ACTION BUTTON
     @IBAction func addAction(_ sender: Any) {
         
         let vc = UIStoryboard(name:"Main", bundle:nil).instantiateViewController(withIdentifier: "pepList") as! pepTalkListVC
         //
         //                vc.audioLink = path
+        
+        print(newData)
+        
+        self.delegate.updateValue(value: newData)
         //
                         self.present(vc, animated: true, completion: nil)
 //
 //
-//
+//   *****************  FIREBASE ******************
 //
 //        let path = getDirectory().appendingPathComponent("\(numberOfRecord).wav")
 //

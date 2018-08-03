@@ -2562,9 +2562,23 @@ today a success?</string>
                                     <constraint firstItem="LAC-88-hSm" firstAttribute="centerX" secondItem="djm-A3-Qnc" secondAttribute="centerX" id="zSr-zW-rbh"/>
                                 </constraints>
                             </view>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Tqe-FV-TZ4">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Tqe-FV-TZ4" customClass="Custom_View" customModule="BornToughTrainer" customModuleProvider="target">
                                 <rect key="frame" x="-1" y="74.5" width="375.5" height="400.5"/>
                                 <color key="backgroundColor" red="0.45009386540000001" green="0.98132258650000004" blue="0.4743030667" alpha="0.33098779965753422" colorSpace="custom" customColorSpace="sRGB"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="C_Radius">
+                                        <real key="value" value="1"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="shadowRadius">
+                                        <real key="value" value="1"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="shadowOpacity">
+                                        <real key="value" value="1"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="size" keyPath="shadowOffset">
+                                        <size key="value" width="1" height="1"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ChE-Uz-yrn" customClass="Custom_View" customModule="BornToughTrainer" customModuleProvider="target">
                                 <rect key="frame" x="93.5" y="243.5" width="187.5" height="200.5"/>
@@ -4189,7 +4203,7 @@ today a success?</string>
         <image name="track" width="300" height="315"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="pz4-ZN-b85"/>
+        <segue reference="9H6-pa-jBM"/>
         <segue reference="9VE-tV-cfQ"/>
         <segue reference="RBc-g2-qKA"/>
     </inferredMetricsTieBreakers>

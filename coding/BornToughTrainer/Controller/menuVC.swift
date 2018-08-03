@@ -169,32 +169,59 @@ class menuVC: UIViewController, UITableViewDelegate, UITableViewDataSource{
         else if menuArray[indexPath.row].name == "Produce Pep Talks"{
             
             
+            var check = UserDefaults.standard.value(forKey: "MYRECORD") as? [[String : String]]
             
-            dbRef.child("Audio").observe(.value) { (audio_snap) in
+            
+            print(check?.isEmpty)
+            
+            if check?.isEmpty == true {
                 
-                if audio_snap.exists() == false{
-                    
-                    let vc = UIStoryboard(name:"Main", bundle:nil).instantiateViewController(withIdentifier: "commanHome") as! commanHomeVC
-                    vc.screenImg = #imageLiteral(resourceName: "mic")
-                    vc.screenLblText = "Pep Talks"
-                    vc.descriptionText = """
-                    Recoed your own "Pep Talk" so you can hear
-                    your own voice as you create a mentally
-                    tough mindset for training and performance.
-                    """
-                    vc.btnTitle = "+ Add Pep Talk"
-                    
-                    self.present(vc, animated: true, completion: nil)
-                    
-                }
-                    
-                else{
-                    let vc = UIStoryboard(name:"Main", bundle:nil).instantiateViewController(withIdentifier: "pepList") as! pepTalkListVC
-                    
-                    self.present(vc, animated: true, completion: nil)
-                    
-                }
+                let vc = UIStoryboard(name:"Main", bundle:nil).instantiateViewController(withIdentifier: "commanHome") as! commanHomeVC
+                vc.screenImg = #imageLiteral(resourceName: "mic")
+                vc.screenLblText = "Pep Talks"
+                vc.descriptionText = """
+                Recoed your own "Pep Talk" so you can hear
+                your own voice as you create a mentally
+                tough mindset for training and performance.
+                """
+                vc.btnTitle = "+ Add Pep Talk"
+                
+                self.present(vc, animated: true, completion: nil)
+                
             }
+            
+            else{
+                let vc = UIStoryboard(name:"Main", bundle:nil).instantiateViewController(withIdentifier: "pepList") as! pepTalkListVC
+                
+                self.present(vc, animated: true, completion: nil)
+                
+            }
+            
+//            }
+//
+//            dbRef.child("Audio").observe(.value) { (audio_snap) in
+//
+//                if audio_snap.exists() == false{
+//
+//                    let vc = UIStoryboard(name:"Main", bundle:nil).instantiateViewController(withIdentifier: "commanHome") as! commanHomeVC
+//                    vc.screenImg = #imageLiteral(resourceName: "mic")
+//                    vc.screenLblText = "Pep Talks"
+//                    vc.descriptionText = """
+//                    Recoed your own "Pep Talk" so you can hear
+//                    your own voice as you create a mentally
+//                    tough mindset for training and performance.
+//                    """
+//                    vc.btnTitle = "+ Add Pep Talk"
+//
+//                    self.present(vc, animated: true, completion: nil)
+//
+//                }
+//
+//                else{
+//                    let vc = UIStoryboard(name:"Main", bundle:nil).instantiateViewController(withIdentifier: "pepList") as! pepTalkListVC
+//
+//                    self.present(vc, animated: true, completion: nil)
+//
             
             
             
