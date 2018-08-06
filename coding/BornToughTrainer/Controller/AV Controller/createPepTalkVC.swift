@@ -269,119 +269,144 @@ class createPepTalkVC: UIViewController, AVAudioRecorderDelegate {
     // FUNCTION WHICH WILL RUNNING ON PRESSING ACTION BUTTON
     @IBAction func addAction(_ sender: Any) {
         
-        let vc = UIStoryboard(name:"Main", bundle:nil).instantiateViewController(withIdentifier: "pepList") as! pepTalkListVC
-        //
-        //                vc.audioLink = path
-        
-        print(newData)
-        
-        
-    
-        
-        self.delegate.updateValue(value: newData)
-        
-        
-        //
-                        self.present(vc, animated: true, completion: nil)
+//
 //
 //
 //   *****************  FIREBASE ******************
 //
-//        let path = getDirectory().appendingPathComponent("\(numberOfRecord).wav")
 //
-//
-//        print (path.absoluteString )
-//
-//        var  audioInfo = ["Title": PepTitle.text!,
-//                     "Audio-URL": path.absoluteString,
-//                     "uID" : ""]
-//
-//
-//
-//
-//
-//        let uploadMetaData = StorageMetadata()
-//        uploadMetaData.contentType = "audio/wav"
-//
-//
-//        let StorageRef = self.storage.reference().child("Pep_Audio").child((Auth.auth().currentUser!.uid)).child("record")
-//
-//
-//        StorageRef.putFile(from: path, metadata: uploadMetaData) { (audio_meta, audio_error) in
-//
-//            print(audio_meta)
-//
-//
-//            if audio_error != nil{
-//
-//                let alert = UIAlertController(title: "ERROR!", message: audio_error?.localizedDescription, preferredStyle: .alert)
-//
-//                let action = UIAlertAction(title: "OK", style: .default, handler: nil)
-//                alert.addAction(action)
-//
-//                self.present(alert, animated: true, completion: nil)
-//
-//
-//            }
-//
-//            else{
-//
-//
-//
-//                audioInfo["uID"] = (Auth.auth().currentUser?.uid)!
-//
-//
-//
-//        StorageRef.putFile(from: path.absoluteURL, metadata: uploadMetaData, completion: { (audio_meta, video_error) in
-//
-//            print(audio_meta)
-//
-//            if video_error != nil{
-//
-//                let alert = UIAlertController(title: "ERROR!", message: video_error?.localizedDescription, preferredStyle: .alert)
-//
-//                let action = UIAlertAction(title: "OK", style: .default, handler: nil)
-//                alert.addAction(action)
-//
-//                self.present(alert, animated: true, completion: nil)
-//
-//
-//            }
-//
-//            else{
-//
-//
-//
-//                audioInfo["uID"] = (Auth.auth().currentUser?.uid)!
-//
-//
-//                StorageRef.downloadURL(completion: { (audio_URl, error) in
-//                    print(audio_URl?.absoluteString)
-//
-//                    audioInfo["Audio-URL"] = (audio_URl?.absoluteString)!
-//                    self.dbRef = Database.database().reference()
-//
-//                    self.dbRef.child("Audio").child((Auth.auth().currentUser?.uid)!).child(self.PepTitle.text!).setValue(audioInfo)
-//
-//
-//
-//                })
-////
-////
-//                let vc = UIStoryboard(name:"Main", bundle:nil).instantiateViewController(withIdentifier: "pepList") as! pepTalkListVC
-//
-//                vc.audioLink = path
-//
-//                self.present(vc, animated: true, completion: nil)
-//
-//
-//            }
-//
-//        })
-//
-//    }
-//        }
-//
-}
 
-}
+        var  audioInfo = ["Title": self.newData["Title"]!,
+                     "Path-URL": "",
+                     "uID" : ""]
+
+
+
+
+
+        let uploadMetaData = StorageMetadata()
+        uploadMetaData.contentType = "audio/m4a"
+
+
+        let StorageRef = self.storage.reference().child("Pep_Audio").child((Auth.auth().currentUser!.uid)).child(self.newData["Title"]!)
+
+
+
+      let path = getDirectory().appendingPathComponent("\(numberOfRecord).m4a")
+        
+        
+        
+                audioInfo["uID"] = (Auth.auth().currentUser?.uid)!
+
+        
+        print("*************************")
+
+        print(path)
+
+        print("*************************")
+        
+        
+        StorageRef.putFile(from: path, metadata: uploadMetaData, completion: { (audio_meta, audio_error) in
+
+            
+            
+            print("*************************")
+
+            
+            print(audio_meta)
+
+            print("*************************")
+
+            
+            // IF SOME ERROR OCCUR
+            if audio_error != nil{
+
+                let alert = UIAlertController(title: "ERROR!", message: audio_error?.localizedDescription, preferredStyle: .alert)
+
+                let action = UIAlertAction(title: "OK", style: .default, handler: nil)
+                alert.addAction(action)
+
+                self.present(alert, animated: true, completion: nil)
+
+
+            }
+                
+                
+                // IF THERE IS NO ERROR
+
+            else{
+
+
+
+                audioInfo["uID"] = (Auth.auth().currentUser?.uid)!
+
+
+                StorageRef.downloadURL(completion: { (audio_URl, error) in
+                    
+                    
+                    print(audio_URl?.absoluteString)
+
+                    audioInfo["Path-URL"] = (audio_URl?.absoluteString)!
+                    
+                    
+                    print( audioInfo["Path-URL"])
+                    
+                    
+                    self.dbRef = Database.database().reference()
+
+                    
+                    print(audioInfo)
+                    
+                    self.dbRef.child("Audio").child((Auth.auth().currentUser?.uid)!).child(self.PepTitle.text!).setValue(audioInfo)
+
+
+
+                })
+//
+//
+                let vc = UIStoryboard(name:"Main", bundle:nil).instantiateViewController(withIdentifier: "pepList") as! pepTalkListVC
+                //
+                //                vc.audioLink = path
+                
+                print(self.newData)
+                
+                self.delegate.updateValue(value: self.newData)
+                
+                
+                //
+                self.present(vc, animated: true, completion: nil)
+
+            }
+
+            
+           
+            
+            
+            
+            
+           
+            
+            
+        })
+
+        
+        // User Default
+//        let vc = UIStoryboard(name:"Main", bundle:nil).instantiateViewController(withIdentifier: "pepList") as! pepTalkListVC
+//        //
+//        //                vc.audioLink = path
+//
+//        print(newData)
+//
+//
+//
+//
+//        self.delegate.updateValue(value: newData)
+//
+//
+//        //
+//        self.present(vc, animated: true, completion: nil)
+        
+    }
+        }
+
+

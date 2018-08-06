@@ -9,8 +9,9 @@
 import UIKit
 import Firebase
 import SDWebImage
+import MessageUI
 
-class menuVC: UIViewController, UITableViewDelegate, UITableViewDataSource{
+class menuVC: UIViewController, UITableViewDelegate, UITableViewDataSource, MFMailComposeViewControllerDelegate{
 
     @IBOutlet weak var NameLabel: UILabel!
     @IBOutlet weak var TeamLabel: UILabel!
@@ -395,12 +396,62 @@ class menuVC: UIViewController, UITableViewDelegate, UITableViewDataSource{
             vc.thirdBtnTitle = "View Responses"
             present(vc, animated: true, completion: nil)
         }
+            
+            // 11. ************ Messages ***************
+
+        else if menuArray[indexPath.row].name == "Messages"{
+           print("messages")
+            
+            let mailComposeViewController = ConfigureMailController()
+            if MFMailComposeViewController.canSendMail(){
+                self.present(mailComposeViewController, animated: true, completion: nil)
+            }
+            else{
+                showMailError()
+            }
+            
+            
+            
+        }
+            
         else {
             return
         }
         
         
     }
+    
+    func ConfigureMailController() -> MFMailComposeViewController{
+        
+        let mailComposerVC = MFMailComposeViewController()
+        mailComposerVC.mailComposeDelegate = self
+        
+        mailComposerVC.setToRecipients(["admin@btt.com"])
+        mailComposerVC.setSubject("Need Assistance")
+        mailComposerVC.setMessageBody("", isHTML: false)
+        
+        return mailComposerVC
+
+    }
+    
+    
+    func showMailError(){
+        
+        let sendMailErrorAlert = UIAlertController(title: "Couldn't send mail"Ω, message: "Your device could not send mail", preferredStyle: .alert)
+        let dismiss = UIAlertAction(title: "Dismiss", style: .default, handler: nil)
+        sendMailErrorAlert.addAction(dismiss)
+        
+        self.present(sendMailErrorAlert, animated: true, completion: nil)
+        
+    }
+    
+    func mailComposeController(_ controller: MFMailComposeViewController, didFinishWith result: MFMailComposeResult, error: Error?) {
+        controller.dismiss(animated: true, completion: nil)
+    }
+    
+    
+    
+    
     
     func nextScreen (){
         

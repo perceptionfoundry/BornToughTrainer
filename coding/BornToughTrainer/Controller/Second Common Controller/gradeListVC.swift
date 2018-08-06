@@ -32,11 +32,13 @@ class gradeListVC: UIViewController, UITableViewDataSource, UITableViewDelegate 
        // gradeObject(gradeDate: "Your Character - Firday - 22 July", grade: "C"))
 
         
+        print(currentController!)
+        
         print(grading)
         
         dbRef = Database.database().reference()
         
-            if currentController == "Track"{
+            if currentController == "track"{
        
                 
                 dbHandle = dbRef.child("Track").child((Auth.auth().currentUser?.uid)!).observe(.childAdded, with: { (Track_Snap) in
