@@ -29,7 +29,7 @@ class GettingStartedVC: UIViewController, UIPickerViewDelegate, UIPickerViewData
     
     
     var pickerView = UIPickerView()
-    let levelArray = ["","Level-A","Level-B","Level-C","Level-D"]
+    let levelArray = ["","Professional","Olympic","College","High School", "Middle School","Youth","Other"]
     let Gender = ["","Male", "Female"]
     let Category = ["","Team","School","Club","Academy"]
     
@@ -121,13 +121,13 @@ class GettingStartedVC: UIViewController, UIPickerViewDelegate, UIPickerViewData
             
             if (nameTextField.text?.isEmpty != true) && (sportTextField.text?.isEmpty != true) && (levelTextField.text?.isEmpty != true) && (genderTextField.text?.isEmpty != true) && (teamTextField.text?.isEmpty != true) && (mobileTextField.text?.isEmpty != true) {
                 
-                print("***********************")
-                print(nameTextField.text)
-                print(sportTextField.text)
-                print(levelTextField.text)
-                print(genderTextField.text)
-                print(teamTextField.text)
-                print(mobileTextField.text)
+//                print("***********************")
+//                print(nameTextField.text)
+//                print(sportTextField.text)
+//                print(levelTextField.text)
+//                print(genderTextField.text)
+//                print(teamTextField.text)
+//                print(mobileTextField.text)
                 print("***********************")
                 
                 var userInfo = [ "Name": nameTextField.text!,
@@ -143,9 +143,9 @@ class GettingStartedVC: UIViewController, UIPickerViewDelegate, UIPickerViewData
                 
                 var imageData = Data()
                 
-                print(selectedProfileImage)
+//                print(selectedProfileImage)
                 
-                imageData  = UIImageJPEGRepresentation(self.selectedProfileImage!, 0.3)!
+                imageData  = UIImageJPEGRepresentation(self.selectedProfileImage!, 0.7)!
                 
                 let StorageRef = self.storage.reference().child("User_Profile").child((Auth.auth().currentUser?.uid)!).child("Profile_Image")
                 
@@ -164,6 +164,8 @@ class GettingStartedVC: UIViewController, UIPickerViewDelegate, UIPickerViewData
                         let alert = UIAlertController(title: "ERROR!", message: meta_error?.localizedDescription, preferredStyle: .alert)
 
                         let action = UIAlertAction(title: "OK", style: .default, handler: nil)
+                        
+                        alert.addAction(action)
 
                         self.present(alert, animated: true, completion: nil)
 
@@ -179,7 +181,7 @@ class GettingStartedVC: UIViewController, UIPickerViewDelegate, UIPickerViewData
 //                        userInfo["Image"] = (metaData?.downloadURL()?.description)!
                         
                         StorageRef.downloadURL(completion: { (image_URl, error) in
-                            print(image_URl?.absoluteString)
+//                            print(image_URl?.absoluteString)
                             
                             userInfo["Image-URL"] = (image_URl?.absoluteString)!
                             self.dbRef = Database.database().reference()

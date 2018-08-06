@@ -10,6 +10,8 @@ import UIKit
 
 class AllUserTableViewCell: UITableViewCell {
 
-
-
+    @IBOutlet weak var Name: UILabel!
+    
+    @IBOutlet weak var userImage: Custom_ImageView!
+    
 }

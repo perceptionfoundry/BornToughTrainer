@@ -71,7 +71,7 @@ class createIdentityVC: UIViewController, UITextViewDelegate {
                 if value["Identify-Create"] == "yes"{
                     
                     self.dbRef.child("Create-Identify").observe(.childAdded, with: { (identify_Data) in
-                        print(identify_Data.value)
+//                        print(identify_Data.value ?? <#default value#>)
                         let identify_values = identify_Data.value as! [String : String]
                         
                         self.workingToward.textColor = UIColor.black

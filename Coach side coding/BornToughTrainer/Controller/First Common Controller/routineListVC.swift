@@ -80,7 +80,7 @@ class routineListVC: UIViewController ,UITableViewDataSource, UITableViewDelegat
 
             let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! routineTVC
             cell.backgroundColor = UIColor(red: 252/255, green: 226/255, blue: 33/255, alpha: 0.9)
-            var lastRowIndex = array[indexPath.section].routineStep.count
+            let lastRowIndex = array[indexPath.section].routineStep.count
             cell.routineTitle.text = array[indexPath.section].routineStep[indexPath.row - 1]
             cell.img.image = #imageLiteral(resourceName: "l1x")
             cell.img.contentMode = UIViewContentMode.scaleAspectFit

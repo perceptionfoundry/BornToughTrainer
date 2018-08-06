@@ -7,9 +7,9 @@
 	<key>AD_UNIT_ID_FOR_INTERSTITIAL_TEST</key>
 	<string>ca-app-pub-3940256099942544/4411468910</string>
 	<key>CLIENT_ID</key>
-	<string>802230280963-ms16coknboc45132t50clvq1e9kosh06.apps.googleusercontent.com</string>
+	<string>802230280963-ocoh7p42q6burjvrvm775l559gmgbr3v.apps.googleusercontent.com</string>
 	<key>REVERSED_CLIENT_ID</key>
-	<string>com.googleusercontent.apps.802230280963-ms16coknboc45132t50clvq1e9kosh06</string>
+	<string>com.googleusercontent.apps.802230280963-ocoh7p42q6burjvrvm775l559gmgbr3v</string>
 	<key>API_KEY</key>
 	<string>AIzaSyCk7ahotCD3jluxMNAOpSJKZAW_OlpxNOw</string>
 	<key>GCM_SENDER_ID</key>
@@ -17,7 +17,7 @@
 	<key>PLIST_VERSION</key>
 	<string>1</string>
 	<key>BUNDLE_ID</key>
-	<string>com.agencybash.borntoughtrainer</string>
+	<string>com.agencybash.btt</string>
 	<key>PROJECT_ID</key>
 	<string>born-tough-trainer</string>
 	<key>STORAGE_BUCKET</key>
@@ -33,7 +33,7 @@
 	<key>IS_SIGNIN_ENABLED</key>
 	<true></true>
 	<key>GOOGLE_APP_ID</key>
-	<string>1:802230280963:ios:352db9d5baee3312</string>
+	<string>1:802230280963:ios:e45abaa1459c6de4</string>
 	<key>DATABASE_URL</key>
 	<string>https://born-tough-trainer.firebaseio.com</string>
 </dict>

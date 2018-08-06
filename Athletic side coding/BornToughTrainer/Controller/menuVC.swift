@@ -32,7 +32,7 @@ class menuVC: UIViewController, UITableViewDelegate, UITableViewDataSource, MFMa
     
     func compInit(){
         self.profileImage.layer.cornerRadius = self.profileImage.frame.size.height / 2
-        profileImage.layer.borderWidth = 3
+        profileImage.layer.borderWidth = 2
         profileImage.clipsToBounds = true
         profileImage.layer.borderColor = UIColor.white.cgColor
         
@@ -170,10 +170,10 @@ class menuVC: UIViewController, UITableViewDelegate, UITableViewDataSource, MFMa
         else if menuArray[indexPath.row].name == "Produce Pep Talks"{
             
             
-            var check = UserDefaults.standard.value(forKey: "MYRECORD") as? [[String : String]]
+            let check = UserDefaults.standard.value(forKey: "MYRECORD") as? [[String : String]]
             
             
-            print(check?.isEmpty)
+//            
             
             if check?.isEmpty == true {
                 
@@ -437,7 +437,7 @@ class menuVC: UIViewController, UITableViewDelegate, UITableViewDataSource, MFMa
     
     func showMailError(){
         
-        let sendMailErrorAlert = UIAlertController(title: "Couldn't send mail"Ω, message: "Your device could not send mail", preferredStyle: .alert)
+        let sendMailErrorAlert = UIAlertController(title: "Couldn't send mail", message: "Your device could not send mail", preferredStyle: .alert)
         let dismiss = UIAlertAction(title: "Dismiss", style: .default, handler: nil)
         sendMailErrorAlert.addAction(dismiss)
         

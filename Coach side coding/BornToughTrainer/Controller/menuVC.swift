@@ -22,9 +22,17 @@ class menuVC: UIViewController, UITableViewDelegate, UITableViewDataSource, MFMa
     var dbHandle : DatabaseHandle!
     
     
+    var appDelegate = UIApplication.shared.delegate as! AppDelegate
+    
     var menuArray = [menuObject]()
+    
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+       print( self.appDelegate.selectedUser)
+        
         compInit()
         appendInObject()
         // Do any additional setup after loading the view.
@@ -43,7 +51,7 @@ class menuVC: UIViewController, UITableViewDelegate, UITableViewDataSource, MFMa
         dbHandle = dbRef.child("User").observe(.childAdded, with: { (userData) in
             let value = userData.value as! [String : String]
 
-            if value["uID"] == (Auth.auth().currentUser?.uid)!{
+            if value["uID"] == self.appDelegate.selectedUser{
                 
                 // setting profile image
                 let imageURL = URL(string: (value["Image-URL"])!)
@@ -69,7 +77,13 @@ class menuVC: UIViewController, UITableViewDelegate, UITableViewDataSource, MFMa
     }
 
     @IBAction func backAction(_ sender: Any) {
-        self.dismiss(animated: true, completion: nil)
+//        self.dismiss(animated: true, completion: nil)
+        
+        let vc = UIStoryboard(name:"Main", bundle:nil).instantiateViewController(withIdentifier: "All User") as! AllUserVC
+        
+        present(vc, animated: true, completion: nil)
+        
+        
     }
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! menuTVC
@@ -198,30 +212,7 @@ class menuVC: UIViewController, UITableViewDelegate, UITableViewDataSource, MFMa
                 
             }
             
-//            }
 //
-//            dbRef.child("Audio").observe(.value) { (audio_snap) in
-//
-//                if audio_snap.exists() == false{
-//
-//                    let vc = UIStoryboard(name:"Main", bundle:nil).instantiateViewController(withIdentifier: "commanHome") as! commanHomeVC
-//                    vc.screenImg = #imageLiteral(resourceName: "mic")
-//                    vc.screenLblText = "Pep Talks"
-//                    vc.descriptionText = """
-//                    Recoed your own "Pep Talk" so you can hear
-//                    your own voice as you create a mentally
-//                    tough mindset for training and performance.
-//                    """
-//                    vc.btnTitle = "+ Add Pep Talk"
-//
-//                    self.present(vc, animated: true, completion: nil)
-//
-//                }
-//
-//                else{
-//                    let vc = UIStoryboard(name:"Main", bundle:nil).instantiateViewController(withIdentifier: "pepList") as! pepTalkListVC
-//
-//                    self.present(vc, animated: true, completion: nil)
 //
             
             

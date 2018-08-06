@@ -81,7 +81,7 @@ class createPepTalkVC: UIViewController, AVAudioRecorderDelegate {
             
             let minute = Int(timing.elaspeTimer/60)
             let second = Int(Int(timing.elaspeTimer) % 60)
-            let tenOfSecond = Int((Int(timing.elaspeTimer) * 10) % 10)
+//            let tenOfSecond = Int((Int(timing.elaspeTimer) * 10) % 10)
             
             TimerLabel.text = String (format: "%02d:%02d", minute,second)
             
@@ -313,7 +313,7 @@ class createPepTalkVC: UIViewController, AVAudioRecorderDelegate {
             print("*************************")
 
             
-            print(audio_meta)
+//            print(audio_meta)
 
             print("*************************")
 
@@ -344,12 +344,12 @@ class createPepTalkVC: UIViewController, AVAudioRecorderDelegate {
                 StorageRef.downloadURL(completion: { (audio_URl, error) in
                     
                     
-                    print(audio_URl?.absoluteString)
+//                    print(audio_URl?.absoluteString)
 
                     audioInfo["Path-URL"] = (audio_URl?.absoluteString)!
                     
                     
-                    print( audioInfo["Path-URL"])
+//                    print( audioInfo["Path-URL"])
                     
                     
                     self.dbRef = Database.database().reference()

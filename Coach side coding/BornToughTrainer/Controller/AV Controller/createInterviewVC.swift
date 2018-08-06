@@ -114,7 +114,7 @@ class createInterviewVC: UIViewController, dateFetching
 
             self.cameraManager.stopVideoRecording { (videoURL, error) in
                 print("***************")
-                print(error?.localizedDescription)
+//                print(error?.localizedDescription)
                 
                 print(videoURL!)
                 self.video_URL = videoURL!
@@ -132,7 +132,7 @@ class createInterviewVC: UIViewController, dateFetching
             
             let minute = Int(timing.elaspeTimer/60)
             let second = Int(Int(timing.elaspeTimer) % 60)
-            let tenOfSecond = Int((Int(timing.elaspeTimer) * 10) % 10)
+//            let tenOfSecond = Int((Int(timing.elaspeTimer) * 10) % 10)
             
             timerLbl.text = String (format: "%02d:%02d", minute,second)
             
@@ -168,7 +168,7 @@ class createInterviewVC: UIViewController, dateFetching
         
         StorageRef.putFile(from: self.video_URL!, metadata: uploadMetaData, completion: { (video_meta, video_error) in
             
-            print(video_meta)
+//            print(video_meta)
             
             if video_error != nil{
                 
@@ -190,7 +190,7 @@ class createInterviewVC: UIViewController, dateFetching
                 //                        userInfo["Image"] = (metaData?.downloadURL()?.description)!
                 
                 StorageRef.downloadURL(completion: { (image_URl, error) in
-                    print(image_URl?.absoluteString)
+//                    print(image_URl?.absoluteString)
                     
                     userInfo["Video-URL"] = (image_URl?.absoluteString)!
                     self.dbRef = Database.database().reference()

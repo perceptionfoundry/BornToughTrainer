@@ -21,6 +21,9 @@ class createIdentityVC: UIViewController, UITextViewDelegate {
     @IBOutlet weak var profileImage: UIImageView!
     
     
+    var appDelegate = UIApplication.shared.delegate as! AppDelegate
+
+    
     var dbRef : DatabaseReference!
     var dbHandle : DatabaseHandle!
     
@@ -64,14 +67,18 @@ class createIdentityVC: UIViewController, UITextViewDelegate {
         dbHandle = dbRef.child("User").observe(.childAdded, with: { (userData) in
             let value = userData.value as! [String : String]
             
-            if value["uID"] == (Auth.auth().currentUser?.uid)!{
+            if value["uID"] == self.appDelegate.selectedUser{
+               
+                
                 let imageURL = URL(string: (value["Image-URL"])!)
                 self.profileImage.sd_setImage(with: imageURL!, placeholderImage: UIImage(named: "btt-logo"), options: .progressiveDownload, completed: nil)
+                
                 
                 if value["Identify-Create"] == "yes"{
                     
                     self.dbRef.child("Create-Identify").observe(.childAdded, with: { (identify_Data) in
-                        print(identify_Data.value)
+                       
+                        if identify_Data.key == self.appDelegate.selectedUser{
                         let identify_values = identify_Data.value as! [String : String]
                         
                         self.workingToward.textColor = UIColor.black
@@ -79,9 +86,10 @@ class createIdentityVC: UIViewController, UITextViewDelegate {
                         
                         self.attitudeSlogan.textColor = UIColor.green
                         self.attitudeSlogan.text = identify_values["Slogan"]
-                        
+                        }
                     })
                 }
+             
             
             }
         })
@@ -104,8 +112,6 @@ class createIdentityVC: UIViewController, UITextViewDelegate {
         identify_Value["Working"] = self.workingToward.text!
         identify_Value["Slogan"] = self.attitudeSlogan.text!
         
-        dbRef.child("Create-Identify").child((Auth.auth().currentUser?.uid)!).setValue(identify_Value)
-        dbRef.child("User").child((Auth.auth().currentUser?.uid)!).child("Identify-Create").setValue("yes")
         
         
         let vc = UIStoryboard(name:"Main", bundle:nil).instantiateViewController(withIdentifier: "menu") as! menuVC

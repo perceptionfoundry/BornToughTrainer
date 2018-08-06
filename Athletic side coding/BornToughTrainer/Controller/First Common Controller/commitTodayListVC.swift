@@ -31,7 +31,7 @@ class commitTodayListVC: UIViewController, UITableViewDataSource, UITableViewDel
         dbHandle = dbRef.child("Commit").child((Auth.auth().currentUser!.uid)).observe(.childAdded, with: { (Commit_Snap) in
             
             
-            var commit_Value = Commit_Snap.value  as! [String : String]
+            let commit_Value = Commit_Snap.value  as! [String : String]
             self.commitTaskArray.append(commit_Value)
             
             print(self.commitTaskArray)

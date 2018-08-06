@@ -34,7 +34,6 @@ class StreamingVC: UIViewController {
         self.player.didMove(toParentViewController: self)
         self.player.fillMode = PlayerFillMode.resizeAspectFit.avFoundationType
 
-        print(url_link)
         
         self.player.url = url_link!
         self.player.playFromBeginning()

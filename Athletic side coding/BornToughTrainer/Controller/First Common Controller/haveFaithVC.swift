@@ -73,7 +73,7 @@ class haveFaithVC: UIViewController, UITextViewDelegate {
 //
                     self.dbRef.child("Faith").observe(.childAdded, with: { (Faith_Data) in
                         
-                        print(Faith_Data.value)
+//                        print(Faith_Data.value)
                         
                         if Faith_Data.value != nil
                         {

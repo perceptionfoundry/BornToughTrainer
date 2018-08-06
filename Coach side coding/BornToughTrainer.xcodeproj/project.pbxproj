@@ -56,11 +56,11 @@
 		F20DC15A2118104E00157809 /* Custom_Label.swift in Sources */ = {isa = PBXBuildFile; fileRef = F20DC1532118104E00157809 /* Custom_Label.swift */; };
 		F226BA14210F6C1B00DE6D16 /* haveFaithVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F226BA13210F6C1B00DE6D16 /* haveFaithVC.swift */; };
 		F26A7CBC210AE90B00D6B533 /* ITC Avant Garde Gothic Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = F26A7CBB210AE90800D6B533 /* ITC Avant Garde Gothic Bold.otf */; };
-		F26A98E1210AD2700068DB31 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = F26A98E0210AD2700068DB31 /* GoogleService-Info.plist */; };
 		F27A852F2111B90C00D2E344 /* DateCheckinVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F27A852E2111B90B00D2E344 /* DateCheckinVC.swift */; };
 		F27A85322111F11700D2E344 /* StreamingVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F27A85312111F11700D2E344 /* StreamingVC.swift */; };
 		F2CBB8EB2110BFDE0097AE3F /* EditTrackVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2CBB8EA2110BFDE0097AE3F /* EditTrackVC.swift */; };
 		F2CBB8ED2110BFFB0097AE3F /* EditFLoVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2CBB8EC2110BFFB0097AE3F /* EditFLoVC.swift */; };
+		F2F5FE1821188B6700E7D0A7 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = F2F5FE1721188B6700E7D0A7 /* GoogleService-Info.plist */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -118,11 +118,11 @@
 		F226BA13210F6C1B00DE6D16 /* haveFaithVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = haveFaithVC.swift; sourceTree = "<group>"; };
 		F26A7CBB210AE90800D6B533 /* ITC Avant Garde Gothic Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "ITC Avant Garde Gothic Bold.otf"; sourceTree = "<group>"; };
 		F26A7CBD210AE90D00D6B533 /* ITC Avant Garde Gothic Medium.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "ITC Avant Garde Gothic Medium.otf"; sourceTree = "<group>"; };
-		F26A98E0210AD2700068DB31 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		F27A852E2111B90B00D2E344 /* DateCheckinVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DateCheckinVC.swift; sourceTree = "<group>"; };
 		F27A85312111F11700D2E344 /* StreamingVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StreamingVC.swift; sourceTree = "<group>"; };
 		F2CBB8EA2110BFDE0097AE3F /* EditTrackVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditTrackVC.swift; sourceTree = "<group>"; };
 		F2CBB8EC2110BFFB0097AE3F /* EditFLoVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditFLoVC.swift; sourceTree = "<group>"; };
+		F2F5FE1721188B6700E7D0A7 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -184,7 +184,7 @@
 				84CF26C320F8FE5D00692B17 /* AppDelegate.swift */,
 				84CF26CA20F8FE6100692B17 /* Assets.xcassets */,
 				84CF26CF20F8FE6100692B17 /* Info.plist */,
-				F26A98E0210AD2700068DB31 /* GoogleService-Info.plist */,
+				F2F5FE1721188B6700E7D0A7 /* GoogleService-Info.plist */,
 			);
 			path = BornToughTrainer;
 			sourceTree = "<group>";
@@ -384,9 +384,9 @@
 			files = (
 				F26A7CBC210AE90B00D6B533 /* ITC Avant Garde Gothic Bold.otf in Resources */,
 				84CF26CE20F8FE6100692B17 /* LaunchScreen.storyboard in Resources */,
+				F2F5FE1821188B6700E7D0A7 /* GoogleService-Info.plist in Resources */,
 				84CF26CB20F8FE6100692B17 /* Assets.xcassets in Resources */,
 				84CF26C920F8FE5D00692B17 /* Main.storyboard in Resources */,
-				F26A98E1210AD2700068DB31 /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -649,7 +649,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.agencybash.borntoughtrainer;
+				PRODUCT_BUNDLE_IDENTIFIER = com.agencybash.bttcoach;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -668,7 +668,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.agencybash.borntoughtrainer;
+				PRODUCT_BUNDLE_IDENTIFIER = com.agencybash.bttcoach;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
