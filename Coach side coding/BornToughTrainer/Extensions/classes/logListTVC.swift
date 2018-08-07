@@ -14,7 +14,6 @@ class logListTVC: UITableViewCell {
     @IBOutlet weak var logEdit: UIButton!
     
     
-    weak var cellDelegate: editProtocal!
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

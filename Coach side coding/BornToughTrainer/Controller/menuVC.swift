@@ -25,7 +25,8 @@ class menuVC: UIViewController, UITableViewDelegate, UITableViewDataSource, MFMa
     var appDelegate = UIApplication.shared.delegate as! AppDelegate
     
     var menuArray = [menuObject]()
-    
+    var screenLblText = String()
+
     
     
     override func viewDidLoad() {
@@ -158,24 +159,24 @@ class menuVC: UIViewController, UITableViewDelegate, UITableViewDataSource, MFMa
            
             dbRef.child("Commit").observe(.value) { (commit_snap) in
                 
-                if commit_snap.exists() == false{
-                    
-                    let vc = UIStoryboard(name:"Main", bundle:nil).instantiateViewController(withIdentifier: "commanHome") as! commanHomeVC
-                    vc.screenImg = #imageLiteral(resourceName: "commit")
-                    vc.screenLblText = "Commit to Today"
-                    vc.descriptionText = """
-                    what do we have to accomplish to make
-                    today a success?
-                    """
-                    vc.btnTitle = "+ Add a New Task"
-                    self.present(vc, animated: true, completion: nil)
-                    
-                }
-                else{
+//            dbRef.child("Commit").observe(.value) { (commit_snap) in
+//
+//                if commit_snap.exists() == false{
+//
+//                    let vc = UIStoryboard(name:"Main", bundle:nil).instantiateViewController(withIdentifier: "commanHome") as! commanHomeVC
+//                    vc.screenImg = #imageLiteral(resourceName: "commit")
+//                    vc.screenLblText = "Commit to Today"
+//                    vc.descriptionText = """
+//                    what do we have to accomplish to make
+//                    today a success?
+//                    """
+//                    vc.btnTitle = "+ Add a New Task"
+//                    self.present(vc, animated: true, completion: nil)
+//
                     let vc = UIStoryboard(name:"Main", bundle:nil).instantiateViewController(withIdentifier: "commitList") as! commitTodayListVC
                     
                     self.present(vc, animated: true, completion: nil)                }
-            }
+//
         }
         
         
@@ -184,33 +185,33 @@ class menuVC: UIViewController, UITableViewDelegate, UITableViewDataSource, MFMa
         else if menuArray[indexPath.row].name == "Produce Pep Talks"{
             
             
-            var check = UserDefaults.standard.value(forKey: "MYRECORD") as? [[String : String]]
+//            
             
             
-            print(check?.isEmpty)
-            
-            if check?.isEmpty == true {
-                
-                let vc = UIStoryboard(name:"Main", bundle:nil).instantiateViewController(withIdentifier: "commanHome") as! commanHomeVC
-                vc.screenImg = #imageLiteral(resourceName: "mic")
-                vc.screenLblText = "Pep Talks"
-                vc.descriptionText = """
-                Recoed your own "Pep Talk" so you can hear
-                your own voice as you create a mentally
-                tough mindset for training and performance.
-                """
-                vc.btnTitle = "+ Add Pep Talk"
-                
-                self.present(vc, animated: true, completion: nil)
-                
-            }
-            
-            else{
+//
+//
+////
+//
+//            if check?.isEmpty == true {
+//
+//                let vc = UIStoryboard(name:"Main", bundle:nil).instantiateViewController(withIdentifier: "commanHome") as! commanHomeVC
+//                vc.screenImg = #imageLiteral(resourceName: "mic")
+//                vc.screenLblText = "Pep Talks"
+//                vc.descriptionText = """
+//                Recoed your own "Pep Talk" so you can hear
+//                your own voice as you create a mentally
+//                tough mindset for training and performance.
+//                """
+//                vc.btnTitle = "+ Add Pep Talk"
+//
+//                self.present(vc, animated: true, completion: nil)
+//
+//            }
                 let vc = UIStoryboard(name:"Main", bundle:nil).instantiateViewController(withIdentifier: "pepList") as! pepTalkListVC
                 
                 self.present(vc, animated: true, completion: nil)
                 
-            }
+//                self.present(vc, animated: true, completion: nil)
             
 //
 //
@@ -226,26 +227,26 @@ class menuVC: UIViewController, UITableViewDelegate, UITableViewDataSource, MFMa
             
             dbRef.child("Log").observe(.value) { (log_snap) in
                 
-                if log_snap.exists() == false{
+//            dbRef.child("Log").observe(.value) { (log_snap) in
+//
+//                if log_snap.exists() == false{
+//
+//                    let vc = UIStoryboard(name:"Main", bundle:nil).instantiateViewController(withIdentifier: "commanHome") as! commanHomeVC
+//                    vc.screenImg = #imageLiteral(resourceName: "log-1")
+//                    vc.screenLblText = "Log Progress"
+//                    vc.descriptionText = """
+//                    Create your Logs to help evaluate your
+//                    training and performance over time.
+//                    """
+//                    vc.btnTitle = "+ Add New Log"
+//
+//                    self.present(vc, animated: true, completion: nil)
+                
                     
-                    let vc = UIStoryboard(name:"Main", bundle:nil).instantiateViewController(withIdentifier: "commanHome") as! commanHomeVC
-                    vc.screenImg = #imageLiteral(resourceName: "log-1")
-                    vc.screenLblText = "Log Progress"
-                    vc.descriptionText = """
-                    Create your Logs to help evaluate your
-                    training and performance over time.
-                    """
-                    vc.btnTitle = "+ Add New Log"
-                    
-                    self.present(vc, animated: true, completion: nil)
-                    
-                }
-                    
-                else{
                     let vc = UIStoryboard(name:"Main", bundle:nil).instantiateViewController(withIdentifier: "logList") as! LogListVC
                     
                     self.present(vc, animated: true, completion: nil)                }
-            }
+//
             
             
             
@@ -260,28 +261,28 @@ class menuVC: UIViewController, UITableViewDelegate, UITableViewDataSource, MFMa
         else if menuArray[indexPath.row].name == "Develop Routines"{
             
             dbRef.child("Routine").observe(.value) { (log_snap) in
-                
-                if log_snap.exists() == false{
-                    
-                    let vc = UIStoryboard(name:"Main", bundle:nil).instantiateViewController(withIdentifier: "commanHome") as! commanHomeVC
-                    vc.screenImg = #imageLiteral(resourceName: "routines")
-                    vc.screenLblText = "Develop Routines"
-                    vc.descriptionText = """
-                    Create the routines you will rely on during
-                    training and performance to ensure mental
-                    toughness.
-                    """
-                    vc.btnTitle = "+ Add New Task"
-                    
-                    self.present(vc, animated: true, completion: nil)
-                    
-                }
-                
-                else
-                {
+//
+//            dbRef.child("Routine").observe(.value) { (log_snap) in
+//
+//                if log_snap.exists() == false{
+//
+//                    let vc = UIStoryboard(name:"Main", bundle:nil).instantiateViewController(withIdentifier: "commanHome") as! commanHomeVC
+//                    vc.screenImg = #imageLiteral(resourceName: "routines")
+//                    vc.screenLblText = "Develop Routines"
+//                    vc.descriptionText = """
+//                    Create the routines you will rely on during
+//                    training and performance to ensure mental
+//                    toughness.
+//                    """
+//                    vc.btnTitle = "+ Add New Task"
+//
+//                    self.present(vc, animated: true, completion: nil)
+//
+//                }
+//
                     let vc = UIStoryboard(name:"Main", bundle:nil).instantiateViewController(withIdentifier: "routineList") as! routineListVC
                     self.present(vc, animated: true, completion: nil)
-                }
+//                    let vc = UIStoryboard(name:"Main", bundle:nil).instantiateViewController(withIdentifier: "routineList") as! routineListVC
             
           
         }
@@ -296,26 +297,26 @@ class menuVC: UIViewController, UITableViewDelegate, UITableViewDataSource, MFMa
             
             dbRef.child("Interview").observe(.value) { (audio_snap) in
                 
-                if audio_snap.exists() == false{
-                    
-                    let vc = UIStoryboard(name:"Main", bundle:nil).instantiateViewController(withIdentifier: "commanHome") as! commanHomeVC
-                    vc.screenImg = #imageLiteral(resourceName: "video")
-                    vc.screenLblText = "Interview Yourself"
-                    vc.descriptionText = """
-                    Add New Interview
-                    """
-                    vc.btnTitle = "+ Add New Interview"
-                    
-                    self.present(vc, animated: true, completion: nil)
-                    
-                }
-                    
-                else{
+//            dbRef.child("Interview").observe(.value) { (audio_snap) in
+//
+//                if audio_snap.exists() == false{
+//
+//                    let vc = UIStoryboard(name:"Main", bundle:nil).instantiateViewController(withIdentifier: "commanHome") as! commanHomeVC
+//                    vc.screenImg = #imageLiteral(resourceName: "video")
+//                    vc.screenLblText = "Interview Yourself"
+//                    vc.descriptionText = """
+//                    Add New Interview
+//                    """
+//                    vc.btnTitle = "+ Add New Interview"
+//
+//                    self.present(vc, animated: true, completion: nil)
+//
+//                }
                     let vc = UIStoryboard(name:"Main", bundle:nil).instantiateViewController(withIdentifier: "interviewList") as! interviewListVC
                     
                     self.present(vc, animated: true, completion: nil)
                     
-                }
+           
             }
             
             
@@ -327,23 +328,17 @@ class menuVC: UIViewController, UITableViewDelegate, UITableViewDataSource, MFMa
         
          // 8. ************ TRACK CHARACTER ***************
         else if menuArray[indexPath.row].name == "Track Character"{
-            let vc = UIStoryboard(name:"Main", bundle:nil).instantiateViewController(withIdentifier: "secondCommanHome") as! secondCommanHomeVC
-            vc.screenImg = #imageLiteral(resourceName: "track")
-            vc.screenLblText = "Track Character"
-            vc.descriptionText = """
-            "WINNING is not a sometime thing; it's an all the
-            time thing. You don't win once in a qhile; you
-            don't do things right once in a while; you do
-            them right all of the time. winning is a habit.
-            Unfortunately, so is lodin." Vince Lombardi
-            """
-            vc.firstBtnTitle = "Set up Tracker"
-            vc.secongBtnTitle = "Enter Grade"
-            vc.thirdBtnTitle = "View Responses"
-            present(vc, animated: true, completion: nil)
+            
+            let vc = UIStoryboard(name:"Main", bundle:nil).instantiateViewController(withIdentifier: "gradeList") as! gradeListVC
+//
+//
+                vc.currentController = "track"
+                present(vc, animated: true, completion: nil)
+            
+//
         }
         
-            // 9. ************ FIND FLO ***************
+            // 9. ************ LogOut ***************
 
         else if menuArray[indexPath.row].name == "Log Out"{
            
@@ -375,17 +370,18 @@ class menuVC: UIViewController, UITableViewDelegate, UITableViewDataSource, MFMa
         
          // 10. ************ FIND FLO ***************
         else if menuArray[indexPath.row].name == "Find Flo"{
-            let vc = UIStoryboard(name:"Main", bundle:nil).instantiateViewController(withIdentifier: "secondCommanHome") as! secondCommanHomeVC
-            vc.screenImg = #imageLiteral(resourceName: "flo")
-            vc.screenLblText = "Find Flo"
-            vc.descriptionText = """
-            Keeping 100% of your focus in the present
-            moment is the key to competing at your best.
-            """
-            vc.firstBtnTitle = "Set up Flo Tracker"
-            vc.secongBtnTitle = "Enter Grade"
-            vc.thirdBtnTitle = "View Responses"
-            present(vc, animated: true, completion: nil)
+            
+            
+            let vc = UIStoryboard(name:"Main", bundle:nil).instantiateViewController(withIdentifier: "gradeList") as! gradeListVC
+           
+                vc.currentController = "flo"
+                
+                present(vc, animated: true, completion: nil)
+           
+                
+                
+       
+//
         }
             
             // 11. ************ Messages ***************

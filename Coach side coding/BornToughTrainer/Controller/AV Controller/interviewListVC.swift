@@ -19,6 +19,9 @@ class interviewListVC: UIViewController , UITableViewDelegate, UITableViewDataSo
     
     var selectedVideoURL : URL?
     
+    var appDelegate = UIApplication.shared.delegate as! AppDelegate
+
+    
     
     @IBOutlet weak var tableView: UITableView!
     
@@ -33,10 +36,11 @@ class interviewListVC: UIViewController , UITableViewDelegate, UITableViewDataSo
         // Do any additional setup after loading the view.
         
         
+        let userUID = appDelegate.selectedUser
         
         dbRef = Database.database().reference()
         
-        dbHandle = dbRef.child("Interview").child((Auth.auth().currentUser?.uid)!).observe(.childAdded, with: { (interview_snap) in
+        dbHandle = dbRef.child("Interview").child(userUID).observe(.childAdded, with: { (interview_snap) in
             
             let interview_value = interview_snap.value as! [String : String]
             
@@ -61,10 +65,9 @@ class interviewListVC: UIViewController , UITableViewDelegate, UITableViewDataSo
         cell.popTitle.text = interviewArray[indexPath.row]["Name"]
         
         cell.pepPlay.tag = indexPath.row
-        cell.pepDelete.tag = indexPath.row
         
         cell.pepPlay.addTarget(self, action: #selector(PlayAction), for: .touchUpInside)
-        cell.pepDelete.addTarget(self, action: #selector(deleteAction), for: .touchUpInside)
+//        cell.pepDelete.addTarget(self, action: #selector(deleteAction), for: .touchUpInside)
         
         
         return cell
@@ -103,15 +106,13 @@ class interviewListVC: UIViewController , UITableViewDelegate, UITableViewDataSo
     
     
     @IBAction func backAction(_ sender: Any) {
-//        self.dismiss(animated: true, completion: nil)
         
         let vc = storyboard?.instantiateViewController(withIdentifier: "menu") as! menuVC
         self.present(vc, animated: true, completion: nil)
     }
+    
     @IBAction func addAction(_ sender: Any) {
-        let vc = UIStoryboard(name:"Main", bundle:nil).instantiateViewController(withIdentifier: "createInterview") as! createInterviewVC
-        
-        present(vc, animated: true, completion: nil)
+//
     }
     
 }
