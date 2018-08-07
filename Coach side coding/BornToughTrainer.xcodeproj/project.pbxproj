@@ -149,23 +149,14 @@
 			children = (
 				F26A7CBA210AE8FB00D6B533 /* Fonts */,
 				84CF26D920F90D8800692B17 /* Extensions */,
-				84CF26D820F90D8000692B17 /* Services */,
 				84CF26D720F90D7500692B17 /* Controller */,
 				84CF26D620F90D7000692B17 /* View */,
-				84CF26D520F90D6900692B17 /* Model */,
 				84CF26C320F8FE5D00692B17 /* AppDelegate.swift */,
 				84CF26CA20F8FE6100692B17 /* Assets.xcassets */,
 				84CF26CF20F8FE6100692B17 /* Info.plist */,
 				F2F5FE1721188B6700E7D0A7 /* GoogleService-Info.plist */,
 			);
 			path = BornToughTrainer;
-			sourceTree = "<group>";
-		};
-		84CF26D520F90D6900692B17 /* Model */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Model;
 			sourceTree = "<group>";
 		};
 		84CF26D620F90D7000692B17 /* View */ = {
@@ -193,13 +184,6 @@
 				F27A85302111EAE000D2E344 /* AV Controller */,
 			);
 			path = Controller;
-			sourceTree = "<group>";
-		};
-		84CF26D820F90D8000692B17 /* Services */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Services;
 			sourceTree = "<group>";
 		};
 		84CF26D920F90D8800692B17 /* Extensions */ = {

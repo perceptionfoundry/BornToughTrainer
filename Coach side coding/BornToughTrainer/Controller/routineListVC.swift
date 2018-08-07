@@ -32,7 +32,6 @@ class routineListVC: UIViewController ,UITableViewDataSource, UITableViewDelegat
         tableView.dataSource = self
         
         tableView.tableFooterView = UIView()
-//        tableView.separatorStyle = UITableViewCellSeparatorStyle.none
         
         
         dbRef = Database.database().reference()
@@ -55,10 +54,6 @@ class routineListVC: UIViewController ,UITableViewDataSource, UITableViewDelegat
             
         })
         
-//        array.append(routineObject(routineTitle: "Routine 1", routineStep: ["step 01","step 02","step 03"], open: false))
-//        array.append(routineObject(routineTitle: "Routine 1", routineStep: ["step 01","step 02","step 03"], open: false))
-//        array.append(routineObject(routineTitle: "Routine 1", routineStep: ["step 01","step 02","step 03"], open: false))
-        // Do any additional setup after loading the view.
     }
 
     func numberOfSections(in tableView: UITableView) -> Int {

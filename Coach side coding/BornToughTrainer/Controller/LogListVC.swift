@@ -127,9 +127,7 @@ class LogListVC: UIViewController, UITableViewDataSource, UITableViewDelegate{
         
         let DisplayText = "\((LogArray[indexPath.row]["Title"])!) - \((LogArray[indexPath.row]["Date"])!)"
         cell.logTitle.text = DisplayText
-        
-//        cell.logEdit.tag = indexPath.row
-//        cell.logEdit.addTarget(self, action: #selector(EditingAction), for: .touchUpInside)
+
         
         return cell
     }
@@ -145,15 +143,6 @@ class LogListVC: UIViewController, UITableViewDataSource, UITableViewDelegate{
 
     }
     
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "Edit_Segue"
-        {
-//            let dest = segue.destination as! editLogVC
-//            dest.segueTitle = self.selectedTitle
-//            dest.segueIndex = self.selectedIndex
-//            
-//            dest.delegate = self
-        }
-    }
+ 
     
 }

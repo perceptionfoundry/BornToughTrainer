@@ -67,7 +67,6 @@ class AllUserVC: UIViewController, UITableViewDataSource,UITableViewDelegate {
         cell.Name.text  = userList[indexPath.row]["Name"]
         
         
-//        print(userList[indexPath.row]["Image_URL"]!)
         
         
         let imageURL = userList[indexPath.row]["Image-URL"]
