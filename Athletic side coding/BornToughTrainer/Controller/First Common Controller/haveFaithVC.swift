@@ -75,8 +75,11 @@ class haveFaithVC: UIViewController, UITextViewDelegate {
                         
 //                        print(Faith_Data.value)
                         
-                        if Faith_Data.value != nil
+                        if (Faith_Data.key == Auth.auth().currentUser?.uid) && (Faith_Data.value != nil)
                         {
+                            
+                            
+                            
                         let identify_values = Faith_Data.value as! [String : String]
 
                         self.workingToward.textColor = UIColor.green
@@ -84,6 +87,7 @@ class haveFaithVC: UIViewController, UITextViewDelegate {
 
                         self.attitudeSlogan.textColor = UIColor.green
                         self.attitudeSlogan.text = identify_values["Slogan"]
+                     
                         }
                     })
 

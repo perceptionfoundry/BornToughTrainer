@@ -328,10 +328,31 @@ class menuVC: UIViewController, UITableViewDelegate, UITableViewDataSource, MFMa
         let mailComposerVC = MFMailComposeViewController()
         mailComposerVC.mailComposeDelegate = self
         
-        mailComposerVC.setToRecipients(["admin@btt.com"])
-        mailComposerVC.setSubject("Need Assistance")
-        mailComposerVC.setMessageBody("", isHTML: false)
         
+        // fetch mail address
+        
+        dbRef.child("User").observe(.childAdded) { (email_snap) in
+            
+            var value = email_snap.value as! [String : String]
+            
+            if value["uID"] == self.appDelegate.selectedUser{
+            
+            let selectedEmail = value["Email"]
+                mailComposerVC.setToRecipients([selectedEmail!])
+                mailComposerVC.setSubject("Message from BTT-Coach:")
+                mailComposerVC.setMessageBody("", isHTML: false)
+            }
+            
+            
+            
+        }
+        
+//        }
+//
+//        mailComposerVC.setToRecipients(["admin@btt.com"])
+//        mailComposerVC.setSubject("Need Assistance")
+//        mailComposerVC.setMessageBody("", isHTML: false)
+
         return mailComposerVC
 
     }

@@ -12,6 +12,7 @@ import UIKit
  
  
  
+ 
  protocol TableUpdate {
     
     func updateValue (value : [String : String])
@@ -19,7 +20,7 @@ import UIKit
  }
  
 
-class pepTalkListVC: UIViewController, UITableViewDelegate, UITableViewDataSource, TableUpdate{
+class pepTalkListVC: UIViewController, UITableViewDelegate, UITableViewDataSource, TableUpdate, AVAudioPlayerDelegate{
 
     
     
@@ -39,6 +40,8 @@ class pepTalkListVC: UIViewController, UITableViewDelegate, UITableViewDataSourc
     
     var pepTalkArray = [[String : String]]()
     
+    var lastButton : Int?
+    
     // FIREBASE VARIABLE
     var dbRef : DatabaseReference!
     var dbHandle : DatabaseHandle!
@@ -52,6 +55,9 @@ class pepTalkListVC: UIViewController, UITableViewDelegate, UITableViewDataSourc
     
     
     @IBOutlet weak var tableView: UITableView!
+  
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.delegate = self
@@ -102,7 +108,8 @@ class pepTalkListVC: UIViewController, UITableViewDelegate, UITableViewDataSourc
         }
         cell.popTitle.text = pepTalkArray[indexPath.row]["Title"]
         cell.pepPlay.tag = indexPath.row
-        
+        cell.pepPlay.isEnabled = false
+        cell.pepPlay.setImage(#imageLiteral(resourceName: "audioPlay"), for: .normal)
         cell.selectionStyle = .none
         
         cell.pepPlay.addTarget(self, action: #selector(AudioPlayer), for: .touchUpInside)
@@ -115,7 +122,15 @@ class pepTalkListVC: UIViewController, UITableViewDelegate, UITableViewDataSourc
     // FUNCTION TO PLAY AUDIO
     @objc func AudioPlayer(_ play: UIButton){
         
+
+        
+        
+        
         let indexValue = play.tag
+        
+        play.setImage(#imageLiteral(resourceName: "audioStop"), for: .normal)
+        
+    
         
         let Track = (pepTalkArray[indexValue]["Path-URL"])!
         
@@ -124,7 +139,8 @@ class pepTalkListVC: UIViewController, UITableViewDelegate, UITableViewDataSourc
         
         
         let trackerror : NSError!
-//        let path = getDirectory().appendingPathComponent("\(Track).m4a")
+        
+        
         
         do{
 
@@ -140,22 +156,15 @@ class pepTalkListVC: UIViewController, UITableViewDelegate, UITableViewDataSourc
   
     }
     
-    
-    func getDirectory() -> URL{
-        let paths = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)
-        
-        let documentDirectory = paths[0]
-        return documentDirectory
-        
-    }
-    
-    
 
-    
-    
     @IBAction func backAction(_ sender: Any) {
         
-        let vc = storyboard?.instantiateViewController(withIdentifier: "menu") as! menuVC
+        
+        if audioPlayer != nil{
+            self.audioPlayer.pause()
+
+        }
+      let vc = storyboard?.instantiateViewController(withIdentifier: "menu") as! menuVC
         self.present(vc, animated: true, completion: nil)
         
         

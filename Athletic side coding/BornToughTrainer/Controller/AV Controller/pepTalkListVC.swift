@@ -58,38 +58,22 @@ class pepTalkListVC: UIViewController, UITableViewDelegate, UITableViewDataSourc
         tableView.tableFooterView = UIView()
         tableView.separatorStyle = UITableViewCellSeparatorStyle.none
         // Do any additional setup after loading the view.
-        
-        if let number:Int = UserDefaults.standard.object(forKey: "recordNumber") as? Int{
-            numberOfRecord = number
-            
-            
-            if let tempData = UserDefaults.standard.value(forKey: "MYRECORD") as? [[String : String]]{
-                
-                print(tempData)
-                
-                self.pepTalkArray = tempData
-                
-                tableView.reloadData()
-                
-            }
-            
-        }
+      
         
 
     
         
         
-//        dbRef = Database.database().reference()
-//
-//        dbHandle = dbRef.child("Audio").child((Auth.auth().currentUser!.uid)).observe(.childAdded, with: { (audio_snap) in
-//
-//
-//            let audio_value = audio_snap.value as! [String : String]
-//
-//            self.pepTalkArray.append(audio_value)
-//            self.tableView.reloadData()
-//
-//        })
+        dbRef = Database.database().reference()
+
+        dbHandle = dbRef.child("Audio").child((Auth.auth().currentUser!.uid)).observe(.childAdded, with: { (audio_snap) in
+
+
+            let audio_value = audio_snap.value as! [String : String]
+            
+            self.pepTalkArray.append(audio_value)
+            self.tableView.reloadData()
+        })
         
     }
 
@@ -135,65 +119,28 @@ class pepTalkListVC: UIViewController, UITableViewDelegate, UITableViewDataSourc
         
         let Track = (pepTalkArray[indexValue]["Path-URL"])!
         
+        
+        let path = URL(string: Track)
+        
+        
         let trackerror : NSError!
-        let path = getDirectory().appendingPathComponent("\(Track).m4a")
         
         do{
-
-
-            audioPlayer =  try AVPlayer(url: path)
-
-//            audioPlayer =   AVPlayer(url: audioLink!)
+            
+            print(path!)
+            
+            audioPlayer =  try AVPlayer(url: path!)
+            
             audioPlayer.play()
         }
         catch{
             print(trackerror.localizedDescription)
         }
         
-        
-        
-        
-        
-        
-        
-        
-//        let docUrl:URL = (FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first as URL?)!
-//        let desURL = docUrl.appendingPathComponent("record.m4a")
-//        var downloadTask:URLSessionDownloadTask
-//        downloadTask = URLSession.shared.downloadTask(with: Track!, completionHandler: { [weak self](URLData, response, error) -> Void in
-//            do{
-//                let isFileFound:Bool? = FileManager.default.fileExists(atPath: desURL.path)
-//                if isFileFound == true{
-//                    print(desURL) //delete tmpsong.m4a & copy
-//                } else {
-//                    try FileManager.default.copyItem(at: URLData!, to: desURL)
-//                }
-//                let audioPlayer = try AVAudioPlayer(contentsOf: desURL)
-////                self?.audioPlayer = sPlayer
-//               audioPlayer.prepareToPlay()
-//                audioPlayer.play()
-//
-//            }catch let err {
-//                print(err.localizedDescription)
-//            }
-//
-//        })
-//        downloadTask.resume()
-        
-        
-        
-        
-        
     }
     
     
-    func getDirectory() -> URL{
-        let paths = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)
-        
-        let documentDirectory = paths[0]
-        return documentDirectory
-        
-    }
+ 
     
     
     @objc func deleteAction(_ delete: UIButton){
@@ -202,10 +149,9 @@ class pepTalkListVC: UIViewController, UITableViewDelegate, UITableViewDataSourc
         
 
         
-//        self.dbRef.child("Audio").child((Auth.auth().currentUser?.uid)!).child(pepTalkArray[indexValue]["Title"]!).removeValue()
+        self.dbRef.child("Audio").child((Auth.auth().currentUser?.uid)!).child(pepTalkArray[indexValue]["Title"]!).removeValue()
         self.pepTalkArray.remove(at: indexValue)
         
-        UserDefaults.standard.set(self.pepTalkArray, forKey: "MYRECORD")
         self.tableView.reloadData()
     }
     

@@ -40,6 +40,7 @@ class AllUserVC: UIViewController, UITableViewDataSource,UITableViewDelegate {
                 print(value)
             
             self.userList.append(value)
+                self.allUserTable.reloadData()
             }
             
 
@@ -64,7 +65,7 @@ class AllUserVC: UIViewController, UITableViewDataSource,UITableViewDelegate {
         print(userList)
         
         
-        cell.Name.text  = userList[indexPath.row]["Name"]
+        cell.Name.text?  = userList[indexPath.row]["Name"]!
         
         
         
@@ -73,7 +74,7 @@ class AllUserVC: UIViewController, UITableViewDataSource,UITableViewDelegate {
         
         
         let string_url = URL(string: imageURL!)
-        cell.userImage.sd_setImage(with: string_url!, placeholderImage: UIImage(named: "btt-logo"), options: .progressiveDownload, completed: nil)
+        cell.userImage.sd_setImage(with: string_url!, placeholderImage: UIImage(named: "btt-logo"), options: .cacheMemoryOnly, completed: nil)
         
         
         cell.selectionStyle = .none

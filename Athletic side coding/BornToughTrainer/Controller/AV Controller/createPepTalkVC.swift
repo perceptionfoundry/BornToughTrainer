@@ -35,6 +35,8 @@ class createPepTalkVC: UIViewController, AVAudioRecorderDelegate {
     var audioRecorder: AVAudioRecorder!
     var numberOfRecord = 0
     
+    var recordingPath : URL?
+    
     
     
     // FireBase Variable
@@ -114,43 +116,75 @@ class createPepTalkVC: UIViewController, AVAudioRecorderDelegate {
             
             
             if audioRecorder == nil {
-            
-            numberOfRecord += 1
-            
-            
-            
-            
-            
-            // DIRECTORY WHERE RECORDED AUDIO WILL BE STORE
-            let fileName  = getDirectory().appendingPathComponent("\(numberOfRecord).m4a")
-            
-    
-            let settings = [AVFormatIDKey: Int(kAudioFormatMPEG4AAC),
-                            AVSampleRateKey: 32000,
-                            AVNumberOfChannelsKey :1,
-                            AVEncoderAudioQualityKey :AVAudioQuality.high.rawValue]
-            
-            // Start recording
-            
-            do{
                 
-                self.acceptButton.isEnabled = false
-                audioRecorder = try AVAudioRecorder(url: fileName, settings: settings)
-                audioRecorder.delegate = self
-                audioRecorder.prepareToRecord()
-                audioRecorder.record()
+                let dir = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)[0] as! String
+                
+                let fileNAme = "\(PepTitle.text!).wav"
+                let path = [dir,fileNAme]
+                
+                let url = URL(fileURLWithPath: path.joined(separator: "/"))
+                //
+                let session = AVAudioSession.sharedInstance()
+                try! session.setCategory(AVAudioSessionCategoryPlayAndRecord)
+                self.audioRecorder = try! AVAudioRecorder(url: url, settings: [:])
+                self.audioRecorder.delegate=self
+                self.audioRecorder.isMeteringEnabled=true
                 
                 // START TIMER
                 Timer.scheduledTimer(timeInterval: 0.1, target: self, selector: #selector(UpdateElapse), userInfo: nil, repeats: true)
                 timing.Start()
                 
-                // set button
+                //                // set button
+
                 recordingButton.setImage(#imageLiteral(resourceName: "recording"), for: .normal)
-            }
-            catch{
+
+                self.audioRecorder.prepareToRecord()
+                self.audioRecorder.record()
+            
                 
-                display(alertTitle: "Oop! ", alertMessage: "Recording")
-            }
+                
+                
+                
+                
+                
+                
+//            numberOfRecord += 1
+//
+//
+//
+//
+//
+//            // DIRECTORY WHERE RECORDED AUDIO WILL BE STORE
+//            let fileName  = getDirectory().appendingPathComponent("\(numberOfRecord).m4a")
+//
+//
+//            let settings = [AVFormatIDKey: Int(kAudioFormatm),
+//                            AVSampleRateKey: 32000,
+//                            AVNumberOfChannelsKey :1,
+//                            AVEncoderAudioQualityKey :AVAudioQuality.high.rawValue]
+//
+//            // Start recording
+//
+//            do{
+//
+//                self.acceptButton.isEnabled = false
+//                audioRecorder = try AVAudioRecorder(url: fileName, settings: settings)
+//                audioRecorder.delegate = self
+//                audioRecorder.prepareToRecord()
+//                audioRecorder.record()
+//
+//                // START TIMER
+//                Timer.scheduledTimer(timeInterval: 0.1, target: self, selector: #selector(UpdateElapse), userInfo: nil, repeats: true)
+//                timing.Start()
+//
+//                // set button
+//                recordingButton.setImage(#imageLiteral(resourceName: "recording"), for: .normal)
+//            }
+//            catch{
+//
+//
+//                display(alertTitle: "Oop! ", alertMessage: "Recording")
+//            }
         }
         
         // STOP AUDIO
@@ -161,53 +195,53 @@ class createPepTalkVC: UIViewController, AVAudioRecorderDelegate {
             timing.Stop()
             audioRecorder = nil
             
-            
-                // ************* SAVE AUDIO DETAIL ******************
-            UserDefaults.standard.set(numberOfRecord, forKey: "recordNumber")
-                
-                
-                audioInfo["Title"] = PepTitle.text!
-                audioInfo["Path-URL"] = String(numberOfRecord)
-                
-                
-                print(audioInfo)
-                self.newData = audioInfo
-                
-                print(newData)
-                
-                if let tempData = UserDefaults.standard.value(forKey: "MYRECORD") as? [[String : String]]{
-                    
-                    print(tempData)
-                    
-                    self.ArrayOfData = tempData
-                    
-                    
-                }
-                
-                
-                
-                if ArrayOfData.isEmpty == false{
-                    
-                    
-                    ArrayOfData.append(audioInfo)
-                    
-                    
-                    UserDefaults.standard.set(ArrayOfData, forKey: "MYRECORD")
-//                    self.delegate.updateValue(value: audioInfo)
-                    
-                }
-                    
-                else{
-                    
-                    ArrayOfData.append(audioInfo)
-                    
-                    UserDefaults.standard.set(ArrayOfData, forKey: "MYRECORD")
-                    
-//                    delegate.updateValue(value: audioInfo)
-                    
-                    
-                }
-                
+//
+//                // ************* SAVE AUDIO DETAIL ******************
+//            UserDefaults.standard.set(numberOfRecord, forKey: "recordNumber")
+//
+//
+//                audioInfo["Title"] = PepTitle.text!
+//                audioInfo["Path-URL"] = String(numberOfRecord)
+//
+//
+//                print(audioInfo)
+//                self.newData = audioInfo
+//
+//                print(newData)
+//
+//                if let tempData = UserDefaults.standard.value(forKey: "MYRECORD") as? [[String : String]]{
+//
+//                    print(tempData)
+//
+//                    self.ArrayOfData = tempData
+//
+//
+//                }
+//
+//
+//
+//                if ArrayOfData.isEmpty == false{
+//
+//
+//                    ArrayOfData.append(audioInfo)
+//
+//
+//                    UserDefaults.standard.set(ArrayOfData, forKey: "MYRECORD")
+////                    self.delegate.updateValue(value: audioInfo)
+//
+//                }
+//
+//                else{
+//
+//                    ArrayOfData.append(audioInfo)
+//
+//                    UserDefaults.standard.set(ArrayOfData, forKey: "MYRECORD")
+//
+////                    delegate.updateValue(value: audioInfo)
+//
+//
+//                }
+//
                 
                 
                 
@@ -228,6 +262,14 @@ class createPepTalkVC: UIViewController, AVAudioRecorderDelegate {
     }
     
     
+    
+    func audioRecorderDidFinishRecording(_ recorder: AVAudioRecorder, successfully flag: Bool) {
+        print("************")
+        print(recorder.url)
+        print("************")
+        
+        self.recordingPath = recorder.url
+    }
     
     // FUNCTION THAT WILLL HANDLE SAVED AUDIO DIRECTORY INFO
     
@@ -262,6 +304,11 @@ class createPepTalkVC: UIViewController, AVAudioRecorderDelegate {
 
     @IBAction func backAction(_ sender: Any) {
         self.dismiss(animated: true, completion: nil)
+        
+        
+        
+        
+        
     }
     
     
@@ -276,37 +323,37 @@ class createPepTalkVC: UIViewController, AVAudioRecorderDelegate {
 //
 //
 
-        var  audioInfo = ["Title": self.newData["Title"]!,
+        var  audioInfo = ["Title": PepTitle.text!,
                      "Path-URL": "",
                      "uID" : ""]
 
 
 
 
-
+        // Create metaData
         let uploadMetaData = StorageMetadata()
-        uploadMetaData.contentType = "audio/m4a"
+        uploadMetaData.contentType = "audio/wav"
 
 
-        let StorageRef = self.storage.reference().child("Pep_Audio").child((Auth.auth().currentUser!.uid)).child(self.newData["Title"]!)
+        let StorageRef = self.storage.reference().child("Pep_Audio").child((Auth.auth().currentUser!.uid)).child(PepTitle.text!)
 
 
 
-      let path = getDirectory().appendingPathComponent("\(numberOfRecord).m4a")
+//      let path = getDirectory().appendingPathComponent("\(numberOfRecord).wav")
         
-        
+    
         
                 audioInfo["uID"] = (Auth.auth().currentUser?.uid)!
 
         
         print("*************************")
 
-        print(path)
+        print(self.recordingPath?.absoluteString)
 
         print("*************************")
         
         
-        StorageRef.putFile(from: path, metadata: uploadMetaData, completion: { (audio_meta, audio_error) in
+        StorageRef.putFile(from: self.recordingPath!, metadata: uploadMetaData, completion: { (audio_meta, audio_error) in
 
             
             
@@ -370,7 +417,7 @@ class createPepTalkVC: UIViewController, AVAudioRecorderDelegate {
                 
                 print(self.newData)
                 
-                self.delegate.updateValue(value: self.newData)
+//                self.delegate.updateValue(value: self.newData)
                 
                 
                 //

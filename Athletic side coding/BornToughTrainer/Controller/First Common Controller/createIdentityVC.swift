@@ -74,12 +74,13 @@ class createIdentityVC: UIViewController, UITextViewDelegate {
 //                        print(identify_Data.value ?? <#default value#>)
                         let identify_values = identify_Data.value as! [String : String]
                         
+                        if identify_Data.key == Auth.auth().currentUser?.uid{
                         self.workingToward.textColor = UIColor.black
                         self.workingToward.text = identify_values["Working"]
                         
                         self.attitudeSlogan.textColor = UIColor.green
                         self.attitudeSlogan.text = identify_values["Slogan"]
-                        
+                        }
                     })
                 }
             

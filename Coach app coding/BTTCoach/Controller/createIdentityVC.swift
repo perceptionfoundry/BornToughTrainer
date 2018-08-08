@@ -79,6 +79,7 @@ class createIdentityVC: UIViewController, UITextViewDelegate {
                     self.dbRef.child("Create-Identify").observe(.childAdded, with: { (identify_Data) in
                        
                         if identify_Data.key == self.appDelegate.selectedUser{
+                            
                         let identify_values = identify_Data.value as! [String : String]
                         
                         self.workingToward.textColor = UIColor.black
@@ -86,6 +87,7 @@ class createIdentityVC: UIViewController, UITextViewDelegate {
                         
                         self.attitudeSlogan.textColor = UIColor.green
                         self.attitudeSlogan.text = identify_values["Slogan"]
+                            
                         }
                     })
                 }

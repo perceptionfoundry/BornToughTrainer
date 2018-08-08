@@ -137,6 +137,7 @@ class GettingStartedVC: UIViewController, UIPickerViewDelegate, UIPickerViewData
                                "Team": teamTextField.text!,
                                "Mobile": mobileTextField.text!,
                                "Image-URL" :"",
+                               "Email": (Auth.auth().currentUser?.email)!,
                                "Identify-Create" : "no"
                 ]
                 
