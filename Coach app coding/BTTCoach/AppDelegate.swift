@@ -1,6 +1,6 @@
 //
 //  AppDelegate.swift
-//  BornToughTrainer
+//  BTTCoach
 //
 //  Created by admin on 13/07/2018.
 //  Copyright © 2018 MAQ. All rights reserved.

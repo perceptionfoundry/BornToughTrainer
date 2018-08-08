@@ -23,7 +23,7 @@
         <!--WelcomeVC-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController storyboardIdentifier="HOME" id="BYZ-38-t0r" customClass="welcomeVC" customModule="BornToughTrainer" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="HOME" id="BYZ-38-t0r" customClass="welcomeVC" customModule="BTTCoach" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -43,13 +43,13 @@
                                 <color key="textColor" red="1" green="0.8784313725490196" blue="0.011764705882352941" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="btt-logo" translatesAutoresizingMaskIntoConstraints="NO" id="VP5-8D-UBa" customClass="Custom_ImageView" customModule="BornToughTrainer" customModuleProvider="target">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="btt-logo" translatesAutoresizingMaskIntoConstraints="NO" id="VP5-8D-UBa" customClass="Custom_ImageView" customModule="BTTCoach" customModuleProvider="target">
                                 <rect key="frame" x="104.5" y="42.5" width="166.5" height="166.5"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="VP5-8D-UBa" secondAttribute="height" multiplier="1:1" id="n7g-TY-acU"/>
                                 </constraints>
                             </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dcY-Uo-lYN" customClass="buttonStyle" customModule="BornToughTrainer" customModuleProvider="target">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dcY-Uo-lYN" customClass="buttonStyle" customModule="BTTCoach" customModuleProvider="target">
                                 <rect key="frame" x="94.5" y="417" width="187.5" height="53.5"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
@@ -103,12 +103,12 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="111" y="121"/>
+            <point key="canvasLocation" x="-2418" y="889"/>
         </scene>
         <!--Sign InVC-->
         <scene sceneID="cKf-fA-OYP">
             <objects>
-                <viewController id="uWD-bg-L4p" customClass="signInVC" customModule="BornToughTrainer" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="uWD-bg-L4p" customClass="signInVC" customModule="BTTCoach" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="oau-sQ-Tgr">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -166,7 +166,7 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                             </textField>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="r2p-pd-Yob" customClass="CumtomizeButton" customModule="BornToughTrainer" customModuleProvider="target">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="r2p-pd-Yob" customClass="CumtomizeButton" customModule="BTTCoach" customModuleProvider="target">
                                 <rect key="frame" x="66" y="372.5" width="243.5" height="40"/>
                                 <color key="backgroundColor" red="0.29803921570000003" green="0.85098039219999999" blue="0.3921568627" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <state key="normal" title="Sign In">
@@ -236,7 +236,7 @@
         <!--MenuVC-->
         <scene sceneID="hHX-vN-4A9">
             <objects>
-                <viewController storyboardIdentifier="menu" useStoryboardIdentifierAsRestorationIdentifier="YES" id="PZ5-vp-3Lv" customClass="menuVC" customModule="BornToughTrainer" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="menu" useStoryboardIdentifierAsRestorationIdentifier="YES" id="PZ5-vp-3Lv" customClass="menuVC" customModule="BTTCoach" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="o35-4c-P6L">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -268,7 +268,7 @@
                                             <constraint firstItem="Dvq-g6-lMz" firstAttribute="centerY" secondItem="cIz-Rn-Gzz" secondAttribute="centerY" multiplier="1.6" id="O1Q-GD-bDx"/>
                                         </constraints>
                                     </view>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="btt-logo" translatesAutoresizingMaskIntoConstraints="NO" id="1Eh-Jp-s1m" customClass="Custom_ImageView" customModule="BornToughTrainer" customModuleProvider="target">
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="btt-logo" translatesAutoresizingMaskIntoConstraints="NO" id="1Eh-Jp-s1m" customClass="Custom_ImageView" customModule="BTTCoach" customModuleProvider="target">
                                         <rect key="frame" x="154.5" y="55" width="70" height="70"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="70" id="5FX-eg-YjT"/>
@@ -284,7 +284,7 @@
                                         <rect key="frame" x="28" y="200" width="300" height="467"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <prototypes>
-                                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="default" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="cell" id="Gqt-rd-akF" customClass="menuTVC" customModule="BornToughTrainer" customModuleProvider="target">
+                                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="default" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="cell" id="Gqt-rd-akF" customClass="menuTVC" customModule="BTTCoach" customModuleProvider="target">
                                                 <rect key="frame" x="0.0" y="28" width="300" height="40"/>
                                                 <autoresizingMask key="autoresizingMask"/>
                                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Gqt-rd-akF" id="kJX-Qj-Avi">
@@ -395,12 +395,12 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="z5h-FP-c7C" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1320.8" y="903.59820089955031"/>
+            <point key="canvasLocation" x="1554" y="890"/>
         </scene>
         <!--Log ListVC-->
         <scene sceneID="AX5-Uv-e3H">
             <objects>
-                <viewController storyboardIdentifier="logList" useStoryboardIdentifierAsRestorationIdentifier="YES" id="uxa-wD-35w" customClass="LogListVC" customModule="BornToughTrainer" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="logList" useStoryboardIdentifierAsRestorationIdentifier="YES" id="uxa-wD-35w" customClass="LogListVC" customModule="BTTCoach" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="zHe-BV-IhD">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -443,7 +443,7 @@
                                 <rect key="frame" x="0.0" y="80" width="359" height="601"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="cell" id="ho5-D4-PkR" customClass="logListTVC" customModule="BornToughTrainer" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="cell" id="ho5-D4-PkR" customClass="logListTVC" customModule="BTTCoach" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="359" height="60"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="ho5-D4-PkR" id="76P-Du-mxN">
@@ -509,12 +509,12 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="UGE-Tl-xqy" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1004" y="2309.5952023988007"/>
+            <point key="canvasLocation" x="1553" y="2310"/>
         </scene>
         <!--Grade ListVC-->
         <scene sceneID="miR-YV-8Fg">
             <objects>
-                <viewController storyboardIdentifier="gradeList" useStoryboardIdentifierAsRestorationIdentifier="YES" id="Mk6-a5-o7U" customClass="gradeListVC" customModule="BornToughTrainer" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="gradeList" useStoryboardIdentifierAsRestorationIdentifier="YES" id="Mk6-a5-o7U" customClass="gradeListVC" customModule="BTTCoach" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="bgc-Uo-hsl">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -555,7 +555,7 @@
                                 <rect key="frame" x="0.0" y="80" width="359" height="601"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="cell" id="SWt-EY-yOR" customClass="gradeListTVC" customModule="BornToughTrainer" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="cell" id="SWt-EY-yOR" customClass="gradeListTVC" customModule="BTTCoach" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="359" height="60"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="SWt-EY-yOR" id="5Ok-ma-4ke">
@@ -633,12 +633,12 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="oJk-LJ-Gqt" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="8.8000000000000007" y="5396.8515742128939"/>
+            <point key="canvasLocation" x="110" y="5389"/>
         </scene>
         <!--Create IdentityVC-->
         <scene sceneID="SVs-QD-1ZQ">
             <objects>
-                <viewController storyboardIdentifier="Create Identity" useStoryboardIdentifierAsRestorationIdentifier="YES" id="ngp-0B-SgK" customClass="createIdentityVC" customModule="BornToughTrainer" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="Create Identity" useStoryboardIdentifierAsRestorationIdentifier="YES" id="ngp-0B-SgK" customClass="createIdentityVC" customModule="BTTCoach" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Orc-kr-QoF">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -674,7 +674,7 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="QMh-AM-r6r">
                                 <rect key="frame" x="37" y="67" width="300" height="80"/>
                                 <subviews>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="btt-logo" translatesAutoresizingMaskIntoConstraints="NO" id="RIA-TG-yi2" customClass="Custom_ImageView" customModule="BornToughTrainer" customModuleProvider="target">
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="btt-logo" translatesAutoresizingMaskIntoConstraints="NO" id="RIA-TG-yi2" customClass="Custom_ImageView" customModule="BTTCoach" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="80" height="80"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="80" id="ApD-gH-Lvn"/>
@@ -798,7 +798,7 @@
         <!--Pep Talk ListVC-->
         <scene sceneID="6F6-fY-tDt">
             <objects>
-                <viewController storyboardIdentifier="pepList" useStoryboardIdentifierAsRestorationIdentifier="YES" id="F8b-Mb-iTg" customClass="pepTalkListVC" customModule="BornToughTrainer" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="pepList" useStoryboardIdentifierAsRestorationIdentifier="YES" id="F8b-Mb-iTg" customClass="pepTalkListVC" customModule="BTTCoach" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="cx1-RV-W52">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -841,7 +841,7 @@
                                 <rect key="frame" x="0.0" y="80" width="359" height="601"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="cell" id="Tmk-Gp-GkJ" customClass="pepTalkTVC" customModule="BornToughTrainer" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="cell" id="Tmk-Gp-GkJ" customClass="pepTalkTVC" customModule="BTTCoach" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="359" height="60"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Tmk-Gp-GkJ" id="Rgo-Eb-PZM">
@@ -919,7 +919,7 @@
         <!--Routine ListVC-->
         <scene sceneID="jMn-aK-iW4">
             <objects>
-                <viewController storyboardIdentifier="routineList" useStoryboardIdentifierAsRestorationIdentifier="YES" id="Rur-zN-qnP" customClass="routineListVC" customModule="BornToughTrainer" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="routineList" useStoryboardIdentifierAsRestorationIdentifier="YES" id="Rur-zN-qnP" customClass="routineListVC" customModule="BTTCoach" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="HnE-d7-vCV">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -972,7 +972,7 @@
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="cell" id="xiG-P8-Qiw" customClass="routineTVC" customModule="BornToughTrainer" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="cell" id="xiG-P8-Qiw" customClass="routineTVC" customModule="BTTCoach" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="88" width="359" height="60"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="xiG-P8-Qiw" id="dom-Tn-8Fi">
@@ -1048,12 +1048,12 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rM4-em-EVc" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="8.8000000000000007" y="4699.7001499250382"/>
+            <point key="canvasLocation" x="110" y="4639"/>
         </scene>
         <!--Interview ListVC-->
         <scene sceneID="I8B-Kr-brg">
             <objects>
-                <viewController storyboardIdentifier="interviewList" useStoryboardIdentifierAsRestorationIdentifier="YES" id="rOZ-mK-FV0" customClass="interviewListVC" customModule="BornToughTrainer" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="interviewList" useStoryboardIdentifierAsRestorationIdentifier="YES" id="rOZ-mK-FV0" customClass="interviewListVC" customModule="BTTCoach" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="uY1-OK-vTc">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -1096,7 +1096,7 @@
                                 <rect key="frame" x="0.0" y="80" width="359" height="601"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="cell" id="OqM-En-Uw6" customClass="pepTalkTVC" customModule="BornToughTrainer" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="cell" id="OqM-En-Uw6" customClass="pepTalkTVC" customModule="BTTCoach" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="359" height="60"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="OqM-En-Uw6" id="MkZ-Q8-Y85">
@@ -1174,12 +1174,12 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="s9u-sy-pdL" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="8.8000000000000007" y="3870.3148425787108"/>
+            <point key="canvasLocation" x="110" y="3869"/>
         </scene>
         <!--StreamingVC-->
         <scene sceneID="kzG-V4-Tnj">
             <objects>
-                <viewController modalTransitionStyle="crossDissolve" modalPresentationStyle="overCurrentContext" id="MEi-7f-XdC" customClass="StreamingVC" customModule="BornToughTrainer" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController modalTransitionStyle="crossDissolve" modalPresentationStyle="overCurrentContext" id="MEi-7f-XdC" customClass="StreamingVC" customModule="BTTCoach" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="33l-Rn-Hh6">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -1240,12 +1240,12 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="A9v-pR-ywY" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="806" y="3870"/>
+            <point key="canvasLocation" x="1553" y="3870"/>
         </scene>
         <!--Commit Today ListVC-->
         <scene sceneID="vnc-uX-B98">
             <objects>
-                <viewController storyboardIdentifier="commitList" useStoryboardIdentifierAsRestorationIdentifier="YES" id="KUF-yP-leT" customClass="commitTodayListVC" customModule="BornToughTrainer" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="commitList" useStoryboardIdentifierAsRestorationIdentifier="YES" id="KUF-yP-leT" customClass="commitTodayListVC" customModule="BTTCoach" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="yiQ-Qy-TIp">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -1298,7 +1298,7 @@
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="uncompletedCell" id="DgV-Sy-jJP" customClass="unCompletedTaskTVC" customModule="BornToughTrainer" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="uncompletedCell" id="DgV-Sy-jJP" customClass="unCompletedTaskTVC" customModule="BTTCoach" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="88" width="359" height="60"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="DgV-Sy-jJP" id="vLD-zK-1as">
@@ -1386,7 +1386,7 @@
         <!--Have FaithVC-->
         <scene sceneID="Gta-Cy-uw4">
             <objects>
-                <viewController storyboardIdentifier="HaveFaith" useStoryboardIdentifierAsRestorationIdentifier="YES" id="mAw-TN-5gS" customClass="haveFaithVC" customModule="BornToughTrainer" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="HaveFaith" useStoryboardIdentifierAsRestorationIdentifier="YES" id="mAw-TN-5gS" customClass="haveFaithVC" customModule="BTTCoach" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="y9f-Vv-Z5A">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -1422,7 +1422,7 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pjt-78-CfS">
                                 <rect key="frame" x="37" y="67" width="300" height="80"/>
                                 <subviews>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="btt-logo" translatesAutoresizingMaskIntoConstraints="NO" id="u53-ID-MRE" customClass="Custom_ImageView" customModule="BornToughTrainer" customModuleProvider="target">
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="btt-logo" translatesAutoresizingMaskIntoConstraints="NO" id="u53-ID-MRE" customClass="Custom_ImageView" customModule="BTTCoach" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="80" height="80"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="80" id="IcI-Tx-Vic"/>
@@ -1542,12 +1542,12 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6hU-fF-faS" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1004" y="1594.4527736131936"/>
+            <point key="canvasLocation" x="1553" y="1595"/>
         </scene>
         <!--All UserVC-->
         <scene sceneID="ENL-up-XJt">
             <objects>
-                <viewController storyboardIdentifier="All User" id="wzL-uD-RGg" customClass="AllUserVC" customModule="BornToughTrainer" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="All User" id="wzL-uD-RGg" customClass="AllUserVC" customModule="BTTCoach" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="OmK-ec-Y1K">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -1555,7 +1555,7 @@
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Rectangle Copy" translatesAutoresizingMaskIntoConstraints="NO" id="uFn-k2-h3K">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                             </imageView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="btt-logo" translatesAutoresizingMaskIntoConstraints="NO" id="7Ca-hI-hDg" customClass="Custom_ImageView" customModule="BornToughTrainer" customModuleProvider="target">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="btt-logo" translatesAutoresizingMaskIntoConstraints="NO" id="7Ca-hI-hDg" customClass="Custom_ImageView" customModule="BTTCoach" customModuleProvider="target">
                                 <rect key="frame" x="142.5" y="58" width="90" height="90"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="90" id="jQv-vC-OjV"/>
@@ -1568,17 +1568,17 @@
                                 <color key="separatorColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <color key="sectionIndexBackgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="AllUser" rowHeight="70" id="Ss3-bT-1nT" customClass="AllUserTableViewCell" customModule="BornToughTrainer" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="AllUser" rowHeight="70" id="Ss3-bT-1nT" customClass="AllUserTableViewCell" customModule="BTTCoach" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="337.5" height="70"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Ss3-bT-1nT" id="Ph9-og-Dx8">
                                             <rect key="frame" x="0.0" y="0.0" width="337.5" height="69.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="aO2-ns-aqu" customClass="Custom_View" customModule="BornToughTrainer" customModuleProvider="target">
+                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="aO2-ns-aqu" customClass="Custom_View" customModule="BTTCoach" customModuleProvider="target">
                                                     <rect key="frame" x="8.5" y="5" width="320.5" height="50"/>
                                                     <subviews>
-                                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="btt-logo" translatesAutoresizingMaskIntoConstraints="NO" id="gkG-sm-BXS" customClass="Custom_ImageView" customModule="BornToughTrainer" customModuleProvider="target">
+                                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="btt-logo" translatesAutoresizingMaskIntoConstraints="NO" id="gkG-sm-BXS" customClass="Custom_ImageView" customModule="BTTCoach" customModuleProvider="target">
                                                             <rect key="frame" x="20.5" y="5.5" width="40" height="40"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="width" secondItem="gkG-sm-BXS" secondAttribute="height" multiplier="1:1" id="RGU-Sb-0Ss"/>
