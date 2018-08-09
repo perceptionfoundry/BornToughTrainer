@@ -40,7 +40,7 @@ class pepTalkListVC: UIViewController, UITableViewDelegate, UITableViewDataSourc
     
     var pepTalkArray = [[String : String]]()
     
-    var lastButton : Int?
+    var lastButton = [Int]()
     
     // FIREBASE VARIABLE
     var dbRef : DatabaseReference!
@@ -108,31 +108,40 @@ class pepTalkListVC: UIViewController, UITableViewDelegate, UITableViewDataSourc
         }
         cell.popTitle.text = pepTalkArray[indexPath.row]["Title"]
         cell.pepPlay.tag = indexPath.row
-        cell.pepPlay.isEnabled = false
-        cell.pepPlay.setImage(#imageLiteral(resourceName: "audioPlay"), for: .normal)
+        cell.pepPlay.isUserInteractionEnabled = false
+        if  lastButton.contains(indexPath.row){
+        
+            cell.pepPlay.setImage(#imageLiteral(resourceName: "audioStop"), for: .normal)
+
+        }
+            
+        else{
+            cell.pepPlay.setImage(#imageLiteral(resourceName: "audioPlay"), for: .normal)
+
+        }
+      
         cell.selectionStyle = .none
         
-        cell.pepPlay.addTarget(self, action: #selector(AudioPlayer), for: .touchUpInside)
+//        cell.pepPlay.addTarget(self, action: #selector(AudioPlayer), for: .touchUpInside)
 
         return cell
     }
     
     
     
-    // FUNCTION TO PLAY AUDIO
-    @objc func AudioPlayer(_ play: UIButton){
-        
-
-        
-        
-        
-        let indexValue = play.tag
-        
-        play.setImage(#imageLiteral(resourceName: "audioStop"), for: .normal)
-        
+   
     
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
-        let Track = (pepTalkArray[indexValue]["Path-URL"])!
+        self.lastButton.removeAll()
+        
+        let  check = tableView.cellForRow(at: indexPath) as! pepTalkTVC
+        check.pepPlay.setImage(#imageLiteral(resourceName: "audioStop"), for: .normal)
+        self.lastButton.append(indexPath.row)
+        
+        
+        let Track = (pepTalkArray[indexPath.row]["Path-URL"])!
         
         
         let path = URL(string: Track)
@@ -143,17 +152,23 @@ class pepTalkListVC: UIViewController, UITableViewDelegate, UITableViewDataSourc
         
         
         do{
-
+            
             print(path!)
             
             audioPlayer =  try AVPlayer(url: path!)
-
+            
             audioPlayer.play()
         }
         catch{
             print(trackerror.localizedDescription)
         }
-  
+        
+    }
+    
+    func tableView(_ tableView: UITableView, didDeselectRowAt indexPath: IndexPath) {
+        let  check = tableView.cellForRow(at: indexPath) as! pepTalkTVC
+        check.pepPlay.setImage(#imageLiteral(resourceName: "audioPlay"), for: .normal)
+        self.lastButton.append(indexPath.row)
     }
     
 
