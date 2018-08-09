@@ -81,10 +81,10 @@ class haveFaithVC: UIViewController, UITextViewDelegate {
                         {
                         let identify_values = Faith_Data.value as! [String : String]
 
-                        self.workingToward.textColor = UIColor.green
+                        self.workingToward.textColor = UIColor.blue
                         self.workingToward.text = identify_values["Working"]
 
-                        self.attitudeSlogan.textColor = UIColor.green
+                        self.attitudeSlogan.textColor = UIColor.blue
                         self.attitudeSlogan.text = identify_values["Slogan"]
                         }
                     })

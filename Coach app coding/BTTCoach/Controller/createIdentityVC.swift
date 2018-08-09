@@ -82,10 +82,10 @@ class createIdentityVC: UIViewController, UITextViewDelegate {
                             
                         let identify_values = identify_Data.value as! [String : String]
                         
-                        self.workingToward.textColor = UIColor.black
+                        self.workingToward.textColor = UIColor.blue
                         self.workingToward.text = identify_values["Working"]
                         
-                        self.attitudeSlogan.textColor = UIColor.green
+                        self.attitudeSlogan.textColor = UIColor.blue
                         self.attitudeSlogan.text = identify_values["Slogan"]
                             
                         }
