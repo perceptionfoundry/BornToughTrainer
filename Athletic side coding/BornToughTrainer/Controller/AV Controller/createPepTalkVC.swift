@@ -115,9 +115,9 @@ class createPepTalkVC: UIViewController, AVAudioRecorderDelegate {
         
             
             
-            var  audioInfo = ["Title": "",
-                            "Path-URL": ""
-                            ]
+//            var  audioInfo = ["Title": "",
+//                            "Path-URL": ""
+//                            ]
             
             
             if audioRecorder == nil {
@@ -352,11 +352,11 @@ class createPepTalkVC: UIViewController, AVAudioRecorderDelegate {
                 audioInfo["uID"] = (Auth.auth().currentUser?.uid)!
 
         
-        print("*************************")
-
-        print(self.recordingPath?.absoluteString)
-
-        print("*************************")
+//        print("*************************")
+//
+//        print(self.recordingPath?.absoluteString)
+//
+//        print("*************************")
         
         
         StorageRef.putFile(from: self.recordingPath!, metadata: uploadMetaData, completion: { (audio_meta, audio_error) in
