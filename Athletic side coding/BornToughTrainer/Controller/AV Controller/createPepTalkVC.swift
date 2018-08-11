@@ -25,6 +25,8 @@ class createPepTalkVC: UIViewController, AVAudioRecorderDelegate {
     @IBOutlet weak var TimerLabel: UILabel!
     @IBOutlet weak var acceptButton: UIButton!
     
+    @IBOutlet weak var addBtn: UIButton!
+    @IBOutlet weak var cancelBtn: UIButton!
     // TIMER
     let timing = audioTimer()
     
@@ -55,6 +57,9 @@ class createPepTalkVC: UIViewController, AVAudioRecorderDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        cancelBtn.isHidden = true
+        addBtn.isHidden = true
+        
         // setting up session
         recordingSession = AVAudioSession.sharedInstance()
         try! recordingSession.setCategory(AVAudioSessionCategoryPlayAndRecord, with: .defaultToSpeaker)
@@ -194,7 +199,8 @@ class createPepTalkVC: UIViewController, AVAudioRecorderDelegate {
             audioRecorder.stop()
             timing.Stop()
             audioRecorder = nil
-            
+                addBtn.isHidden = false
+                cancelBtn.isHidden = false
 //
 //                // ************* SAVE AUDIO DETAIL ******************
 //            UserDefaults.standard.set(numberOfRecord, forKey: "recordNumber")

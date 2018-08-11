@@ -31,7 +31,7 @@ class GettingStartedVC: UIViewController, UIPickerViewDelegate, UIPickerViewData
     var pickerView = UIPickerView()
     let levelArray = ["","Professional","Olympic","College","High School", "Middle School","Youth","Other"]
     let Gender = ["","Male", "Female"]
-    let Category = ["","Team","School","Club","Academy"]
+//    let Category = ["","Team","School","Club","Academy"]
     
     var selectedProfileImage : UIImage?
     var imageMetaData = ""
@@ -75,7 +75,7 @@ class GettingStartedVC: UIViewController, UIPickerViewDelegate, UIPickerViewData
     pickerView.dataSource = self
     self.levelTextField.delegate = self
     self.genderTextField.delegate =  self
-    self.teamTextField.delegate = self
+//    self.teamTextField.delegate = self
         
         
         // image tapped
@@ -232,11 +232,11 @@ class GettingStartedVC: UIViewController, UIPickerViewDelegate, UIPickerViewData
             self.pickerView.reloadAllComponents()
         }
         
-        else if textField == self.teamTextField{
-            self.pickerView.tag = 2
-            self.teamTextField.inputView = self.pickerView
-            self.pickerView.reloadAllComponents()
-        }
+//        else if textField == self.teamTextField{
+//            self.pickerView.tag = 2
+//            self.teamTextField.inputView = self.pickerView
+//            self.pickerView.reloadAllComponents()
+//        }
     }
     
     func textFieldDidEndEditing(_ textField: UITextField) {
@@ -252,11 +252,11 @@ class GettingStartedVC: UIViewController, UIPickerViewDelegate, UIPickerViewData
             self.pickerView.reloadAllComponents()
         }
             
-        else if textField == self.teamTextField{
-            self.pickerView.tag = 2
-            self.teamTextField.inputView = nil
-            self.pickerView.reloadAllComponents()
-        }
+//        else if textField == self.teamTextField{
+//            self.pickerView.tag = 2
+//            self.teamTextField.inputView = nil
+//            self.pickerView.reloadAllComponents()
+//        }
 
     }
     
@@ -270,13 +270,13 @@ class GettingStartedVC: UIViewController, UIPickerViewDelegate, UIPickerViewData
         if pickerView.tag == 0 {
             return levelArray.count
         }
-        else if pickerView.tag == 1 {
+        else  {
             return Gender.count
         }
         
-        else {
-            return Category.count
-        }
+//        else {
+//            return Category.count
+//        }
         
         
         
@@ -286,12 +286,12 @@ class GettingStartedVC: UIViewController, UIPickerViewDelegate, UIPickerViewData
         if pickerView.tag == 0 {
             return levelArray[row]
         }
-        else if pickerView.tag == 1{
+        else {
             return Gender[row]
         }
-        else {
-            return Category[row]
-        }
+//        else {
+//            return Category[row]
+//        }
     }
     
     
@@ -303,9 +303,9 @@ class GettingStartedVC: UIViewController, UIPickerViewDelegate, UIPickerViewData
         else if pickerView.tag == 1{
             self.genderTextField.text = Gender[row]
         }
-        else {
-            self.teamTextField.text = Category[row]
-        }
+//        else {
+//            self.teamTextField.text = Category[row]
+//        }
     }
     
     

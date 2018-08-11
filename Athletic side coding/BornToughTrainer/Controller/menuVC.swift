@@ -125,13 +125,9 @@ class menuVC: UIViewController, UITableViewDelegate, UITableViewDataSource, MFMa
          // 2. ************ CREATE IDENTIFY ***************
         else if menuArray[indexPath.row].name == "Create Identity"{
             let vc = UIStoryboard(name:"Main", bundle:nil).instantiateViewController(withIdentifier: "Create Identity") as! createIdentityVC
-            vc.firstTextView = """
-            Define your athletic dreams: (after clicked the top goes away and font is 14 here)
-            """
-            vc.secondTextView = """
-            sample:
-            I'm unstoppable!
-"""
+            vc.firstTextView = "Define your athletic dreams"
+            vc.secondTextView = "Your Slogan Here"
+
             vc.firstQuestion = "What are you working towards?"
             vc.secondQuestion = "What is your attitude slogan?"
             vc.lbl = "Create Identity"
@@ -339,13 +335,7 @@ class menuVC: UIViewController, UITableViewDelegate, UITableViewDataSource, MFMa
             let vc = UIStoryboard(name:"Main", bundle:nil).instantiateViewController(withIdentifier: "secondCommanHome") as! secondCommanHomeVC
             vc.screenImg = #imageLiteral(resourceName: "track")
             vc.screenLblText = "Track Character"
-            vc.descriptionText = """
-            "WINNING is not a sometime thing; it's an all the
-            time thing. You don't win once in a qhile; you
-            don't do things right once in a while; you do
-            them right all of the time. winning is a habit.
-            Unfortunately, so is lodin." Vince Lombardi
-            """
+            vc.descriptionText = ""
             vc.firstBtnTitle = "Set up Tracker"
             vc.secongBtnTitle = "Enter Grade"
             vc.thirdBtnTitle = "View Responses"
@@ -387,10 +377,7 @@ class menuVC: UIViewController, UITableViewDelegate, UITableViewDataSource, MFMa
             let vc = UIStoryboard(name:"Main", bundle:nil).instantiateViewController(withIdentifier: "secondCommanHome") as! secondCommanHomeVC
             vc.screenImg = #imageLiteral(resourceName: "flo")
             vc.screenLblText = "Find Flo"
-            vc.descriptionText = """
-            Keeping 100% of your focus in the present
-            moment is the key to competing at your best.
-            """
+            vc.descriptionText = ""
             vc.firstBtnTitle = "Set up Flo Tracker"
             vc.secongBtnTitle = "Enter Grade"
             vc.thirdBtnTitle = "View Responses"

@@ -86,7 +86,8 @@ class createRoutineVC: UIViewController, UITableViewDelegate, UITableViewDataSou
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = UITableViewCell()
-        
+        cell.textLabel?.adjustsFontSizeToFitWidth = true
+        cell.textLabel?.minimumScaleFactor = 0.5
         cell.isUserInteractionEnabled = false
         cell.backgroundColor = UIColor.clear
         cell.textLabel?.text = stepData[indexPath.row]

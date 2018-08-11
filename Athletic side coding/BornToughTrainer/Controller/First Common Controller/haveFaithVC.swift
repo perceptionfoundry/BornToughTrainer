@@ -127,20 +127,26 @@ class haveFaithVC: UIViewController, UITextViewDelegate {
     func textViewDidBeginEditing(_ textView: UITextView) {
         
         
-        if textView.textColor == UIColor.lightGray {
+        if textView.text == "Define your athletic dreams" {
             workingToward.text = nil
-            workingToward.textColor = UIColor.green
-            
-            attitudeSlogan.text = nil
-            attitudeSlogan.textColor = UIColor.green
+            workingToward.textColor = UIColor.black
         }
+        
+        if textView.text == "Your Slogan Here" {
+            attitudeSlogan.text = nil
+            
+            attitudeSlogan.textColor = UIColor.black
+        }
+        
         
     }
     func textViewDidEndEditing(_ textView: UITextView) {
         
         if textView.text.isEmpty {
-            textView.text = "Placeholder"
-            textView.textColor = UIColor.lightGray
+            workingToward.text = "Define your athletic dreams"
+            attitudeSlogan.text = "Your Slogan Here"
+            workingToward.textColor = UIColor.black
+            attitudeSlogan.textColor = UIColor.black
         }
     }
     
