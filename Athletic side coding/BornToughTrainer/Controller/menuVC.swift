@@ -387,16 +387,20 @@ class menuVC: UIViewController, UITableViewDelegate, UITableViewDataSource, MFMa
             // 11. ************ Messages ***************
 
         else if menuArray[indexPath.row].name == "Messages"{
-           print("messages")
+//           print("messages")
+//
+//            let mailComposeViewController = ConfigureMailController()
+//            if MFMailComposeViewController.canSendMail(){
+//                self.present(mailComposeViewController, animated: true, completion: nil)
+//            }
+//            else{
+//                showMailError()
+//            }
             
-            let mailComposeViewController = ConfigureMailController()
-            if MFMailComposeViewController.canSendMail(){
-                self.present(mailComposeViewController, animated: true, completion: nil)
-            }
-            else{
-                showMailError()
-            }
+            print("Chat")
             
+            performSegue(withIdentifier: "Chat-Segue", sender: nil)
+
             
             
         }
@@ -408,33 +412,82 @@ class menuVC: UIViewController, UITableViewDelegate, UITableViewDataSource, MFMa
         
     }
     
-    func ConfigureMailController() -> MFMailComposeViewController{
+//    func ConfigureMailController() -> MFMailComposeViewController{
+//
+//        let mailComposerVC = MFMailComposeViewController()
+//        mailComposerVC.mailComposeDelegate = self
+//
+//        mailComposerVC.setToRecipients(["admin@btt.com"])
+//        mailComposerVC.setSubject("Need Assistance")
+//        mailComposerVC.setMessageBody("", isHTML: false)
+//
+//        return mailComposerVC
+//
+//    }
+//
+//
+//    func showMailError(){
+//
+//        let sendMailErrorAlert = UIAlertController(title: "Couldn't send mail", message: "Your device could not send mail", preferredStyle: .alert)
+//        let dismiss = UIAlertAction(title: "Dismiss", style: .default, handler: nil)
+//        sendMailErrorAlert.addAction(dismiss)
+//
+//        self.present(sendMailErrorAlert, animated: true, completion: nil)
+//
+//    }
+//
+//    func mailComposeController(_ controller: MFMailComposeViewController, didFinishWith result: MFMailComposeResult, error: Error?) {
+//        controller.dismiss(animated: true, completion: nil)
+//    }
+    
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
-        let mailComposerVC = MFMailComposeViewController()
-        mailComposerVC.mailComposeDelegate = self
+        if segue.identifier == "Chat-Segue"{
+            let Nav = segue.destination as! UINavigationController
+            
+            let dest = Nav.viewControllers.first as! chatViewController
+            
+            
+            
+            dbRef = Database.database().reference()
+            dbHandle = dbRef.child("User").observe(.childAdded, with: { (UserSnap) in
+                guard let userData = UserSnap.value else{return}
+                
+                let Uservalue = userData as! [String : String]
+                
+                print(Uservalue)
+                
+                
+                if Auth.auth().currentUser?.uid == Uservalue["uID"]{
+                    
+                    
+                    
+                    
+                    
+                    let fileUrl = Uservalue["Image-URL"] as! String
+                    let url = URL(string: fileUrl)
+                    let data = NSData(contentsOf: url!)
+                    let picture = UIImage(data: data as! Data)
+                    dest.DP = picture!
+                    
+                }
+                
+            })
+            
+            
+            dest.channelName = (Auth.auth().currentUser?.uid)! + "Coach"
+            dest.receiverID = "pM1iI0GByBNcUoM84e5yzHiTrfn2"
+            dest.currentUserId = (Auth.auth().currentUser?.uid)!
+            
+        }
+            
+    
         
-        mailComposerVC.setToRecipients(["admin@btt.com"])
-        mailComposerVC.setSubject("Need Assistance")
-        mailComposerVC.setMessageBody("", isHTML: false)
         
-        return mailComposerVC
-
     }
     
     
-    func showMailError(){
-        
-        let sendMailErrorAlert = UIAlertController(title: "Couldn't send mail", message: "Your device could not send mail", preferredStyle: .alert)
-        let dismiss = UIAlertAction(title: "Dismiss", style: .default, handler: nil)
-        sendMailErrorAlert.addAction(dismiss)
-        
-        self.present(sendMailErrorAlert, animated: true, completion: nil)
-        
-    }
-    
-    func mailComposeController(_ controller: MFMailComposeViewController, didFinishWith result: MFMailComposeResult, error: Error?) {
-        controller.dismiss(animated: true, completion: nil)
-    }
     
     
     

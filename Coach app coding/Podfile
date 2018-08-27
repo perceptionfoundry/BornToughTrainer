@@ -15,4 +15,8 @@ pod 'IQKeyboardManager'
 pod 'CameraManager'
 pod "Player", "~> 0.8.0"
 
+
+pod 'JSQMessagesViewController'
+
+
 end

@@ -302,16 +302,40 @@ class menuVC: UIViewController, UITableViewDelegate, UITableViewDataSource, MFMa
             // 11. ************ Messages ***************
 
         else if menuArray[indexPath.row].name == "Messages"{
-           print("messages")
             
-            let mailComposeViewController = ConfigureMailController()
-            if MFMailComposeViewController.canSendMail(){
-                self.present(mailComposeViewController, animated: true, completion: nil)
-            }
-            else{
-                showMailError()
+            let messageOptions = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
+            
+            let emailOption = UIAlertAction(title: "Email", style: .default) { (Action) in
+                print("messages")
+                
+                let mailComposeViewController = self.ConfigureMailController()
+                if MFMailComposeViewController.canSendMail(){
+                    self.present(mailComposeViewController, animated: true, completion: nil)
+                }
+                else{
+                    self.showMailError()
+                }
+                
             }
             
+            
+            let chatOption = UIAlertAction(title: "Chat", style: .destructive) { (Action) in
+                print("Chat")
+                
+                self.performSegue(withIdentifier: "Chat-Segue", sender: nil)
+
+            }
+            
+            let CancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
+
+            
+            messageOptions.addAction(emailOption)
+            messageOptions.addAction(chatOption)
+            messageOptions.addAction(CancelAction)
+            
+            self.present(messageOptions, animated: true, completion: nil)
+            
+           
             
             
         }
@@ -373,7 +397,51 @@ class menuVC: UIViewController, UITableViewDelegate, UITableViewDataSource, MFMa
     }
     
     
-    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
+        if segue.identifier == "Chat-Segue"{
+            let Nav = segue.destination as! UINavigationController
+            
+            let dest = Nav.viewControllers.first as! chatViewController
+            
+            
+            
+            dbRef = Database.database().reference()
+            dbHandle = dbRef.child("User").observe(.childAdded, with: { (UserSnap) in
+                guard let userData = UserSnap.value else{return}
+                
+                let Uservalue = userData as! [String : String]
+                
+                print(Uservalue)
+                
+                
+                if Uservalue["uID"] == self.appDelegate.selectedUser{
+                    
+                    
+                    
+                    
+                    
+                    let fileUrl = Uservalue["Image-URL"] as! String
+                    let url = URL(string: fileUrl)
+                    let data = NSData(contentsOf: url!)
+                    let picture = UIImage(data: data as! Data)
+                    dest.DP = picture!
+                    
+                }
+                
+            })
+            
+            
+            dest.channelName = self.appDelegate.selectedUser + "Coach"
+            dest.receiverID = self.appDelegate.selectedUser
+            dest.currentUserId = (Auth.auth().currentUser?.uid)!
+            
+        }
+        
+        
+        
+        
+    }
     
     
     func nextScreen (){

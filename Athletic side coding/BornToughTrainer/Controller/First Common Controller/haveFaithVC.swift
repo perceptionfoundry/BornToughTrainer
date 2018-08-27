@@ -10,8 +10,10 @@ import Foundation
 import UIKit
 import Firebase
 import SDWebImage
+import MessageUI
 
-class haveFaithVC: UIViewController, UITextViewDelegate {
+
+class haveFaithVC: UIViewController, UITextViewDelegate, MFMailComposeViewControllerDelegate {
     
     @IBOutlet weak var workingToward: UITextView!
     @IBOutlet weak var attitudeSlogan: UITextView!
@@ -148,6 +150,47 @@ class haveFaithVC: UIViewController, UITextViewDelegate {
             workingToward.textColor = UIColor.black
             attitudeSlogan.textColor = UIColor.black
         }
+    }
+    
+    @IBAction func EmailButtonAction(_ sender: Any) {
+        
+        print("messages")
+        
+        let mailComposeViewController = ConfigureMailController()
+        if MFMailComposeViewController.canSendMail(){
+            self.present(mailComposeViewController, animated: true, completion: nil)
+        }
+        else{
+            showMailError()
+        }
+    }
+    
+    func ConfigureMailController() -> MFMailComposeViewController{
+        
+        let mailComposerVC = MFMailComposeViewController()
+        mailComposerVC.mailComposeDelegate = self
+        
+        mailComposerVC.setToRecipients(["admin@btt.com"])
+        mailComposerVC.setSubject("Need Assistance")
+        mailComposerVC.setMessageBody("", isHTML: false)
+        
+        return mailComposerVC
+        
+    }
+    
+    
+    func showMailError(){
+        
+        let sendMailErrorAlert = UIAlertController(title: "Couldn't send mail", message: "Your device could not send mail", preferredStyle: .alert)
+        let dismiss = UIAlertAction(title: "Dismiss", style: .default, handler: nil)
+        sendMailErrorAlert.addAction(dismiss)
+        
+        self.present(sendMailErrorAlert, animated: true, completion: nil)
+        
+    }
+    
+    func mailComposeController(_ controller: MFMailComposeViewController, didFinishWith result: MFMailComposeResult, error: Error?) {
+        controller.dismiss(animated: true, completion: nil)
     }
     
 }

@@ -47,6 +47,7 @@
 		84F6C19A21010CAD00DBE976 /* gradeTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84F6C19921010CAD00DBE976 /* gradeTVC.swift */; };
 		84F6C19C21010DA600DBE976 /* gradeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84F6C19B21010DA600DBE976 /* gradeVC.swift */; };
 		F20B75BB2113298500F6733C /* audioTimer.swift in Sources */ = {isa = PBXBuildFile; fileRef = F20B75BA2113298500F6733C /* audioTimer.swift */; };
+		F21EDF1A213439B00060720C /* chatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F21EDF19213439B00060720C /* chatViewController.swift */; };
 		F226BA14210F6C1B00DE6D16 /* haveFaithVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F226BA13210F6C1B00DE6D16 /* haveFaithVC.swift */; };
 		F26A7CBC210AE90B00D6B533 /* ITC Avant Garde Gothic Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = F26A7CBB210AE90800D6B533 /* ITC Avant Garde Gothic Bold.otf */; };
 		F27A852F2111B90C00D2E344 /* DateCheckinVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F27A852E2111B90B00D2E344 /* DateCheckinVC.swift */; };
@@ -102,6 +103,7 @@
 		84F6C19B21010DA600DBE976 /* gradeVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = gradeVC.swift; sourceTree = "<group>"; };
 		B291E92C049CF993D9A74872 /* Pods-BornToughTrainer.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BornToughTrainer.debug.xcconfig"; path = "Pods/Target Support Files/Pods-BornToughTrainer/Pods-BornToughTrainer.debug.xcconfig"; sourceTree = "<group>"; };
 		F20B75BA2113298500F6733C /* audioTimer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = audioTimer.swift; sourceTree = "<group>"; };
+		F21EDF19213439B00060720C /* chatViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = chatViewController.swift; sourceTree = "<group>"; };
 		F226BA13210F6C1B00DE6D16 /* haveFaithVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = haveFaithVC.swift; sourceTree = "<group>"; };
 		F26A7CBB210AE90800D6B533 /* ITC Avant Garde Gothic Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "ITC Avant Garde Gothic Bold.otf"; sourceTree = "<group>"; };
 		F26A7CBD210AE90D00D6B533 /* ITC Avant Garde Gothic Medium.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "ITC Avant Garde Gothic Medium.otf"; sourceTree = "<group>"; };
@@ -198,6 +200,7 @@
 			children = (
 				F2C13AA2210C6CB0008C7F2B /* InitialController */,
 				840443C320FB7C2000E84BF3 /* menuVC.swift */,
+				F21EDF19213439B00060720C /* chatViewController.swift */,
 				F2C13AA3210C6CF2008C7F2B /* First Common Controller */,
 				F27A852D2111A2F900D2E344 /* Second Common Controller */,
 				F27A85302111EAE000D2E344 /* AV Controller */,
@@ -404,6 +407,8 @@
 				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
 				"${BUILT_PRODUCTS_DIR}/GoogleToolboxForMac/GoogleToolboxForMac.framework",
 				"${BUILT_PRODUCTS_DIR}/IQKeyboardManager/IQKeyboardManager.framework",
+				"${BUILT_PRODUCTS_DIR}/JSQMessagesViewController/JSQMessagesViewController.framework",
+				"${BUILT_PRODUCTS_DIR}/JSQSystemSoundPlayer/JSQSystemSoundPlayer.framework",
 				"${BUILT_PRODUCTS_DIR}/Player/Player.framework",
 				"${BUILT_PRODUCTS_DIR}/SDWebImage/SDWebImage.framework",
 				"${BUILT_PRODUCTS_DIR}/leveldb-library/leveldb.framework",
@@ -415,6 +420,8 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleToolboxForMac.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/IQKeyboardManager.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/JSQMessagesViewController.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/JSQSystemSoundPlayer.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Player.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SDWebImage.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/leveldb.framework",
@@ -455,6 +462,7 @@
 				8406C14220FD1365009B2ABC /* extension.swift in Sources */,
 				4C948DAA2105B9CE00135748 /* createPepTalkVC.swift in Sources */,
 				84844AEB210A21610053F764 /* unCompletedTaskTVC.swift in Sources */,
+				F21EDF1A213439B00060720C /* chatViewController.swift in Sources */,
 				846477E3210240B5008D9505 /* gradeListTVC.swift in Sources */,
 				8432B4292103A3E800A944D6 /* createNewTaskVC.swift in Sources */,
 				84CF26DC20F90E2100692B17 /* buttonStyle.swift in Sources */,
@@ -621,10 +629,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = SUBZ24DP5B;
 				INFOPLIST_FILE = BornToughTrainer/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-				);
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.agencybash.btt;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
@@ -640,10 +645,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = SUBZ24DP5B;
 				INFOPLIST_FILE = BornToughTrainer/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-				);
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.agencybash.btt;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;

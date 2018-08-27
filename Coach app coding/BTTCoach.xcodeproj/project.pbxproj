@@ -43,6 +43,7 @@
 		F20DC1582118104E00157809 /* Custom_View.swift in Sources */ = {isa = PBXBuildFile; fileRef = F20DC1512118104D00157809 /* Custom_View.swift */; };
 		F20DC1592118104E00157809 /* customTF.swift in Sources */ = {isa = PBXBuildFile; fileRef = F20DC1522118104E00157809 /* customTF.swift */; };
 		F20DC15A2118104E00157809 /* Custom_Label.swift in Sources */ = {isa = PBXBuildFile; fileRef = F20DC1532118104E00157809 /* Custom_Label.swift */; };
+		F21EDF1C21344AE30060720C /* chatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F21EDF1B21344AE30060720C /* chatViewController.swift */; };
 		F226BA14210F6C1B00DE6D16 /* haveFaithVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F226BA13210F6C1B00DE6D16 /* haveFaithVC.swift */; };
 		F26A7CBC210AE90B00D6B533 /* ITC Avant Garde Gothic Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = F26A7CBB210AE90800D6B533 /* ITC Avant Garde Gothic Bold.otf */; };
 		F27A85322111F11700D2E344 /* StreamingVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F27A85312111F11700D2E344 /* StreamingVC.swift */; };
@@ -57,7 +58,7 @@
 		5AF50D0FE0B80048643D9FB4 /* Pods-BTTCoach.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BTTCoach.debug.xcconfig"; path = "Pods/Target Support Files/Pods-BTTCoach/Pods-BTTCoach.debug.xcconfig"; sourceTree = "<group>"; };
 		5E93AD2885AC0C1BF4DC543F /* Pods-BTTCoach.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BTTCoach.release.xcconfig"; path = "Pods/Target Support Files/Pods-BTTCoach/Pods-BTTCoach.release.xcconfig"; sourceTree = "<group>"; };
 		667C7C2DD0D4CE5C68631890 /* Pods_BTTCoach.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BTTCoach.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		778091C9A4DB92DD88E92B0E /* Pods-BornToughTrainer.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods_BTTCoach.release.xcconfig"; path = "Pods/Target Support Files/Pods-BornToughTrainer/Pods-BornToughTrainer.release.xcconfig"; sourceTree = "<group>"; };
+		778091C9A4DB92DD88E92B0E /* Pods_BTTCoach.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods_BTTCoach.release.xcconfig; path = "Pods/Target Support Files/Pods-BornToughTrainer/Pods-BornToughTrainer.release.xcconfig"; sourceTree = "<group>"; };
 		840377EE21079DDA00276D5D /* routineTVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = routineTVC.swift; sourceTree = "<group>"; };
 		840443C120FB374300E84BF3 /* signInVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = signInVC.swift; sourceTree = "<group>"; };
 		840443C320FB7C2000E84BF3 /* menuVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = menuVC.swift; sourceTree = "<group>"; };
@@ -94,6 +95,7 @@
 		F20DC1512118104D00157809 /* Custom_View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Custom_View.swift; sourceTree = "<group>"; };
 		F20DC1522118104E00157809 /* customTF.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = customTF.swift; sourceTree = "<group>"; };
 		F20DC1532118104E00157809 /* Custom_Label.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Custom_Label.swift; sourceTree = "<group>"; };
+		F21EDF1B21344AE30060720C /* chatViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = chatViewController.swift; path = "../../../Athletic side coding/BornToughTrainer/Controller/chatViewController.swift"; sourceTree = "<group>"; };
 		F226BA13210F6C1B00DE6D16 /* haveFaithVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = haveFaithVC.swift; sourceTree = "<group>"; };
 		F26A7CBB210AE90800D6B533 /* ITC Avant Garde Gothic Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "ITC Avant Garde Gothic Bold.otf"; sourceTree = "<group>"; };
 		F26A7CBD210AE90D00D6B533 /* ITC Avant Garde Gothic Medium.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "ITC Avant Garde Gothic Medium.otf"; sourceTree = "<group>"; };
@@ -127,7 +129,7 @@
 			isa = PBXGroup;
 			children = (
 				B291E92C049CF993D9A74872 /* Pods-BornToughTrainer.debug.xcconfig */,
-				778091C9A4DB92DD88E92B0E /* Pods-BornToughTrainer.release.xcconfig */,
+				778091C9A4DB92DD88E92B0E /* Pods_BTTCoach.release.xcconfig */,
 				5AF50D0FE0B80048643D9FB4 /* Pods-BTTCoach.debug.xcconfig */,
 				5E93AD2885AC0C1BF4DC543F /* Pods-BTTCoach.release.xcconfig */,
 			);
@@ -183,6 +185,7 @@
 				840443C120FB374300E84BF3 /* signInVC.swift */,
 				F20DC14921180C9200157809 /* AllUserVC.swift */,
 				840443C320FB7C2000E84BF3 /* menuVC.swift */,
+				F21EDF1B21344AE30060720C /* chatViewController.swift */,
 				8406C13F20FD105D009B2ABC /* createIdentityVC.swift */,
 				84844AEC210A22410053F764 /* commitTodayListVC.swift */,
 				8432B42421039A9C00A944D6 /* LogListVC.swift */,
@@ -330,6 +333,8 @@
 				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
 				"${BUILT_PRODUCTS_DIR}/GoogleToolboxForMac/GoogleToolboxForMac.framework",
 				"${BUILT_PRODUCTS_DIR}/IQKeyboardManager/IQKeyboardManager.framework",
+				"${BUILT_PRODUCTS_DIR}/JSQMessagesViewController/JSQMessagesViewController.framework",
+				"${BUILT_PRODUCTS_DIR}/JSQSystemSoundPlayer/JSQSystemSoundPlayer.framework",
 				"${BUILT_PRODUCTS_DIR}/Player/Player.framework",
 				"${BUILT_PRODUCTS_DIR}/SDWebImage/SDWebImage.framework",
 				"${BUILT_PRODUCTS_DIR}/leveldb-library/leveldb.framework",
@@ -341,6 +346,8 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleToolboxForMac.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/IQKeyboardManager.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/JSQMessagesViewController.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/JSQSystemSoundPlayer.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Player.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SDWebImage.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/leveldb.framework",
@@ -402,6 +409,7 @@
 				840443C420FB7C2000E84BF3 /* menuVC.swift in Sources */,
 				840443C220FB374300E84BF3 /* signInVC.swift in Sources */,
 				84F6C1962100EA9900DBE976 /* setUpTVC.swift in Sources */,
+				F21EDF1C21344AE30060720C /* chatViewController.swift in Sources */,
 				8432B42321039A4400A944D6 /* logListTVC.swift in Sources */,
 				F226BA14210F6C1B00DE6D16 /* haveFaithVC.swift in Sources */,
 				F20DC1572118104E00157809 /* Custom_ImageView.swift in Sources */,
