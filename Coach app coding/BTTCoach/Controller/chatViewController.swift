@@ -130,23 +130,46 @@ class chatViewController: JSQMessagesViewController {
             let senderName = value["senderDisplay"] as? String
             let mediatype = value["mediaType"] as! String
             
-            
-            
             switch mediatype{
             
                 case "TEXT":
                     self.messages.append(JSQMessage.init(senderId: senderid, displayName: senderName, text: text))
 
                 case "PHOTO":
-                    print("photo")
+                    let fileUrl = value["fileURL"] as! String
+                    let url = URL(string: fileUrl)
+                    let data = NSData(contentsOf: url!)
+                    let picture = UIImage(data: data! as Data)
+                    let photo = JSQPhotoMediaItem(image: picture)
+                    
+                    
+                    self.messages.append(JSQMessage(senderId: senderid, displayName: senderName, media: photo))
+                 
+                    // identify incoming OR outgoing photo
+                    if self.senderId == senderid {
+                        photo?.appliesMediaViewMaskAsOutgoing = true
 
-//
+                    }
+                    else{
+                photo?.appliesMediaViewMaskAsOutgoing = false
+                }
+                
                 
 
                 case "VIDEO":
+                    let fileUrl = value["fileURL"] as! String
+                    let url = URL(string: fileUrl)
+                    let fetchvdo = JSQVideoMediaItem(fileURL: url, isReadyToPlay: true)
+                    self.messages.append(JSQMessage(senderId: senderid, displayName: senderName, media: fetchvdo))
                 
-                print("video")
-//
+                    // identify incoming OR outgoing Video
+                    if self.senderId == senderid {
+                        fetchvdo?.appliesMediaViewMaskAsOutgoing = true
+                        
+                    }
+                    else{
+                        fetchvdo?.appliesMediaViewMaskAsOutgoing = false
+                }
                 
             
             default:
@@ -248,14 +271,11 @@ class chatViewController: JSQMessagesViewController {
         
         // SAVE MESSAGE ON FIREBASE
         let newMessage = msgRef.child(channelName).childByAutoId()
-        let messageData = ["text": text, "senderID": senderId, "senderDisplay": senderDisplayName, "mediaType": "TEXT", "alert":"TRUE"]
+        let messageData = ["text": text, "senderID": senderId, "senderDisplay": senderDisplayName, "mediaType": "TEXT"]
         
         newMessage.setValue(messageData)
         
         // ALERT = TRUE
-        
-      
-        
 //        msgRef.child(channelName).child("Alert").setValue("TRUE")
 //
 //       collectionView.reloadData()
@@ -267,6 +287,6 @@ class chatViewController: JSQMessagesViewController {
     }
     
     
-    
+ 
 }
 

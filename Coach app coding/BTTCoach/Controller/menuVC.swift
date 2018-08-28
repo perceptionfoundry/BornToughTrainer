@@ -421,10 +421,10 @@ class menuVC: UIViewController, UITableViewDelegate, UITableViewDataSource, MFMa
                     
                     
                     
-                    let fileUrl = Uservalue["Image-URL"] as! String
-                    let url = URL(string: fileUrl)
+                    let fileUrl = Uservalue["Image-URL"] 
+                    let url = URL(string: fileUrl!)
                     let data = NSData(contentsOf: url!)
-                    let picture = UIImage(data: data as! Data)
+                    let picture = UIImage(data: data! as Data)
                     dest.DP = picture!
                     
                 }
