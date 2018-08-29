@@ -97,7 +97,10 @@ class chatViewController: JSQMessagesViewController {
     @IBAction func backButton(_ sender: Any) {
         
         
-        self.dismiss(animated: true, completion: nil)
+        let vc = UIStoryboard(name:"Main", bundle:nil).instantiateViewController(withIdentifier: "menu") as! menuVC
+        present(vc, animated: true, completion: nil)
+        
+        
     }
     
     
@@ -129,6 +132,7 @@ class chatViewController: JSQMessagesViewController {
             let senderid = value["senderID"] as? String
             let senderName = value["senderDisplay"] as? String
             let mediatype = value["mediaType"] as! String
+            let alert = value["alert"] as! String
             
             switch mediatype{
             
@@ -176,6 +180,16 @@ class chatViewController: JSQMessagesViewController {
                 print("UNKNOWN")
             }
             
+            
+            print(alert)
+            
+            if alert == "TRUE" && senderid != (Auth.auth().currentUser?.uid)!{
+                let autoID = snapshot.key
+                let newMessage = self.msgRef.child(self.channelName).child(autoID).child("alert")
+                
+                newMessage.setValue("FALSE")
+
+            }
 
             self.collectionView.reloadData()
 
@@ -271,7 +285,7 @@ class chatViewController: JSQMessagesViewController {
         
         // SAVE MESSAGE ON FIREBASE
         let newMessage = msgRef.child(channelName).childByAutoId()
-        let messageData = ["text": text, "senderID": senderId, "senderDisplay": senderDisplayName, "mediaType": "TEXT"]
+        let messageData = ["text": text, "senderID": senderId, "senderDisplay": senderDisplayName, "mediaType": "TEXT","alert": "TRUE"]
         
         newMessage.setValue(messageData)
         
@@ -280,7 +294,7 @@ class chatViewController: JSQMessagesViewController {
 //
 //       collectionView.reloadData()
 //
-//        finishSendingMessage()
+        finishSendingMessage()
         
     
 

@@ -12,6 +12,12 @@ class menuTVC: UITableViewCell {
 
     @IBOutlet weak var img: UIImageView!
     @IBOutlet weak var menuName: UILabel!
+   
+    @IBOutlet weak var countView: Custom_View!
+    @IBOutlet weak var countLabel: UILabel!
+    
+    
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

@@ -577,15 +577,54 @@
                                                                         <constraint firstAttribute="width" secondItem="Dcr-4p-DtX" secondAttribute="height" multiplier="1:1" id="afx-Ud-btN"/>
                                                                     </constraints>
                                                                 </imageView>
-                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Produce Pep Talks" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="1Bx-rQ-8v3">
+                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Messages" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="1Bx-rQ-8v3">
                                                                     <rect key="frame" x="32.5" y="-0.5" width="135" height="20.5"/>
                                                                     <fontDescription key="fontDescription" name="AvantGarde-Medium" family="ITC Avant Garde Gothic" pointSize="14"/>
                                                                     <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                     <nil key="highlightedColor"/>
                                                                 </label>
+                                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Doa-Dy-cw6" customClass="Custom_View" customModule="BornToughTrainer" customModuleProvider="target">
+                                                                    <rect key="frame" x="109" y="3.5" width="25" height="14"/>
+                                                                    <subviews>
+                                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="RTg-rq-08O">
+                                                                            <rect key="frame" x="0.0" y="0.0" width="25" height="14"/>
+                                                                            <fontDescription key="fontDescription" type="boldSystem" pointSize="10"/>
+                                                                            <nil key="textColor"/>
+                                                                            <nil key="highlightedColor"/>
+                                                                        </label>
+                                                                    </subviews>
+                                                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                    <constraints>
+                                                                        <constraint firstItem="RTg-rq-08O" firstAttribute="centerX" secondItem="Doa-Dy-cw6" secondAttribute="centerX" id="2aR-Sp-UJx"/>
+                                                                        <constraint firstItem="RTg-rq-08O" firstAttribute="height" secondItem="Doa-Dy-cw6" secondAttribute="height" id="Eoy-VK-X57"/>
+                                                                        <constraint firstAttribute="height" constant="14" id="LQh-3x-fPn"/>
+                                                                        <constraint firstItem="RTg-rq-08O" firstAttribute="centerY" secondItem="Doa-Dy-cw6" secondAttribute="centerY" id="MRB-bU-4gq"/>
+                                                                        <constraint firstAttribute="width" constant="25" id="UC0-Cd-8Bv"/>
+                                                                        <constraint firstItem="RTg-rq-08O" firstAttribute="width" secondItem="Doa-Dy-cw6" secondAttribute="width" id="ymE-wT-huZ"/>
+                                                                    </constraints>
+                                                                    <userDefinedRuntimeAttributes>
+                                                                        <userDefinedRuntimeAttribute type="number" keyPath="C_Radius">
+                                                                            <real key="value" value="7"/>
+                                                                        </userDefinedRuntimeAttribute>
+                                                                        <userDefinedRuntimeAttribute type="number" keyPath="shadowOpacity">
+                                                                            <real key="value" value="3"/>
+                                                                        </userDefinedRuntimeAttribute>
+                                                                        <userDefinedRuntimeAttribute type="size" keyPath="shadowOffset">
+                                                                            <size key="value" width="0.0" height="1"/>
+                                                                        </userDefinedRuntimeAttribute>
+                                                                        <userDefinedRuntimeAttribute type="number" keyPath="shadowRadius">
+                                                                            <real key="value" value="1"/>
+                                                                        </userDefinedRuntimeAttribute>
+                                                                        <userDefinedRuntimeAttribute type="color" keyPath="shadowColor">
+                                                                            <color key="value" red="1" green="0.14913141730000001" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                                        </userDefinedRuntimeAttribute>
+                                                                    </userDefinedRuntimeAttributes>
+                                                                </view>
                                                             </subviews>
                                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                             <constraints>
+                                                                <constraint firstItem="Doa-Dy-cw6" firstAttribute="centerY" secondItem="aQO-F3-HQX" secondAttribute="centerY" id="JHL-O1-K4x"/>
+                                                                <constraint firstItem="Doa-Dy-cw6" firstAttribute="centerX" secondItem="aQO-F3-HQX" secondAttribute="centerX" multiplier="1.45" id="Vue-cX-UiV"/>
                                                                 <constraint firstItem="1Bx-rQ-8v3" firstAttribute="height" secondItem="aQO-F3-HQX" secondAttribute="height" id="aYm-sR-eu9"/>
                                                                 <constraint firstItem="Dcr-4p-DtX" firstAttribute="top" secondItem="aQO-F3-HQX" secondAttribute="top" id="gmw-CO-YAA"/>
                                                                 <constraint firstItem="1Bx-rQ-8v3" firstAttribute="centerY" secondItem="aQO-F3-HQX" secondAttribute="centerY" id="hbG-6o-buB"/>
@@ -606,6 +645,8 @@
                                                 </tableViewCellContentView>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <connections>
+                                                    <outlet property="countLabel" destination="RTg-rq-08O" id="Xbi-h9-nkc"/>
+                                                    <outlet property="countView" destination="Doa-Dy-cw6" id="b5w-5l-PMc"/>
                                                     <outlet property="img" destination="Dcr-4p-DtX" id="fWH-ld-iYx"/>
                                                     <outlet property="menuName" destination="1Bx-rQ-8v3" id="3GO-gW-WZB"/>
                                                 </connections>
@@ -4188,7 +4229,7 @@ today a success?</string>
         <!--Chat View Controller-->
         <scene sceneID="qN4-0T-gSd">
             <objects>
-                <viewController id="lLh-fh-eaC" customClass="chatViewController" customModule="Social_Networking_and_Professional_Development" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="lLh-fh-eaC" customClass="chatViewController" customModule="BornToughTrainer" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="oHh-iB-sOj"/>
                         <viewControllerLayoutGuide type="bottom" id="qNl-Ve-jjz"/>

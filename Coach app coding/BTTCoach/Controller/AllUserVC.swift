@@ -16,7 +16,10 @@ class AllUserVC: UIViewController, UITableViewDataSource,UITableViewDelegate {
     
     var userList  = [[String:String]]()
     var uidList = [String]()
+    var newMsgCount = 0
+    var newReciever = ""
     
+    var newmessage = [[String:String]]()
     
    let appDelegate = UIApplication.shared.delegate as! AppDelegate
     
@@ -40,6 +43,7 @@ class AllUserVC: UIViewController, UITableViewDataSource,UITableViewDelegate {
                 print(value)
             
             self.userList.append(value)
+   
                 self.allUserTable.reloadData()
             }
             
@@ -64,17 +68,51 @@ class AllUserVC: UIViewController, UITableViewDataSource,UITableViewDelegate {
         
         print(userList)
         
+        cell.countView.isHidden = true
         
         cell.Name.text?  = userList[indexPath.row]["Name"]!
-        
-        
-        
-        
+ 
         let imageURL = userList[indexPath.row]["Image-URL"]
         
         
         let string_url = URL(string: imageURL!)
         cell.userImage.sd_setImage(with: string_url!, placeholderImage: UIImage(named: "btt-logo"), options: .cacheMemoryOnly, completed: nil)
+        
+        
+        
+        
+        
+        let channelName = userList[indexPath.row]["uID"]! + "Coach"
+        
+        
+        print(channelName)
+        
+        
+        
+        
+        self.dbHandle = self.dbRef.child("Messages").child(channelName).observe(.childAdded, with: { (CountSnap) in
+            
+            //                    print(CountSnap.value)
+            
+            let value = CountSnap.value as! [String:String]
+            
+            
+            if value["alert"] == "TRUE" && Auth.auth().currentUser?.uid != value["senderID"]{
+                
+                
+               cell.countView.isHidden = false
+                
+                
+                
+            }
+            
+        })
+        
+
+      
+
+    
+        
         
         
         cell.selectionStyle = .none

@@ -97,7 +97,10 @@ class chatViewController: JSQMessagesViewController {
     @IBAction func backButton(_ sender: Any) {
         
         
-        self.dismiss(animated: true, completion: nil)
+        let vc = UIStoryboard(name:"Main", bundle:nil).instantiateViewController(withIdentifier: "menu") as! menuVC
+        present(vc, animated: true, completion: nil)
+        
+        
     }
     
     
@@ -129,7 +132,8 @@ class chatViewController: JSQMessagesViewController {
             let senderid = value["senderID"] as? String
             let senderName = value["senderDisplay"] as? String
             let mediatype = value["mediaType"] as! String
-            
+            let alert = value["alert"] as! String
+
             
             
             switch mediatype{
@@ -151,6 +155,22 @@ class chatViewController: JSQMessagesViewController {
             
             default:
                 print("UNKNOWN")
+            }
+            
+            
+//            print(alert)
+            print("***********")
+
+            print(senderid)
+            print((Auth.auth().currentUser?.uid)!)
+            print("***********")
+            
+            if alert == "TRUE" && senderid != (Auth.auth().currentUser?.uid)!{
+                let autoID = snapshot.key
+                let newMessage = self.msgRef.child(self.channelName).child(autoID).child("alert")
+                
+                newMessage.setValue("FALSE")
+                
             }
             
 
@@ -222,13 +242,13 @@ class chatViewController: JSQMessagesViewController {
         let message = messages[indexPath.item]
         
         if message.senderId == senderId{
-//        return JSQMessagesAvatarImageFactory.avatarImage(with: self.DP, diameter: 30)
-            return JSQMessagesAvatarImageFactory.avatarImage(with: UIImage(named: "btt-logo"), diameter: 30)
+        return JSQMessagesAvatarImageFactory.avatarImage(with: self.DP, diameter: 30)
+//            return JSQMessagesAvatarImageFactory.avatarImage(with: UIImage(named: "btt-logo"), diameter: 30)
 
         }
-        return JSQMessagesAvatarImageFactory.avatarImage(with: self.DP, diameter: 30)
+//        return JSQMessagesAvatarImageFactory.avatarImage(with: self.DP, diameter: 30)
 
-//        return JSQMessagesAvatarImageFactory.avatarImage(with: UIImage(named: "btt-logo"), diameter: 30)
+        return JSQMessagesAvatarImageFactory.avatarImage(with: UIImage(named: "btt-logo"), diameter: 30)
     }
 
 
@@ -260,7 +280,7 @@ class chatViewController: JSQMessagesViewController {
 //
 //       collectionView.reloadData()
 //
-//        finishSendingMessage()
+        finishSendingMessage()
         
     
 

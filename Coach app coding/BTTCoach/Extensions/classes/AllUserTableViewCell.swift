@@ -14,4 +14,6 @@ class AllUserTableViewCell: UITableViewCell {
     
     @IBOutlet weak var userImage: Custom_ImageView!
     
+    @IBOutlet weak var countView: Custom_View!
+    @IBOutlet weak var countLabel: UILabel!
 }

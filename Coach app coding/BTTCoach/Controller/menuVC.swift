@@ -18,6 +18,10 @@ class menuVC: UIViewController, UITableViewDelegate, UITableViewDataSource, MFMa
     @IBOutlet weak var profileImage: UIImageView!
     @IBOutlet weak var tableView: UITableView!
     
+    
+    var newMsgCount = 0
+
+    
     var dbRef : DatabaseReference!
     var dbHandle : DatabaseHandle!
     
@@ -67,6 +71,29 @@ class menuVC: UIViewController, UITableViewDelegate, UITableViewDataSource, MFMa
                 self.NameLabel.text = name!
                 self.TeamLabel.text = team!
                 
+                let user = self.appDelegate.selectedUser
+                
+                
+                let channelName = (user) + "Coach"
+                self.dbHandle = self.dbRef.child("Messages").child(channelName).observe(.childAdded, with: { (CountSnap) in
+                    
+                    print(CountSnap.value)
+                    
+                    let value = CountSnap.value as! [String:String]
+                    
+                    
+                    if value["alert"] == "TRUE" && Auth.auth().currentUser?.uid != value["senderID"]{
+                        
+                        print(self.newMsgCount)
+                        
+                        self.newMsgCount += 1
+                        
+                        print(self.newMsgCount)
+                        
+                        self.tableView.reloadData()
+                    }
+                    
+                })
 
             }
         })
@@ -88,8 +115,22 @@ class menuVC: UIViewController, UITableViewDelegate, UITableViewDataSource, MFMa
     }
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! menuTVC
+        
+        cell.countView.isHidden = true
+
+        
         cell.img.image = menuArray[indexPath.row].img
         cell.menuName.text = menuArray[indexPath.row].name
+
+        if menuArray[indexPath.row].name == "Messages" && self.newMsgCount > 0{
+            
+            cell.countView.isHidden = false
+            print(newMsgCount)
+            cell.countLabel.text = String(newMsgCount)
+            
+            
+        }
+
         return cell
     }
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {

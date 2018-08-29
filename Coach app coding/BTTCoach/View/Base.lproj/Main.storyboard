@@ -294,7 +294,7 @@
                                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="aQO-F3-HQX">
                                                             <rect key="frame" x="0.0" y="0.0" width="300" height="39.5"/>
                                                             <subviews>
-                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Produce Pep Talks" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="1Bx-rQ-8v3">
+                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Messages" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="1Bx-rQ-8v3">
                                                                     <rect key="frame" x="46.5" y="7.5" width="241.5" height="24.5"/>
                                                                     <fontDescription key="fontDescription" name="AvantGarde-Bold" family="ITC Avant Garde Gothic" pointSize="18"/>
                                                                     <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -319,17 +319,58 @@
                                                                 <constraint firstItem="1Bx-rQ-8v3" firstAttribute="centerY" secondItem="aQO-F3-HQX" secondAttribute="centerY" id="e3L-uI-k12"/>
                                                             </constraints>
                                                         </view>
+                                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5Rn-N8-Dli" customClass="Custom_View" customModule="BTTCoach" customModuleProvider="target">
+                                                            <rect key="frame" x="231" y="12.5" width="60" height="15"/>
+                                                            <subviews>
+                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="6bo-QA-nzu">
+                                                                    <rect key="frame" x="0.0" y="0.0" width="60" height="15"/>
+                                                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="10"/>
+                                                                    <nil key="textColor"/>
+                                                                    <nil key="highlightedColor"/>
+                                                                </label>
+                                                            </subviews>
+                                                            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                            <constraints>
+                                                                <constraint firstItem="6bo-QA-nzu" firstAttribute="centerY" secondItem="5Rn-N8-Dli" secondAttribute="centerY" id="2uw-vz-iCw"/>
+                                                                <constraint firstItem="6bo-QA-nzu" firstAttribute="width" secondItem="5Rn-N8-Dli" secondAttribute="width" id="LI7-yQ-tXt"/>
+                                                                <constraint firstItem="6bo-QA-nzu" firstAttribute="centerX" secondItem="5Rn-N8-Dli" secondAttribute="centerX" id="NAN-Je-ps8"/>
+                                                                <constraint firstAttribute="width" constant="60" id="QTn-Dy-kH9"/>
+                                                                <constraint firstAttribute="height" constant="15" id="oYX-w0-hk9"/>
+                                                                <constraint firstItem="6bo-QA-nzu" firstAttribute="height" secondItem="5Rn-N8-Dli" secondAttribute="height" id="wJD-2u-Ko4"/>
+                                                            </constraints>
+                                                            <userDefinedRuntimeAttributes>
+                                                                <userDefinedRuntimeAttribute type="number" keyPath="C_Radius">
+                                                                    <real key="value" value="7"/>
+                                                                </userDefinedRuntimeAttribute>
+                                                                <userDefinedRuntimeAttribute type="number" keyPath="shadowOpacity">
+                                                                    <real key="value" value="3"/>
+                                                                </userDefinedRuntimeAttribute>
+                                                                <userDefinedRuntimeAttribute type="size" keyPath="shadowOffset">
+                                                                    <size key="value" width="0.0" height="1"/>
+                                                                </userDefinedRuntimeAttribute>
+                                                                <userDefinedRuntimeAttribute type="number" keyPath="shadowRadius">
+                                                                    <real key="value" value="1"/>
+                                                                </userDefinedRuntimeAttribute>
+                                                                <userDefinedRuntimeAttribute type="color" keyPath="shadowColor">
+                                                                    <color key="value" red="1" green="0.14913141730000001" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                                </userDefinedRuntimeAttribute>
+                                                            </userDefinedRuntimeAttributes>
+                                                        </view>
                                                     </subviews>
                                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <constraints>
+                                                        <constraint firstItem="5Rn-N8-Dli" firstAttribute="centerY" secondItem="aQO-F3-HQX" secondAttribute="centerY" id="8MK-kp-Vac"/>
                                                         <constraint firstItem="aQO-F3-HQX" firstAttribute="height" secondItem="kJX-Qj-Avi" secondAttribute="height" id="BoT-OQ-kVY"/>
                                                         <constraint firstItem="aQO-F3-HQX" firstAttribute="centerX" secondItem="kJX-Qj-Avi" secondAttribute="centerX" id="UUE-dq-yuY"/>
                                                         <constraint firstItem="aQO-F3-HQX" firstAttribute="width" secondItem="kJX-Qj-Avi" secondAttribute="width" id="c1k-dY-7c8"/>
                                                         <constraint firstItem="aQO-F3-HQX" firstAttribute="centerY" secondItem="kJX-Qj-Avi" secondAttribute="centerY" id="iVy-Sc-RDm"/>
+                                                        <constraint firstItem="5Rn-N8-Dli" firstAttribute="centerX" secondItem="aQO-F3-HQX" secondAttribute="centerX" multiplier="1.8" constant="-9" id="y1B-43-7hx"/>
                                                     </constraints>
                                                 </tableViewCellContentView>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <connections>
+                                                    <outlet property="countLabel" destination="6bo-QA-nzu" id="112-tp-gEc"/>
+                                                    <outlet property="countView" destination="5Rn-N8-Dli" id="cfZ-r6-YeQ"/>
                                                     <outlet property="img" destination="Dcr-4p-DtX" id="fWH-ld-iYx"/>
                                                     <outlet property="menuName" destination="1Bx-rQ-8v3" id="3GO-gW-WZB"/>
                                                 </connections>
@@ -1310,7 +1351,7 @@
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="sml-s2-S2x">
                                                     <rect key="frame" x="54" y="0.0" width="251" height="59.5"/>
                                                     <subviews>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="a2o-oU-1I8">
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Messages" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="a2o-oU-1I8">
                                                             <rect key="frame" x="0.0" y="11.5" width="176" height="36"/>
                                                             <fontDescription key="fontDescription" name="AvantGarde-Medium" family="ITC Avant Garde Gothic" pointSize="20"/>
                                                             <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -1612,17 +1653,44 @@
                                                             </userDefinedRuntimeAttributes>
                                                         </imageView>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="User Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="I1K-TF-INA">
-                                                            <rect key="frame" x="68" y="10.5" width="244.5" height="29.5"/>
+                                                            <rect key="frame" x="68" y="9" width="244.5" height="32.5"/>
                                                             <fontDescription key="fontDescription" name="AvantGarde-Bold" family="ITC Avant Garde Gothic" pointSize="25"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
+                                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zF1-Yf-2Y0" customClass="Custom_View" customModule="BTTCoach" customModuleProvider="target">
+                                                            <rect key="frame" x="219" y="10" width="96" height="31"/>
+                                                            <subviews>
+                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="New Chat Message" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="bb0-sF-ZZ3">
+                                                                    <rect key="frame" x="8" y="0.0" width="86" height="30"/>
+                                                                    <fontDescription key="fontDescription" type="system" weight="heavy" pointSize="10"/>
+                                                                    <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                    <nil key="highlightedColor"/>
+                                                                </label>
+                                                            </subviews>
+                                                            <color key="backgroundColor" red="1" green="0.14913141730000001" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                            <constraints>
+                                                                <constraint firstItem="bb0-sF-ZZ3" firstAttribute="centerX" secondItem="zF1-Yf-2Y0" secondAttribute="centerX" constant="3" id="JVL-gn-cQh"/>
+                                                                <constraint firstItem="bb0-sF-ZZ3" firstAttribute="height" secondItem="zF1-Yf-2Y0" secondAttribute="height" constant="-1" id="QRI-Hp-gvi"/>
+                                                                <constraint firstItem="bb0-sF-ZZ3" firstAttribute="centerY" secondItem="zF1-Yf-2Y0" secondAttribute="centerY" constant="-0.5" id="a7l-8l-CpD"/>
+                                                                <constraint firstAttribute="height" constant="31" id="div-BE-3y5"/>
+                                                                <constraint firstItem="bb0-sF-ZZ3" firstAttribute="width" secondItem="zF1-Yf-2Y0" secondAttribute="width" constant="-10" id="oJZ-Iy-at4"/>
+                                                                <constraint firstAttribute="width" constant="96" id="y61-gm-13y"/>
+                                                            </constraints>
+                                                            <userDefinedRuntimeAttributes>
+                                                                <userDefinedRuntimeAttribute type="number" keyPath="C_Radius">
+                                                                    <real key="value" value="15"/>
+                                                                </userDefinedRuntimeAttribute>
+                                                            </userDefinedRuntimeAttributes>
+                                                        </view>
                                                     </subviews>
                                                     <color key="backgroundColor" red="0.98431372549999996" green="0.87843137250000003" blue="0.29803921570000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <constraints>
                                                         <constraint firstItem="gkG-sm-BXS" firstAttribute="centerY" secondItem="aO2-ns-aqu" secondAttribute="centerY" id="8ha-IA-mKS"/>
+                                                        <constraint firstItem="zF1-Yf-2Y0" firstAttribute="centerY" secondItem="aO2-ns-aqu" secondAttribute="centerY" constant="0.5" id="G5z-gc-heR"/>
                                                         <constraint firstAttribute="height" constant="50" id="IBv-b2-c9u"/>
                                                         <constraint firstAttribute="trailing" secondItem="I1K-TF-INA" secondAttribute="trailing" constant="8" id="Lxg-2S-jQd"/>
+                                                        <constraint firstItem="zF1-Yf-2Y0" firstAttribute="centerX" secondItem="aO2-ns-aqu" secondAttribute="centerX" multiplier="1.55" constant="18.620000000000001" id="Ncr-iJ-8w5"/>
                                                         <constraint firstItem="gkG-sm-BXS" firstAttribute="centerX" secondItem="aO2-ns-aqu" secondAttribute="centerX" multiplier="0.25" id="Vnk-51-8MO"/>
                                                         <constraint firstItem="I1K-TF-INA" firstAttribute="centerY" secondItem="aO2-ns-aqu" secondAttribute="centerY" id="Wff-in-RwG"/>
                                                         <constraint firstItem="I1K-TF-INA" firstAttribute="leading" secondItem="gkG-sm-BXS" secondAttribute="trailing" constant="8" id="jKb-kg-cGT"/>
@@ -1649,6 +1717,8 @@
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <connections>
                                             <outlet property="Name" destination="I1K-TF-INA" id="spM-tc-jQX"/>
+                                            <outlet property="countLabel" destination="bb0-sF-ZZ3" id="9EV-2h-Q5H"/>
+                                            <outlet property="countView" destination="zF1-Yf-2Y0" id="Lxr-cP-eiO"/>
                                             <outlet property="userImage" destination="gkG-sm-BXS" id="l11-Yx-ZIy"/>
                                         </connections>
                                     </tableViewCell>
@@ -1682,7 +1752,7 @@
         <!--Chat View Controller-->
         <scene sceneID="pj0-9x-WWW">
             <objects>
-                <viewController id="Fnb-J9-BE4" customClass="chatViewController" customModule="Social_Networking_and_Professional_Development" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="Fnb-J9-BE4" customClass="chatViewController" customModule="BTTCoach" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="L5e-TO-pGS"/>
                         <viewControllerLayoutGuide type="bottom" id="zj3-y6-Bjs"/>

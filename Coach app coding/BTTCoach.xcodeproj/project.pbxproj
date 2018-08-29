@@ -34,6 +34,7 @@
 		84E66F0B21079A700050BAC9 /* routineListVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84E66F0A21079A700050BAC9 /* routineListVC.swift */; };
 		84F6C1962100EA9900DBE976 /* setUpTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84F6C1952100EA9900DBE976 /* setUpTVC.swift */; };
 		84F6C19A21010CAD00DBE976 /* gradeTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84F6C19921010CAD00DBE976 /* gradeTVC.swift */; };
+		F2066A142136FE2F0020DBAC /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = F2066A132136FE2F0020DBAC /* GoogleService-Info.plist */; };
 		F20DC14A21180C9200157809 /* AllUserVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F20DC14921180C9200157809 /* AllUserVC.swift */; };
 		F20DC14C21180F4900157809 /* AllUserTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F20DC14B21180F4900157809 /* AllUserTableViewCell.swift */; };
 		F20DC1542118104E00157809 /* ConfigureUserInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = F20DC14D2118104B00157809 /* ConfigureUserInterface.swift */; };
@@ -47,7 +48,6 @@
 		F26A7CBC210AE90B00D6B533 /* ITC Avant Garde Gothic Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = F26A7CBB210AE90800D6B533 /* ITC Avant Garde Gothic Bold.otf */; };
 		F27A85322111F11700D2E344 /* StreamingVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F27A85312111F11700D2E344 /* StreamingVC.swift */; };
 		F2AD82DD21359A8800BAADEE /* chatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2AD82DC21359A8800BAADEE /* chatViewController.swift */; };
-		F2F5FE1821188B6700E7D0A7 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = F2F5FE1721188B6700E7D0A7 /* GoogleService-Info.plist */; };
 		F87467FAEE8FB03B8E3C0FF1 /* Pods_BTTCoach.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2412DB46A090F368AF33C52A /* Pods_BTTCoach.framework */; };
 /* End PBXBuildFile section */
 
@@ -86,6 +86,7 @@
 		84F6C1952100EA9900DBE976 /* setUpTVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = setUpTVC.swift; sourceTree = "<group>"; };
 		84F6C19921010CAD00DBE976 /* gradeTVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = gradeTVC.swift; sourceTree = "<group>"; };
 		B291E92C049CF993D9A74872 /* Pods-BornToughTrainer.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BornToughTrainer.debug.xcconfig"; path = "Pods/Target Support Files/Pods-BornToughTrainer/Pods-BornToughTrainer.debug.xcconfig"; sourceTree = "<group>"; };
+		F2066A132136FE2F0020DBAC /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		F20DC14921180C9200157809 /* AllUserVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllUserVC.swift; sourceTree = "<group>"; };
 		F20DC14B21180F4900157809 /* AllUserTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllUserTableViewCell.swift; sourceTree = "<group>"; };
 		F20DC14D2118104B00157809 /* ConfigureUserInterface.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfigureUserInterface.swift; sourceTree = "<group>"; };
@@ -100,7 +101,6 @@
 		F26A7CBD210AE90D00D6B533 /* ITC Avant Garde Gothic Medium.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "ITC Avant Garde Gothic Medium.otf"; sourceTree = "<group>"; };
 		F27A85312111F11700D2E344 /* StreamingVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StreamingVC.swift; sourceTree = "<group>"; };
 		F2AD82DC21359A8800BAADEE /* chatViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = chatViewController.swift; sourceTree = "<group>"; };
-		F2F5FE1721188B6700E7D0A7 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -164,7 +164,7 @@
 				84CF26C320F8FE5D00692B17 /* AppDelegate.swift */,
 				84CF26CA20F8FE6100692B17 /* Assets.xcassets */,
 				84CF26CF20F8FE6100692B17 /* Info.plist */,
-				F2F5FE1721188B6700E7D0A7 /* GoogleService-Info.plist */,
+				F2066A132136FE2F0020DBAC /* GoogleService-Info.plist */,
 			);
 			path = BTTCoach;
 			sourceTree = "<group>";
@@ -313,7 +313,7 @@
 			files = (
 				F26A7CBC210AE90B00D6B533 /* ITC Avant Garde Gothic Bold.otf in Resources */,
 				84CF26CE20F8FE6100692B17 /* LaunchScreen.storyboard in Resources */,
-				F2F5FE1821188B6700E7D0A7 /* GoogleService-Info.plist in Resources */,
+				F2066A142136FE2F0020DBAC /* GoogleService-Info.plist in Resources */,
 				84CF26CB20F8FE6100692B17 /* Assets.xcassets in Resources */,
 				84CF26C920F8FE5D00692B17 /* Main.storyboard in Resources */,
 			);
@@ -569,7 +569,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.agencybash.bttcoach;
+				PRODUCT_BUNDLE_IDENTIFIER = com.agencybash.bttcoachside;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -588,7 +588,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.agencybash.bttcoach;
+				PRODUCT_BUNDLE_IDENTIFIER = com.agencybash.bttcoachside;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
