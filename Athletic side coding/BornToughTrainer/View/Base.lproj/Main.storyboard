@@ -531,7 +531,7 @@
                                             <constraint firstItem="Dvq-g6-lMz" firstAttribute="leading" secondItem="cIz-Rn-Gzz" secondAttribute="leading" constant="10" id="ixs-eE-WT3"/>
                                         </constraints>
                                     </view>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="btt-logo" translatesAutoresizingMaskIntoConstraints="NO" id="1Eh-Jp-s1m">
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="default DP" translatesAutoresizingMaskIntoConstraints="NO" id="1Eh-Jp-s1m">
                                         <rect key="frame" x="32.5" y="53.5" width="67" height="66.5"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="66.5" id="MzS-3W-2Ji"/>
@@ -857,7 +857,7 @@ today a success?</string>
                                 <rect key="frame" x="0.0" y="80" width="375" height="53.5"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </view>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="New Task Name" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aJO-Kj-kCt">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aJO-Kj-kCt">
                                 <rect key="frame" x="56.5" y="133.5" width="262.5" height="26.5"/>
                                 <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="19"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -891,7 +891,7 @@ today a success?</string>
                                 <rect key="frame" x="0.0" y="200" width="375" height="80"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </view>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" alpha="0.75" contentMode="scaleToFill" text="New Task Description" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="OPp-rK-aCY">
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" alpha="0.75" contentMode="scaleToFill" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="OPp-rK-aCY">
                                 <rect key="frame" x="0.0" y="280" width="375" height="327"/>
                                 <color key="backgroundColor" red="1" green="0.87843137250000003" blue="0.01176470588" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -1745,7 +1745,7 @@ today a success?</string>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Dtv-ug-g3p">
-                                <rect key="frame" x="20.5" y="20" width="25" height="25"/>
+                                <rect key="frame" x="20" y="20" width="25" height="25"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="25" id="1OM-RJ-1Wc"/>
                                     <constraint firstAttribute="height" constant="25" id="3Za-YV-gNd"/>
@@ -2078,7 +2078,7 @@ today a success?</string>
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                             </imageView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Rectangle Copy" translatesAutoresizingMaskIntoConstraints="NO" id="SXJ-T3-39i">
-                                <rect key="frame" x="147.5" y="70" width="80" height="80"/>
+                                <rect key="frame" x="129.5" y="49" width="116" height="116.5"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="SXJ-T3-39i" secondAttribute="height" multiplier="1:1" id="saD-af-Ctg"/>
                                 </constraints>
@@ -2281,7 +2281,7 @@ today a success?</string>
                             <constraint firstItem="QJK-bz-wPI" firstAttribute="centerX" secondItem="fWf-K3-qW0" secondAttribute="centerX" id="OEF-pO-2Aq"/>
                             <constraint firstAttribute="trailing" secondItem="qvT-c5-MX5" secondAttribute="trailing" id="OQA-cs-Yjp"/>
                             <constraint firstItem="q4c-Tv-527" firstAttribute="height" secondItem="fWf-K3-qW0" secondAttribute="height" multiplier="0.5" id="RHv-Tv-LNy"/>
-                            <constraint firstItem="SXJ-T3-39i" firstAttribute="top" secondItem="SKr-mw-GEw" secondAttribute="bottom" id="TgN-iG-2SS"/>
+                            <constraint firstItem="SXJ-T3-39i" firstAttribute="top" secondItem="SKr-mw-GEw" secondAttribute="bottom" multiplier="0.7" id="TgN-iG-2SS"/>
                             <constraint firstItem="u6c-ku-ihy" firstAttribute="leading" secondItem="oXO-RS-clZ" secondAttribute="leading" constant="10" id="UyW-aU-jAr"/>
                             <constraint firstItem="q4c-Tv-527" firstAttribute="width" secondItem="fWf-K3-qW0" secondAttribute="width" multiplier="0.8" id="bBI-Lg-uPN"/>
                             <constraint firstItem="kHO-0e-Np9" firstAttribute="width" secondItem="qvT-c5-MX5" secondAttribute="width" multiplier="0.8" id="ctv-j8-fYg"/>
@@ -2295,7 +2295,7 @@ today a success?</string>
                             <constraint firstItem="kHO-0e-Np9" firstAttribute="height" secondItem="qvT-c5-MX5" secondAttribute="height" multiplier="0.05" id="opZ-D5-cwV"/>
                             <constraint firstItem="QJK-bz-wPI" firstAttribute="height" secondItem="qvT-c5-MX5" secondAttribute="height" multiplier="0.06" id="u1Z-i5-kl8"/>
                             <constraint firstItem="oXO-RS-clZ" firstAttribute="bottom" secondItem="Cn4-Ar-cpa" secondAttribute="bottom" id="yFB-Z7-C4Q"/>
-                            <constraint firstItem="SXJ-T3-39i" firstAttribute="height" secondItem="qvT-c5-MX5" secondAttribute="height" multiplier="0.12" id="yeR-tJ-erM"/>
+                            <constraint firstItem="SXJ-T3-39i" firstAttribute="height" secondItem="qvT-c5-MX5" secondAttribute="height" multiplier="0.175" id="yeR-tJ-erM"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="oXO-RS-clZ"/>
                     </view>
@@ -3572,7 +3572,7 @@ today a success?</string>
                                         <rect key="frame" x="187.5" y="0.0" width="187.5" height="66.5"/>
                                         <color key="backgroundColor" red="1" green="0.87843137250000003" blue="0.01176470588" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <color key="tintColor" red="0.49411764705882355" green="0.44313725490196076" blue="0.062745098039215685" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                        <state key="normal" title=" New List" image="Add">
+                                        <state key="normal" title="Not Complete">
                                             <color key="titleColor" red="0.49411764705882355" green="0.44313725490196076" blue="0.062745098039215685" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         </state>
                                         <connections>
@@ -4291,6 +4291,7 @@ today a success?</string>
         <image name="btt-logo" width="148" height="148"/>
         <image name="clear - material" width="26" height="26"/>
         <image name="commit" width="300" height="317"/>
+        <image name="default DP" width="915" height="965"/>
         <image name="downArrow" width="19" height="11"/>
         <image name="ion-menu" width="20" height="9"/>
         <image name="jpg--1" width="375" height="666"/>
@@ -4306,7 +4307,7 @@ today a success?</string>
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="pz4-ZN-b85"/>
-        <segue reference="6KO-lF-JMS"/>
+        <segue reference="9VE-tV-cfQ"/>
         <segue reference="TQa-ev-PbG"/>
     </inferredMetricsTieBreakers>
 </document>

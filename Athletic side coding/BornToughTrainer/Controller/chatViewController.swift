@@ -228,7 +228,7 @@ class chatViewController: JSQMessagesViewController {
         return bubbleFactory?.outgoingMessagesBubbleImage(with:.blue)
         }
         else{
-        return bubbleFactory?.incomingMessagesBubbleImage(with: .green)
+        return bubbleFactory?.incomingMessagesBubbleImage(with: .gray)
         }
     }
     

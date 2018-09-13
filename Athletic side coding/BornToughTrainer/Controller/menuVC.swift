@@ -50,7 +50,7 @@ class menuVC: UIViewController, UITableViewDelegate, UITableViewDataSource, MFMa
                 
                 // setting profile image
                 let imageURL = URL(string: (value["Image-URL"])!)
-                self.profileImage.sd_setImage(with: imageURL!, placeholderImage: UIImage(named: "btt-logo"), options: .progressiveDownload, completed: nil)
+                self.profileImage.sd_setImage(with: imageURL!, placeholderImage: UIImage(named: "default DP"), options: .progressiveDownload, completed: nil)
                 
                 
                 // setting label value

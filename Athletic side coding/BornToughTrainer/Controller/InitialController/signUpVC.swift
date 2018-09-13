@@ -87,12 +87,14 @@ class signUpVC: UIViewController {
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
+        if segue.identifier == "gettingStarted"{
         let dest = segue.destination as!GettingStartedVC
         
         dest.userName = self.name!
     }
     
-    
+    }
     // Function that will management Alert ViewController
     func alertWindow(alertTitle: String, alertMessage: String){
         

@@ -33,7 +33,7 @@ class GettingStartedVC: UIViewController, UIPickerViewDelegate, UIPickerViewData
     let Gender = ["","Male", "Female"]
 //    let Category = ["","Team","School","Club","Academy"]
     
-    var selectedProfileImage : UIImage?
+    var selectedProfileImage = UIImage(named: "default DP")
     var imageMetaData = ""
     var userName : String?
     
@@ -46,6 +46,8 @@ class GettingStartedVC: UIViewController, UIPickerViewDelegate, UIPickerViewData
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        self.profileImage.image = UIImage(named: "default DP")
         // Multi Color String
         let stringValue = "\(self.white)\n\(self.Green1) \(and) \(Green2)"
         let attributedString: NSMutableAttributedString = NSMutableAttributedString(string: stringValue)
@@ -59,7 +61,7 @@ class GettingStartedVC: UIViewController, UIPickerViewDelegate, UIPickerViewData
         // imageView Rounded
         self.profileImage.clipsToBounds = true
         self.profileImage.layer.masksToBounds = true
-        self.profileImage.layer.cornerRadius = self.profileImage.frame.size.width / 2
+        self.profileImage.layer.cornerRadius = self.profileImage.frame.height / 2
         self.profileImage.layer.borderWidth = 5
         self.profileImage.layer.borderColor = UIColor.white.cgColor
 
