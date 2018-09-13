@@ -223,6 +223,8 @@ class createInterviewVC: UIViewController, dateFetching
         cameraManager.cameraOutputMode = .videoWithMic
         cameraManager.cameraOutputQuality = .medium
         cameraManager.writeFilesToPhoneLibrary = false
+        cameraManager.hasFrontCamera = true
+        cameraManager.cameraDevice = .front
         
     }
 
