@@ -25,6 +25,7 @@ class createPepTalkVC: UIViewController, AVAudioRecorderDelegate {
     @IBOutlet weak var TimerLabel: UILabel!
     @IBOutlet weak var acceptButton: UIButton!
     
+    @IBOutlet weak var uploadView: Custom_View!
     @IBOutlet weak var addBtn: UIButton!
     @IBOutlet weak var cancelBtn: UIButton!
     // TIMER
@@ -56,7 +57,7 @@ class createPepTalkVC: UIViewController, AVAudioRecorderDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        uploadView.isHidden = true
         cancelBtn.isHidden = true
         addBtn.isHidden = true
         
@@ -329,6 +330,8 @@ class createPepTalkVC: UIViewController, AVAudioRecorderDelegate {
 //
 //
 
+        uploadView.isHidden = false
+        
         var  audioInfo = ["Title": PepTitle.text!,
                      "Path-URL": "",
                      "uID" : ""]
@@ -409,7 +412,8 @@ class createPepTalkVC: UIViewController, AVAudioRecorderDelegate {
 
                     
                     print(audioInfo)
-                    
+                    self.dbRef.child("User").child((Auth.auth().currentUser?.uid)!).child("Pep").setValue("YES")
+
                     self.dbRef.child("Audio").child((Auth.auth().currentUser?.uid)!).child(self.PepTitle.text!).setValue(audioInfo)
 
 

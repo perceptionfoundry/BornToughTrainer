@@ -194,7 +194,9 @@ class createInterviewVC: UIViewController, dateFetching
                     
                     userInfo["Video-URL"] = (image_URl?.absoluteString)!
                     self.dbRef = Database.database().reference()
-                    
+                   
+                    self.dbRef.child("User").child((Auth.auth().currentUser?.uid)!).child("Interview").setValue("YES")
+
                     self.dbRef.child("Interview").child((Auth.auth().currentUser?.uid)!).child(self.interviewTitle.text!).setValue(userInfo)
                 })
                 

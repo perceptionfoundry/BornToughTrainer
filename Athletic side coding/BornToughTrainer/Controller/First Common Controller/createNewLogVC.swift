@@ -75,6 +75,9 @@ class createNewLogVC: UIViewController, dateFetching {
 
 
         dbRef = Database.database().reference()
+            
+            self.dbRef.child("User").child((Auth.auth().currentUser?.uid)!).child("Log").setValue("YES")
+
 
         dbRef.child("Log").child((Auth.auth().currentUser?.uid)!).child((logTitle.text)!).setValue(logData)
 

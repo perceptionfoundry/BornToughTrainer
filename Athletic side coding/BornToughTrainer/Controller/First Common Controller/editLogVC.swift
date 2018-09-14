@@ -98,6 +98,8 @@ class editLogVC: UIViewController,  dateFetching {
             
             print(newValue)
             
+
+            
             self.dbRef.child("Log").child((Auth.auth().currentUser?.uid)!).child(editTitle.text!).setValue(newValue)
 
             

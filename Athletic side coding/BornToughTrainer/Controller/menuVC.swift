@@ -45,8 +45,11 @@ class menuVC: UIViewController, UITableViewDelegate, UITableViewDataSource, MFMa
         
         dbHandle = dbRef.child("User").observe(.childAdded, with: { (userData) in
             let value = userData.value as! [String : String]
+            
 
             if value["uID"] == (Auth.auth().currentUser?.uid)!{
+                
+
                 
                 // setting profile image
                 let imageURL = URL(string: (value["Image-URL"])!)
@@ -178,27 +181,68 @@ class menuVC: UIViewController, UITableViewDelegate, UITableViewDataSource, MFMa
         
          // 3. ************ COMMIT ***************
         else if menuArray[indexPath.row].name == "Commit to Today"{
+            
            
-            dbRef.child("Commit").observe(.value) { (commit_snap) in
+            
+            dbHandle = dbRef.child("User").observe(.childAdded, with: { (userData) in
+                let value = userData.value as! [String : String]
                 
-                if commit_snap.exists() == false{
+                
+                if value["uID"] == (Auth.auth().currentUser?.uid)!{
                     
-                    let vc = UIStoryboard(name:"Main", bundle:nil).instantiateViewController(withIdentifier: "commanHome") as! commanHomeVC
-                    vc.screenImg = #imageLiteral(resourceName: "commit")
-                    vc.screenLblText = "Commit to Today"
-                    vc.descriptionText = """
-                    what do we have to accomplish to make
-                    today a success?
-                    """
-                    vc.btnTitle = "+ Add a New Task"
-                    self.present(vc, animated: true, completion: nil)
+                    print(value["Commit"])
+                    
+                    if (value["Commit"])! == "NO" {
+                        
+                                            let vc = UIStoryboard(name:"Main", bundle:nil).instantiateViewController(withIdentifier: "commanHome") as! commanHomeVC
+                                            vc.screenImg = #imageLiteral(resourceName: "commit")
+                                            vc.screenLblText = "Commit to Today"
+                                            vc.descriptionText = """
+                                            what do we have to accomplish to make
+                                            today a success?
+                                            """
+                                            vc.btnTitle = "+ Add a New Task"
+                                            self.present(vc, animated: true, completion: nil)
+                        
+                                        }
+                                        else{
+                                            let vc = UIStoryboard(name:"Main", bundle:nil).instantiateViewController(withIdentifier: "commitList") as! commitTodayListVC
+                        
+                                            self.present(vc, animated: true, completion: nil)
+                        
+                    }
+                     
+                    
                     
                 }
-                else{
-                    let vc = UIStoryboard(name:"Main", bundle:nil).instantiateViewController(withIdentifier: "commitList") as! commitTodayListVC
-                    
-                    self.present(vc, animated: true, completion: nil)                }
-            }
+            })
+            
+           
+//            dbRef.child("Commit").observe(.childAdded) { (commit_snap) in
+//
+//
+//                if commit_snap.key != (Auth.auth().currentUser?.uid)! {
+//
+//                    let vc = UIStoryboard(name:"Main", bundle:nil).instantiateViewController(withIdentifier: "commanHome") as! commanHomeVC
+//                    vc.screenImg = #imageLiteral(resourceName: "commit")
+//                    vc.screenLblText = "Commit to Today"
+//                    vc.descriptionText = """
+//                    what do we have to accomplish to make
+//                    today a success?
+//                    """
+//                    vc.btnTitle = "+ Add a New Task"
+//                    self.present(vc, animated: true, completion: nil)
+//
+//                }
+//                else{
+//                    let vc = UIStoryboard(name:"Main", bundle:nil).instantiateViewController(withIdentifier: "commitList") as! commitTodayListVC
+//
+//                    self.present(vc, animated: true, completion: nil)                }
+//            }
+
+
+
+
         }
         
         
@@ -207,39 +251,80 @@ class menuVC: UIViewController, UITableViewDelegate, UITableViewDataSource, MFMa
         else if menuArray[indexPath.row].name == "Produce Pep Talks"{
             
             
-            let check = UserDefaults.standard.value(forKey: "MYRECORD") as? [[String : String]]
+            dbHandle = dbRef.child("User").observe(.childAdded, with: { (userData) in
+                let value = userData.value as! [String : String]
+                
+                
+                if value["uID"] == (Auth.auth().currentUser?.uid)!{
+                    
+                    print(value["Commit"])
+                    
+                    if (value["Pep"])! == "NO" {
+                        
+                                            print((Auth.auth().currentUser?.uid)!)
+                        
+                                            let vc = UIStoryboard(name:"Main", bundle:nil).instantiateViewController(withIdentifier: "commanHome") as! commanHomeVC
+                                            vc.screenImg = #imageLiteral(resourceName: "mic")
+                                            vc.screenLblText = "Pep Talks"
+                                            vc.descriptionText = """
+                                            Recoed your own "Pep Talk" so you can hear
+                                            your own voice as you create a mentally
+                                            tough mindset for training and performance.
+                                            """
+                                            vc.btnTitle = "+ Add Pep Talk"
+                        
+                                            self.present(vc, animated: true, completion: nil)
+                        
+                    }
+                    else{
+                        let vc = UIStoryboard(name:"Main", bundle:nil).instantiateViewController(withIdentifier: "pepList") as! pepTalkListVC
+                        self.present(vc, animated: true, completion: nil)
+                        
+                    }
+                    
+                    
+                    
+                }
+            })
+            
+            
+//            let check = UserDefaults.standard.value(forKey: "MYRECORD") as? [[String : String]]
             
             
 //            
             
-            if check?.isEmpty == true {
-                
-                let vc = UIStoryboard(name:"Main", bundle:nil).instantiateViewController(withIdentifier: "commanHome") as! commanHomeVC
-                vc.screenImg = #imageLiteral(resourceName: "mic")
-                vc.screenLblText = "Pep Talks"
-                vc.descriptionText = """
-                Recoed your own "Pep Talk" so you can hear
-                your own voice as you create a mentally
-                tough mindset for training and performance.
-                """
-                vc.btnTitle = "+ Add Pep Talk"
-                
-                self.present(vc, animated: true, completion: nil)
-                
-            }
-            
-            else{
-                let vc = UIStoryboard(name:"Main", bundle:nil).instantiateViewController(withIdentifier: "pepList") as! pepTalkListVC
-                
-                self.present(vc, animated: true, completion: nil)
-                
-            }
-            
+//            if check?.isEmpty == true {
+//
+//                let vc = UIStoryboard(name:"Main", bundle:nil).instantiateViewController(withIdentifier: "commanHome") as! commanHomeVC
+//                vc.screenImg = #imageLiteral(resourceName: "mic")
+//                vc.screenLblText = "Pep Talks"
+//                vc.descriptionText = """
+//                Recoed your own "Pep Talk" so you can hear
+//                your own voice as you create a mentally
+//                tough mindset for training and performance.
+//                """
+//                vc.btnTitle = "+ Add Pep Talk"
+//
+//                self.present(vc, animated: true, completion: nil)
+//
 //            }
 //
-//            dbRef.child("Audio").observe(.value) { (audio_snap) in
+//            else{
+//                let vc = UIStoryboard(name:"Main", bundle:nil).instantiateViewController(withIdentifier: "pepList") as! pepTalkListVC
 //
-//                if audio_snap.exists() == false{
+//                self.present(vc, animated: true, completion: nil)
+//
+//            }
+            
+//
+//
+//            dbRef.child("Audio").observe(.childAdded) { (audio_snap) in
+//
+//                if audio_snap.key != (Auth.auth().currentUser?.uid)!{
+//
+//
+//                    print(audio_snap.key)
+//                    print((Auth.auth().currentUser?.uid)!)
 //
 //                    let vc = UIStoryboard(name:"Main", bundle:nil).instantiateViewController(withIdentifier: "commanHome") as! commanHomeVC
 //                    vc.screenImg = #imageLiteral(resourceName: "mic")
@@ -260,9 +345,9 @@ class menuVC: UIViewController, UITableViewDelegate, UITableViewDataSource, MFMa
 //
 //                    self.present(vc, animated: true, completion: nil)
 //
-            
-            
-            
+//        }
+//
+//            }
       
         }
         
@@ -270,28 +355,65 @@ class menuVC: UIViewController, UITableViewDelegate, UITableViewDataSource, MFMa
         // 5. ************ LOG PROGRESS ***************
         else if menuArray[indexPath.row].name == "Log Progress"{
             
-            dbRef.child("Log").observe(.value) { (log_snap) in
+            
+            
+            dbHandle = dbRef.child("User").observe(.childAdded, with: { (userData) in
+                let value = userData.value as! [String : String]
                 
-                if log_snap.exists() == false{
+                
+                if value["uID"] == (Auth.auth().currentUser?.uid)!{
                     
-                    let vc = UIStoryboard(name:"Main", bundle:nil).instantiateViewController(withIdentifier: "commanHome") as! commanHomeVC
-                    vc.screenImg = #imageLiteral(resourceName: "log-1")
-                    vc.screenLblText = "Log Progress"
-                    vc.descriptionText = """
-                    Create your Logs to help evaluate your
-                    training and performance over time.
-                    """
-                    vc.btnTitle = "+ Add New Log"
+                    print(value["Commit"])
                     
-                    self.present(vc, animated: true, completion: nil)
+                    if (value["Log"])! == "NO" {
+                        
+                        let vc = UIStoryboard(name:"Main", bundle:nil).instantiateViewController(withIdentifier: "commanHome") as! commanHomeVC
+                                            vc.screenImg = #imageLiteral(resourceName: "log-1")
+                                            vc.screenLblText = "Log Progress"
+                                            vc.descriptionText = """
+                                            Create your Logs to help evaluate your
+                                            training and performance over time.
+                                            """
+                                            vc.btnTitle = "+ Add New Log"
+                        
+                                            self.present(vc, animated: true, completion: nil)
+                        
+                    }
+                    else{
+                     
+                        let vc = UIStoryboard(name:"Main", bundle:nil).instantiateViewController(withIdentifier: "logList") as! LogListVC
+                        
+                                            self.present(vc, animated: true, completion: nil)
+                    }
+                    
+                    
                     
                 }
-                    
-                else{
-                    let vc = UIStoryboard(name:"Main", bundle:nil).instantiateViewController(withIdentifier: "logList") as! LogListVC
-                    
-                    self.present(vc, animated: true, completion: nil)                }
-            }
+            })
+            
+            
+//            dbRef.child("Log").observe(.childAdded) { (log_snap) in
+//
+//                if log_snap.key != (Auth.auth().currentUser?.uid)!{
+//
+//                    let vc = UIStoryboard(name:"Main", bundle:nil).instantiateViewController(withIdentifier: "commanHome") as! commanHomeVC
+//                    vc.screenImg = #imageLiteral(resourceName: "log-1")
+//                    vc.screenLblText = "Log Progress"
+//                    vc.descriptionText = """
+//                    Create your Logs to help evaluate your
+//                    training and performance over time.
+//                    """
+//                    vc.btnTitle = "+ Add New Log"
+//
+//                    self.present(vc, animated: true, completion: nil)
+//
+//                }
+//
+//                else{
+//                    let vc = UIStoryboard(name:"Main", bundle:nil).instantiateViewController(withIdentifier: "logList") as! LogListVC
+//
+//                    self.present(vc, animated: true, completion: nil)                }
+//            }
             
             
             
@@ -305,32 +427,69 @@ class menuVC: UIViewController, UITableViewDelegate, UITableViewDataSource, MFMa
          // 6.  ************ DEVELOP ROUTINES ***************
         else if menuArray[indexPath.row].name == "Develop Routines"{
             
-            dbRef.child("Routine").observe(.value) { (log_snap) in
-                
-                if log_snap.exists() == false{
-                    
-                    let vc = UIStoryboard(name:"Main", bundle:nil).instantiateViewController(withIdentifier: "commanHome") as! commanHomeVC
-                    vc.screenImg = #imageLiteral(resourceName: "routines")
-                    vc.screenLblText = "Develop Routines"
-                    vc.descriptionText = """
-                    Create the routines you will rely on during
-                    training and performance to ensure mental
-                    toughness.
-                    """
-                    vc.btnTitle = "+ Add New Task"
-                    
-                    self.present(vc, animated: true, completion: nil)
-                    
-                }
-                
-                else
-                {
-                    let vc = UIStoryboard(name:"Main", bundle:nil).instantiateViewController(withIdentifier: "routineList") as! routineListVC
-                    self.present(vc, animated: true, completion: nil)
-                }
             
-          
-        }
+            dbHandle = dbRef.child("User").observe(.childAdded, with: { (userData) in
+                let value = userData.value as! [String : String]
+                
+                
+                if value["uID"] == (Auth.auth().currentUser?.uid)!{
+                    
+                    print(value["Commit"])
+                    
+                    if (value["Routine"])! == "NO" {
+                        
+                        let vc = UIStoryboard(name:"Main", bundle:nil).instantiateViewController(withIdentifier: "commanHome") as! commanHomeVC
+                                            vc.screenImg = #imageLiteral(resourceName: "routines")
+                                            vc.screenLblText = "Develop Routines"
+                                            vc.descriptionText = """
+                                            Create the routines you will rely on during
+                                            training and performance to ensure mental
+                                            toughness.
+                                            """
+                                            vc.btnTitle = "+ Add New Task"
+                        
+                                            self.present(vc, animated: true, completion: nil)
+                        
+                    }
+                    else{
+                        
+                        let vc = UIStoryboard(name:"Main", bundle:nil).instantiateViewController(withIdentifier: "routineList") as! routineListVC
+                        self.present(vc, animated: true, completion: nil)
+                    }
+                    
+                    
+                    
+                }
+            })
+            
+            
+            
+//            dbRef.child("Routine").observe(.childAdded) { (log_snap) in
+//
+//                if log_snap.key != (Auth.auth().currentUser?.uid)!{
+//
+//                    let vc = UIStoryboard(name:"Main", bundle:nil).instantiateViewController(withIdentifier: "commanHome") as! commanHomeVC
+//                    vc.screenImg = #imageLiteral(resourceName: "routines")
+//                    vc.screenLblText = "Develop Routines"
+//                    vc.descriptionText = """
+//                    Create the routines you will rely on during
+//                    training and performance to ensure mental
+//                    toughness.
+//                    """
+//                    vc.btnTitle = "+ Add New Task"
+//
+//                    self.present(vc, animated: true, completion: nil)
+//
+//                }
+//
+//                else
+//                {
+//                    let vc = UIStoryboard(name:"Main", bundle:nil).instantiateViewController(withIdentifier: "routineList") as! routineListVC
+//                    self.present(vc, animated: true, completion: nil)
+//                }
+//
+//
+//        }
         
         }
             
@@ -340,29 +499,68 @@ class menuVC: UIViewController, UITableViewDelegate, UITableViewDataSource, MFMa
         else if menuArray[indexPath.row].name == "Interview Yourself"{
             
             
-            dbRef.child("Interview").observe(.value) { (audio_snap) in
+            
+            dbHandle = dbRef.child("User").observe(.childAdded, with: { (userData) in
+                let value = userData.value as! [String : String]
                 
-                if audio_snap.exists() == false{
+                
+                if value["uID"] == (Auth.auth().currentUser?.uid)!{
                     
-                    let vc = UIStoryboard(name:"Main", bundle:nil).instantiateViewController(withIdentifier: "commanHome") as! commanHomeVC
-                    vc.screenImg = #imageLiteral(resourceName: "video")
-                    vc.screenLblText = "Interview Yourself"
-                    vc.descriptionText = """
-                    Add New Interview
-                    """
-                    vc.btnTitle = "+ Add New Interview"
+                    print(value["Commit"])
                     
-                    self.present(vc, animated: true, completion: nil)
+                    if (value["Interview"])! == "NO" {
+                        
+                        let vc = UIStoryboard(name:"Main", bundle:nil).instantiateViewController(withIdentifier: "commanHome") as! commanHomeVC
+                                            vc.screenImg = #imageLiteral(resourceName: "video")
+                                            vc.screenLblText = "Interview Yourself"
+                                            vc.descriptionText = """
+                                            Add New Interview
+                                            """
+                                            vc.btnTitle = "+ Add New Interview"
+                        
+                                            self.present(vc, animated: true, completion: nil)
+                        
+                    }
+                    else{
+                        
+                        let vc = UIStoryboard(name:"Main", bundle:nil).instantiateViewController(withIdentifier: "interviewList") as! interviewListVC
+                        //
+                        self.present(vc, animated: true, completion: nil)
+                    }
+                    
+                    
                     
                 }
-                    
-                else{
-                    let vc = UIStoryboard(name:"Main", bundle:nil).instantiateViewController(withIdentifier: "interviewList") as! interviewListVC
-                    
-                    self.present(vc, animated: true, completion: nil)
-                    
-                }
-            }
+            })
+            
+//            dbRef.child("Interview").observe(.childAdded) { (audio_snap) in
+//
+//
+//                print(audio_snap.key)
+//
+//                print((Auth.auth().currentUser?.uid)!)
+//
+//                if audio_snap.key != (Auth.auth().currentUser?.uid)!{
+//
+//                    let vc = UIStoryboard(name:"Main", bundle:nil).instantiateViewController(withIdentifier: "commanHome") as! commanHomeVC
+//                    vc.screenImg = #imageLiteral(resourceName: "video")
+//                    vc.screenLblText = "Interview Yourself"
+//                    vc.descriptionText = """
+//                    Add New Interview
+//                    """
+//                    vc.btnTitle = "+ Add New Interview"
+//
+//                    self.present(vc, animated: true, completion: nil)
+//
+//                }
+//
+//                else{
+//                    let vc = UIStoryboard(name:"Main", bundle:nil).instantiateViewController(withIdentifier: "interviewList") as! interviewListVC
+//
+//                    self.present(vc, animated: true, completion: nil)
+//
+//                }
+//            }
             
             
             

@@ -34,6 +34,9 @@ class createNewTaskVC: UIViewController {
             let taskData = ["Title":(TaskTitle.text)!,
                             "Description":(TaskDescription.text)!,
                             "Status":"incomplete"]
+            
+            self.dbRef.child("User").child((Auth.auth().currentUser?.uid)!).child("Commit").setValue("YES")
+            
             dbRef.child("Commit").child((Auth.auth().currentUser?.uid)!).child((TaskTitle.text)!).setValue(taskData)
 
             

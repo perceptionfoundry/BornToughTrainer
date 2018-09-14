@@ -42,7 +42,7 @@ class createRoutineVC: UIViewController, UITableViewDelegate, UITableViewDataSou
     
     @IBAction func addStepAction(_ sender: Any) {
         
-        if taskStepsTextField.text?.isEmpty != true {
+        if taskStepsTextField.text?.isEmpty != true   {
             self.stepData.append(taskStepsTextField.text!)
             print(stepData)
             
@@ -52,6 +52,14 @@ class createRoutineVC: UIViewController, UITableViewDelegate, UITableViewDataSou
             tableView.reloadData()
 
         }
+        
+//        else if stepData.count > 5 {
+//            
+//            let alertVC = UIAlertController(title: "Reach max limit", message: "You have reached to max limit to add step", preferredStyle: .alert)
+//            let button = UIAlertAction(title: "Dismiss", style: .default, handler: nil)
+//            alertVC.addAction(button)
+//            self.present(alertVC, animated: true, completion: nil)
+//        }
     }
     
     @IBAction func addAction(_ sender: Any) {
@@ -67,6 +75,10 @@ class createRoutineVC: UIViewController, UITableViewDelegate, UITableViewDataSou
         let addValue = ["Title": addRoutineTextField.text!,
                         "Step": stepString,
                         "open": "false"]
+        
+        
+        self.dbRef.child("User").child((Auth.auth().currentUser?.uid)!).child("Routine").setValue("YES")
+
         
         dbRef.child("Routine").child((Auth.auth().currentUser?.uid)!).child((addRoutineTextField.text)!).setValue(addValue)
         

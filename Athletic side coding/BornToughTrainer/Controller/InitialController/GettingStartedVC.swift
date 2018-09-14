@@ -140,7 +140,20 @@ class GettingStartedVC: UIViewController, UIPickerViewDelegate, UIPickerViewData
                                "Mobile": mobileTextField.text!,
                                "Image-URL" :"",
                                "Email": (Auth.auth().currentUser?.email)!,
-                               "Identify-Create" : "no"
+                               "Identify-Create" : "no",
+                               "Commit": "NO",
+                               "Pep": "NO",
+                               "Log": "NO",
+                               "Routine": "NO",
+                               "Interview": "NO",
+                               "Track": "NO",
+                               "Flo": "NO"
+
+
+
+
+
+
                 ]
                 
                 
