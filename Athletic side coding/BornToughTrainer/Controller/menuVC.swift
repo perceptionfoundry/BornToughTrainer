@@ -67,7 +67,7 @@ class menuVC: UIViewController, UITableViewDelegate, UITableViewDataSource, MFMa
                 let channelName = (Auth.auth().currentUser?.uid)! + "Coach"
                 self.dbHandle = self.dbRef.child("Messages").child(channelName).observe(.childAdded, with: { (CountSnap) in
                     
-                    print(CountSnap.value)
+//                    print(CountSnap.value)
                   
                     let value = CountSnap.value as! [String:String]
                     
@@ -190,7 +190,6 @@ class menuVC: UIViewController, UITableViewDelegate, UITableViewDataSource, MFMa
                 
                 if value["uID"] == (Auth.auth().currentUser?.uid)!{
                     
-                    print(value["Commit"])
                     
                     if (value["Commit"])! == "NO" {
                         
@@ -257,7 +256,7 @@ class menuVC: UIViewController, UITableViewDelegate, UITableViewDataSource, MFMa
                 
                 if value["uID"] == (Auth.auth().currentUser?.uid)!{
                     
-                    print(value["Commit"])
+//                    print(value["Commit"])
                     
                     if (value["Pep"])! == "NO" {
                         
@@ -363,7 +362,6 @@ class menuVC: UIViewController, UITableViewDelegate, UITableViewDataSource, MFMa
                 
                 if value["uID"] == (Auth.auth().currentUser?.uid)!{
                     
-                    print(value["Commit"])
                     
                     if (value["Log"])! == "NO" {
                         
@@ -434,7 +432,7 @@ class menuVC: UIViewController, UITableViewDelegate, UITableViewDataSource, MFMa
                 
                 if value["uID"] == (Auth.auth().currentUser?.uid)!{
                     
-                    print(value["Commit"])
+//                    print(value["Commit"])
                     
                     if (value["Routine"])! == "NO" {
                         
@@ -506,7 +504,6 @@ class menuVC: UIViewController, UITableViewDelegate, UITableViewDataSource, MFMa
                 
                 if value["uID"] == (Auth.auth().currentUser?.uid)!{
                     
-                    print(value["Commit"])
                     
                     if (value["Interview"])! == "NO" {
                         

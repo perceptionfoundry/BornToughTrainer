@@ -161,7 +161,7 @@ class chatViewController: JSQMessagesViewController {
 //            print(alert)
             print("***********")
 
-            print(senderid)
+//            print(senderid)
             print((Auth.auth().currentUser?.uid)!)
             print("***********")
             
