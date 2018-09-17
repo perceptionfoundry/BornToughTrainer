@@ -72,6 +72,8 @@ class createIdentityVC: UIViewController, UITextViewDelegate, MFMailComposeViewC
                 let imageURL = URL(string: (value["Image-URL"])!)
                 self.profileImage.sd_setImage(with: imageURL!, placeholderImage: UIImage(named: "btt-logo"), options: .progressiveDownload, completed: nil)
                 
+                self.identity = value["Identify-Create"]!
+                
                 if value["Identify-Create"] != "no"{
                     
                     self.dbRef.child("Create-Identify").observe(.childAdded, with: { (identify_Data) in
@@ -111,6 +113,8 @@ class createIdentityVC: UIViewController, UITextViewDelegate, MFMailComposeViewC
         
         dbRef.child("Create-Identify").child((Auth.auth().currentUser?.uid)!).setValue(identify_Value)
         
+        
+        print(self.identity)
         if self.identity == "no"{
             dbRef.child("User").child((Auth.auth().currentUser?.uid)!).child("Identify-Create").setValue("yes")
         }

@@ -14,6 +14,7 @@ class commitTodayListVC: UIViewController, UITableViewDataSource, UITableViewDel
     
 
     @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var commitDate: UILabel!
     
     var commitTaskArray = [[String:String]]()
     
@@ -27,6 +28,19 @@ class commitTodayListVC: UIViewController, UITableViewDataSource, UITableViewDel
         tableView.tableFooterView = UIView()
         tableView.separatorStyle = UITableViewCellSeparatorStyle.none
         
+        
+        let currentDate = Date()
+        
+        let date = DateFormatter()
+        date.dateFormat = "MM/dd/yyyy"
+        
+        print(date.string(from: currentDate))
+        
+        commitDate.text = date.string(from: currentDate)
+        
+        
+        
+        
         dbRef = Database.database().reference()
         dbHandle = dbRef.child("Commit").child((Auth.auth().currentUser!.uid)).observe(.childAdded, with: { (Commit_Snap) in
             
@@ -34,14 +48,25 @@ class commitTodayListVC: UIViewController, UITableViewDataSource, UITableViewDel
         
             
             let commit_Value = Commit_Snap.value  as! [String : String]
-            self.commitTaskArray.append(commit_Value)
+          
+//            print(commit_Value["Committed"])
             
-            print(self.commitTaskArray)
+            if commit_Value["Committed"]! == date.string(from: currentDate){
+//
+//
+                print(self.commitTaskArray)
+                self.commitTaskArray.append(commit_Value)
+//
+            }
+            
+//            self.commitTaskArray.append(commit_Value)
+//
+//            print(self.commitTaskArray)
 
             self.tableView.reloadData()
-            
+
         })
-        
+
 
     }
     
@@ -63,6 +88,26 @@ class commitTodayListVC: UIViewController, UITableViewDataSource, UITableViewDel
         }
         
     }
+    
+    
+    
+    @IBAction func notCompleteAction(_ sender: Any) {
+        
+        
+        for loop in 0...(commitTaskArray.count-1){
+            
+            self.commitTaskArray[loop]["Status"] = "incomplete"
+            self.tableView.reloadData()
+            
+            let title = commitTaskArray[loop]["Title"]
+            
+            self.dbRef.child("Commit").child((Auth.auth().currentUser?.uid)!).child(title!).child("Status").setValue("incomplete")
+            
+        }
+    }
+    
+    
+    
     
     @IBAction func backAction(_ sender: Any) {
 //        self.dismiss(animated: true, completion: nil)

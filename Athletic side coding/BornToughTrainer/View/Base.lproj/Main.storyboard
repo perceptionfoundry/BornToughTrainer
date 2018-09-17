@@ -891,7 +891,7 @@ today a success?</string>
                                 <rect key="frame" x="0.0" y="200" width="375" height="80"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </view>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" alpha="0.75" contentMode="scaleToFill" text="description" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="OPp-rK-aCY">
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" alpha="0.75" contentMode="scaleToFill" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="OPp-rK-aCY">
                                 <rect key="frame" x="0.0" y="280" width="375" height="327"/>
                                 <color key="backgroundColor" red="1" green="0.87843137250000003" blue="0.01176470588" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -1056,7 +1056,7 @@ today a success?</string>
                                 <rect key="frame" x="0.0" y="247" width="375" height="33"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </view>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" alpha="0.75" contentMode="scaleToFill" text="Log" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="bDb-em-GTI">
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" alpha="0.75" contentMode="scaleToFill" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="bDb-em-GTI">
                                 <rect key="frame" x="0.0" y="280" width="375" height="320.5"/>
                                 <color key="backgroundColor" red="1" green="0.87843137250000003" blue="0.01176470588" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <fontDescription key="fontDescription" name="AvantGarde-Medium" family="ITC Avant Garde Gothic" pointSize="17"/>
@@ -1786,7 +1786,7 @@ today a success?</string>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Dtv-ug-g3p">
-                                <rect key="frame" x="20" y="20" width="25" height="25"/>
+                                <rect key="frame" x="20.5" y="20" width="25" height="25"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="25" id="1OM-RJ-1Wc"/>
                                     <constraint firstAttribute="height" constant="25" id="3Za-YV-gNd"/>
@@ -2995,7 +2995,7 @@ today a success?</string>
                                 <rect key="frame" x="0.0" y="247" width="375" height="33"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </view>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" alpha="0.75" contentMode="scaleToFill" text="Log" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="Ftv-l2-v5g">
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" alpha="0.75" contentMode="scaleToFill" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="Ftv-l2-v5g">
                                 <rect key="frame" x="0.0" y="280" width="375" height="320.5"/>
                                 <color key="backgroundColor" red="1" green="0.87843137250000003" blue="0.01176470588" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -3485,6 +3485,12 @@ today a success?</string>
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Date" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Wap-q6-XDV">
+                                <rect key="frame" x="-0.5" y="62" width="375" height="20.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="1" green="0.87843137250000003" blue="0.01176470588" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="696-Kz-prF">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="80"/>
                                 <subviews>
@@ -3618,7 +3624,7 @@ today a success?</string>
                                             <color key="titleColor" red="0.49411764705882355" green="0.44313725490196076" blue="0.062745098039215685" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         </state>
                                         <connections>
-                                            <action selector="newList:" destination="KUF-yP-leT" eventType="touchUpInside" id="p3e-lc-k8A"/>
+                                            <action selector="notCompleteAction:" destination="KUF-yP-leT" eventType="touchUpInside" id="P9I-nj-nfb"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -3626,11 +3632,13 @@ today a success?</string>
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
+                            <constraint firstItem="Wap-q6-XDV" firstAttribute="centerY" secondItem="Oke-hg-6rX" secondAttribute="centerY" multiplier="0.21" id="17E-oZ-aFe"/>
                             <constraint firstItem="696-Kz-prF" firstAttribute="centerX" secondItem="Oke-hg-6rX" secondAttribute="centerX" id="9rg-g7-ZAO"/>
                             <constraint firstItem="gU7-wq-aIh" firstAttribute="top" secondItem="8as-41-8E9" secondAttribute="bottom" id="B1e-21-UDf"/>
                             <constraint firstItem="ph2-c4-qEZ" firstAttribute="height" secondItem="yiQ-Qy-TIp" secondAttribute="height" multiplier="0.1" id="CLs-iC-gRC"/>
                             <constraint firstItem="gU7-wq-aIh" firstAttribute="leading" secondItem="Oke-hg-6rX" secondAttribute="leading" id="Eyx-pB-TDJ"/>
                             <constraint firstItem="ph2-c4-qEZ" firstAttribute="top" secondItem="gU7-wq-aIh" secondAttribute="bottom" id="F7M-Ko-rxN"/>
+                            <constraint firstItem="Wap-q6-XDV" firstAttribute="centerX" secondItem="Oke-hg-6rX" secondAttribute="centerX" id="GdT-wW-sof"/>
                             <constraint firstAttribute="bottom" secondItem="ph2-c4-qEZ" secondAttribute="bottom" id="JGT-Dc-RWD"/>
                             <constraint firstItem="gU7-wq-aIh" firstAttribute="trailing" secondItem="Oke-hg-6rX" secondAttribute="trailing" id="Occ-OR-XZt"/>
                             <constraint firstItem="8as-41-8E9" firstAttribute="centerX" secondItem="Oke-hg-6rX" secondAttribute="centerX" id="PSz-7M-xUc"/>
@@ -3638,6 +3646,7 @@ today a success?</string>
                             <constraint firstItem="8as-41-8E9" firstAttribute="height" secondItem="yiQ-Qy-TIp" secondAttribute="height" multiplier="0.06" id="b4I-Xo-4fh"/>
                             <constraint firstItem="8as-41-8E9" firstAttribute="width" secondItem="yiQ-Qy-TIp" secondAttribute="width" id="dti-su-u1J"/>
                             <constraint firstItem="ph2-c4-qEZ" firstAttribute="width" secondItem="yiQ-Qy-TIp" secondAttribute="width" id="hOM-rq-c4s"/>
+                            <constraint firstItem="Wap-q6-XDV" firstAttribute="width" secondItem="yiQ-Qy-TIp" secondAttribute="width" id="jAJ-Fj-ipM"/>
                             <constraint firstItem="696-Kz-prF" firstAttribute="height" secondItem="yiQ-Qy-TIp" secondAttribute="height" multiplier="0.12" id="o8J-QJ-yMh"/>
                             <constraint firstItem="696-Kz-prF" firstAttribute="top" secondItem="yiQ-Qy-TIp" secondAttribute="top" id="oT7-hg-yUk"/>
                             <constraint firstItem="8as-41-8E9" firstAttribute="top" secondItem="696-Kz-prF" secondAttribute="bottom" id="pys-yz-SOu"/>
@@ -3646,6 +3655,7 @@ today a success?</string>
                         <viewLayoutGuide key="safeArea" id="Oke-hg-6rX"/>
                     </view>
                     <connections>
+                        <outlet property="commitDate" destination="Wap-q6-XDV" id="LUM-CY-2IG"/>
                         <outlet property="tableView" destination="gU7-wq-aIh" id="pRE-Zw-pkd"/>
                         <segue destination="noP-k9-XY1" kind="show" identifier="createNewTask" id="9VE-tV-cfQ"/>
                     </connections>
@@ -4348,7 +4358,7 @@ today a success?</string>
         <image name="track" width="300" height="315"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="9H6-pa-jBM"/>
+        <segue reference="XS8-s6-mgv"/>
         <segue reference="9VE-tV-cfQ"/>
         <segue reference="TQa-ev-PbG"/>
     </inferredMetricsTieBreakers>

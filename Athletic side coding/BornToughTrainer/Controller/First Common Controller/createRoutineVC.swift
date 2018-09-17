@@ -9,7 +9,7 @@
 import UIKit
 import Firebase
 
-class createRoutineVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
+class createRoutineVC: UIViewController, UITableViewDelegate, UITableViewDataSource, UITextFieldDelegate {
 
     @IBOutlet weak var addRoutineTextField: textFieldClass!
     @IBOutlet weak var tableView: UITableView!
@@ -27,6 +27,8 @@ class createRoutineVC: UIViewController, UITableViewDelegate, UITableViewDataSou
         super.viewDidLoad()
         tableView.dataSource = self
         tableView.delegate = self
+        
+        taskStepsTextField.delegate = self
         
         taskStepsTextField.clearsOnBeginEditing = true
 
@@ -109,4 +111,17 @@ class createRoutineVC: UIViewController, UITableViewDelegate, UITableViewDataSou
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return stepData.count
     }
+    
+    
+    
+    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+        
+        let currentText = textField.text ?? ""
+        guard let stringRange = Range(range, in: currentText) else { return false }
+        
+        let updatedText = currentText.replacingCharacters(in: stringRange, with: string)
+        
+        return updatedText.count <= 26
+    }
+    
 }

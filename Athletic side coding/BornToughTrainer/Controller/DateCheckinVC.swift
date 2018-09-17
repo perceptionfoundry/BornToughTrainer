@@ -19,11 +19,21 @@ class DateCheckinVC: UIViewController {
     
     
     @IBOutlet weak var datePicker: UIDatePicker!
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
         datePicker.datePickerMode = .date
         
+        
+        
+        let Format = DateFormatter()
+        Format.dateFormat = "dd-MM-YYYY"
+        
+        let currentDate = Date()
+        
+        self.selectedDate = Format.string(from: currentDate)
     }
     
     
