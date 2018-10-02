@@ -7,23 +7,51 @@
 //
 
 import UIKit
+import Firebase
 
 class gradeVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
     var setUpArray = ["A","B","C","D","E","F"]
     var screenIdentifier = String()
+    var buttonName = ""
     
     var selectedGrade = "ALL"
+    var today = ""
     
+    var dbRef : DatabaseReference!
     
+    @IBOutlet weak var DateLabel: UILabel!
+    @IBOutlet weak var ActionButton: UIButton!
     @IBOutlet weak var tableView: UITableView!
+    
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        print(buttonName)
+        
+        if buttonName == "Save"{
+            ActionButton.setTitle("Save", for: .normal)
+
+        }
+        
         
         tableView.delegate = self
         tableView.dataSource = self
         
         tableView.tableFooterView = UIView()
         tableView.separatorStyle = UITableViewCellSeparatorStyle.none
+        
+        
+        
+        let Format = DateFormatter()
+        Format.dateFormat = "MM/dd/yyyy"
+        
+        let currentDate = Date()
+        
+        self.today = Format.string(from: currentDate)
+        
+        DateLabel.text = Format.string(from: currentDate)
         
         // Do any additional setup after loading the view.
     }
@@ -41,8 +69,48 @@ class gradeVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
     }
     
     @IBAction func viewResponses(_ sender: Any) {
+        
+        print(buttonName)
+        
+//        if buttonName == "Save"{
+        
+            
+//            let Format = DateFormatter()
+//            Format.dateFormat = "MM-yyyy"
+//
+//            let nodeDate = Date()
+//
+//            print(nodeDate)
+            
+            
+//            dbRef = Database.database().reference()
+//
+//
+//
+//                let trackInfo = [
+//                                 "Date": self.today,
+//                                 "Grade": selectedGrade]
+//
+//                print(self.today)
+//
+//            let parent = "\((Auth.auth().currentUser?.uid)!)+\(selectedGrade)"
+//                dbRef.child("Track").child((Auth.auth().currentUser?.uid)!).child(parent).setValue(trackInfo)
+//
+//                self.dismiss(animated: true, completion: nil)
+            
+        
+            
+            
+//
+//        }
+//        else {
+        
+        
+        
         let vc = UIStoryboard(name:"Main", bundle:nil).instantiateViewController(withIdentifier: "gradeList") as! gradeListVC
-        if screenIdentifier ==  "Find Flo"{
+      
+        
+        if screenIdentifier ==  "Find Flo" && buttonName == "Save"{
            
             vc.currentController = "flo"
             
@@ -51,16 +119,36 @@ class gradeVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
             print(self.selectedGrade)
             
             print("**************")
-            vc.grading = self.selectedGrade
+//            vc.grading = self.selectedGrade
             
+            dbRef = Database.database().reference()
+            
+            
+            
+            let floInfo = [
+                "Date": self.today,
+                "Grade": selectedGrade]
+            
+            
+            let Format = DateFormatter()
+            Format.dateFormat = "MM-yyyy"
+            
+            let date = Date()
+            
+            let nodeDate = Format.string(from: date)
+            
+            print(nodeDate)
+            
+            
+            dbRef.child("Flo").child((Auth.auth().currentUser?.uid)!).child(nodeDate).setValue(floInfo)
             
         
             
             present(vc, animated: true, completion: nil)
         }
         
-        
-        else if screenIdentifier == "Track Character"{
+   
+        else if screenIdentifier == "Track Character" && buttonName == "Save"{
             
             vc.currentController = "track"
             
@@ -70,10 +158,34 @@ class gradeVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
             
             print("**************")
 
-            vc.grading = self.selectedGrade
+//            vc.grading = self.selectedGrade
 
+            
+            dbRef = Database.database().reference()
+            
+            
+            
+            let trackInfo = [
+                "Date": self.today,
+                "Grade": selectedGrade]
+            
+            
+            let Format = DateFormatter()
+            Format.dateFormat = "MM-yyyy"
+            
+            let date = Date()
+            
+            let nodeDate = Format.string(from: date)
+            
+            print(nodeDate)
+            
+            
+            dbRef.child("Track").child((Auth.auth().currentUser?.uid)!).child(nodeDate).setValue(trackInfo)
+            
+            
             present(vc, animated: true, completion: nil)
         }
+//        }
     }
     
     

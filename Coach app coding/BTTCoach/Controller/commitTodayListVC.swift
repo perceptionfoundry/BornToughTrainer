@@ -13,6 +13,7 @@ class commitTodayListVC: UIViewController, UITableViewDataSource, UITableViewDel
  
     var appDelegate = UIApplication.shared.delegate as! AppDelegate
 
+    @IBOutlet weak var dateLabel: UILabel!
     @IBOutlet weak var tableView: UITableView!
     
     var commitTaskArray = [[String:String]]()
@@ -26,6 +27,18 @@ class commitTodayListVC: UIViewController, UITableViewDataSource, UITableViewDel
         tableView.dataSource = self
         tableView.tableFooterView = UIView()
         tableView.separatorStyle = UITableViewCellSeparatorStyle.none
+        
+        
+        let currentDate = Date()
+
+        let date = DateFormatter()
+        date.dateFormat = "MM/dd/yyyy"
+        
+        print(date.string(from: currentDate))
+        
+        dateLabel.text = date.string(from: currentDate)
+        
+        
         
         dbRef = Database.database().reference()
         

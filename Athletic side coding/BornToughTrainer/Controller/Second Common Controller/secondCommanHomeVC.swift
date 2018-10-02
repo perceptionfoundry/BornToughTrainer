@@ -57,10 +57,12 @@ class secondCommanHomeVC: UIViewController {
         if screenLblText ==  "Find Flo"{
             //send data from here
             vc.screenIdentifier = "Find Flo"
+            vc.buttonName = "Save"
             present(vc, animated: true, completion: nil)
         }else if screenLblText == "Track Character"{
             //send data from here
             vc.screenIdentifier = "Track Character"
+            vc.buttonName = "Save"
             present(vc, animated: true, completion: nil)
         }
         

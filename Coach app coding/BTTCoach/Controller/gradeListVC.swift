@@ -47,7 +47,12 @@ class gradeListVC: UIViewController, UITableViewDataSource, UITableViewDelegate 
                     print(self.grading)
                     
            if self.grading == "ALL"{
-                let Title_Date = Track_Value["Title"]! + " -  " + Track_Value["Date"]!
+//                let Title_Date = Track_Value["Title"]! + " -  " + Track_Value["Date"]!
+//            self.gradeArray.append(gradeObject(gradeDate: Title_Date, grade: Track_Value["Grade"]!))
+            
+            
+            let Title_Date = Track_Value["Date"]!
+            
             self.gradeArray.append(gradeObject(gradeDate: Title_Date, grade: Track_Value["Grade"]!))
             
             self.tableView.reloadData()
@@ -57,7 +62,12 @@ class gradeListVC: UIViewController, UITableViewDataSource, UITableViewDelegate 
            else{
             
             if Track_Value ["Grade"] == self.grading{
-                let Title_Date = Track_Value["Title"]! + " -  " + Track_Value["Date"]!
+//                let Title_Date = Track_Value["Title"]! + " -  " + Track_Value["Date"]!
+//                self.gradeArray.append(gradeObject(gradeDate: Title_Date, grade: Track_Value["Grade"]!))
+                
+                
+                let Title_Date = Track_Value["Date"]!
+                
                 self.gradeArray.append(gradeObject(gradeDate: Title_Date, grade: Track_Value["Grade"]!))
                 
                 self.tableView.reloadData()

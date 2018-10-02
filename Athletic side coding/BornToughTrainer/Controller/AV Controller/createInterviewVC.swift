@@ -146,6 +146,9 @@ class createInterviewVC: UIViewController, dateFetching
     
     @IBAction func addAction(_ sender: Any) {
         
+        
+        if interviewTitle.text?.isEmpty == false && interviewDate.text?.isEmpty == false {
+        
         interviewTitle.isUserInteractionEnabled = false
         interviewDate.isUserInteractionEnabled = false
         recordButton.isEnabled = false
@@ -210,7 +213,18 @@ class createInterviewVC: UIViewController, dateFetching
             
         })
         
-
+    }
+        
+        else{
+            
+            let alert = UIAlertController(title: "Missing TextField", message: " “You must add title and date to your interview”", preferredStyle: .alert)
+            
+            let action = UIAlertAction(title: "Dismiss", style: .default, handler: nil)
+            
+            alert.addAction(action)
+            
+            self.present(alert, animated: true, completion: nil)
+        }
         
     }
     
